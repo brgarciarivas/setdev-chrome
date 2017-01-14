@@ -12,7 +12,7 @@ class App extends Base {
    
 
     render() {
-
+        
         console.log('App render');
        
         // switch (this.props.activeComponent) {
@@ -25,7 +25,7 @@ class App extends Base {
         return (
             <div>
                 {this.props.children}
-
+                testing
             </div>
         );
     }

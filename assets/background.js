@@ -46,19 +46,19 @@
 
 	'use strict';
 	
-	var _redux = __webpack_require__(25);
+	var _redux = __webpack_require__(4);
 	
-	var _reduxLogger = __webpack_require__(41);
+	var _reduxLogger = __webpack_require__(20);
 	
 	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 	
-	var _reduxThunk = __webpack_require__(47);
+	var _reduxThunk = __webpack_require__(26);
 	
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 	
-	var _reactChromeRedux = __webpack_require__(48);
+	var _reactChromeRedux = __webpack_require__(27);
 	
-	var _reducers = __webpack_require__(97);
+	var _reducers = __webpack_require__(76);
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
 	
@@ -108,28 +108,7 @@
 /* 1 */,
 /* 2 */,
 /* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -137,27 +116,27 @@
 	exports.__esModule = true;
 	exports.compose = exports.applyMiddleware = exports.bindActionCreators = exports.combineReducers = exports.createStore = undefined;
 	
-	var _createStore = __webpack_require__(27);
+	var _createStore = __webpack_require__(6);
 	
 	var _createStore2 = _interopRequireDefault(_createStore);
 	
-	var _combineReducers = __webpack_require__(36);
+	var _combineReducers = __webpack_require__(15);
 	
 	var _combineReducers2 = _interopRequireDefault(_combineReducers);
 	
-	var _bindActionCreators = __webpack_require__(38);
+	var _bindActionCreators = __webpack_require__(17);
 	
 	var _bindActionCreators2 = _interopRequireDefault(_bindActionCreators);
 	
-	var _applyMiddleware = __webpack_require__(39);
+	var _applyMiddleware = __webpack_require__(18);
 	
 	var _applyMiddleware2 = _interopRequireDefault(_applyMiddleware);
 	
-	var _compose = __webpack_require__(40);
+	var _compose = __webpack_require__(19);
 	
 	var _compose2 = _interopRequireDefault(_compose);
 	
-	var _warning = __webpack_require__(37);
+	var _warning = __webpack_require__(16);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -178,10 +157,10 @@
 	exports.bindActionCreators = _bindActionCreators2['default'];
 	exports.applyMiddleware = _applyMiddleware2['default'];
 	exports.compose = _compose2['default'];
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(26)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ },
-/* 26 */
+/* 5 */
 /***/ function(module, exports) {
 
 	// shim for using process in browser
@@ -367,7 +346,7 @@
 
 
 /***/ },
-/* 27 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -376,11 +355,11 @@
 	exports.ActionTypes = undefined;
 	exports['default'] = createStore;
 	
-	var _isPlainObject = __webpack_require__(28);
+	var _isPlainObject = __webpack_require__(7);
 	
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 	
-	var _symbolObservable = __webpack_require__(32);
+	var _symbolObservable = __webpack_require__(11);
 	
 	var _symbolObservable2 = _interopRequireDefault(_symbolObservable);
 	
@@ -633,11 +612,11 @@
 	}
 
 /***/ },
-/* 28 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getPrototype = __webpack_require__(29),
-	    isObjectLike = __webpack_require__(31);
+	var getPrototype = __webpack_require__(8),
+	    isObjectLike = __webpack_require__(10);
 	
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -707,10 +686,10 @@
 
 
 /***/ },
-/* 29 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var overArg = __webpack_require__(30);
+	var overArg = __webpack_require__(9);
 	
 	/** Built-in value references. */
 	var getPrototype = overArg(Object.getPrototypeOf, Object);
@@ -719,7 +698,7 @@
 
 
 /***/ },
-/* 30 */
+/* 9 */
 /***/ function(module, exports) {
 
 	/**
@@ -740,7 +719,7 @@
 
 
 /***/ },
-/* 31 */
+/* 10 */
 /***/ function(module, exports) {
 
 	/**
@@ -775,14 +754,14 @@
 
 
 /***/ },
-/* 32 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(33);
+	module.exports = __webpack_require__(12);
 
 
 /***/ },
-/* 33 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, module) {'use strict';
@@ -791,7 +770,7 @@
 	  value: true
 	});
 	
-	var _ponyfill = __webpack_require__(35);
+	var _ponyfill = __webpack_require__(14);
 	
 	var _ponyfill2 = _interopRequireDefault(_ponyfill);
 	
@@ -814,10 +793,10 @@
 	
 	var result = (0, _ponyfill2['default'])(root);
 	exports['default'] = result;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(34)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(13)(module)))
 
 /***/ },
-/* 34 */
+/* 13 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -833,7 +812,7 @@
 
 
 /***/ },
-/* 35 */
+/* 14 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -861,7 +840,7 @@
 	};
 
 /***/ },
-/* 36 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -869,13 +848,13 @@
 	exports.__esModule = true;
 	exports['default'] = combineReducers;
 	
-	var _createStore = __webpack_require__(27);
+	var _createStore = __webpack_require__(6);
 	
-	var _isPlainObject = __webpack_require__(28);
+	var _isPlainObject = __webpack_require__(7);
 	
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 	
-	var _warning = __webpack_require__(37);
+	var _warning = __webpack_require__(16);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -1006,10 +985,10 @@
 	    return hasChanged ? nextState : state;
 	  };
 	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(26)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ },
-/* 37 */
+/* 16 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1039,7 +1018,7 @@
 	}
 
 /***/ },
-/* 38 */
+/* 17 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1095,7 +1074,7 @@
 	}
 
 /***/ },
-/* 39 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1106,7 +1085,7 @@
 	
 	exports['default'] = applyMiddleware;
 	
-	var _compose = __webpack_require__(40);
+	var _compose = __webpack_require__(19);
 	
 	var _compose2 = _interopRequireDefault(_compose);
 	
@@ -1158,7 +1137,7 @@
 	}
 
 /***/ },
-/* 40 */
+/* 19 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1201,7 +1180,7 @@
 	}
 
 /***/ },
-/* 41 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1212,11 +1191,11 @@
 	  value: true
 	});
 	
-	var _core = __webpack_require__(42);
+	var _core = __webpack_require__(21);
 	
-	var _helpers = __webpack_require__(43);
+	var _helpers = __webpack_require__(22);
 	
-	var _defaults = __webpack_require__(46);
+	var _defaults = __webpack_require__(25);
 	
 	var _defaults2 = _interopRequireDefault(_defaults);
 	
@@ -1319,7 +1298,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 42 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1329,9 +1308,9 @@
 	});
 	exports.printBuffer = printBuffer;
 	
-	var _helpers = __webpack_require__(43);
+	var _helpers = __webpack_require__(22);
 	
-	var _diff = __webpack_require__(44);
+	var _diff = __webpack_require__(23);
 	
 	var _diff2 = _interopRequireDefault(_diff);
 	
@@ -1452,7 +1431,7 @@
 	}
 
 /***/ },
-/* 43 */
+/* 22 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1476,7 +1455,7 @@
 	var timer = exports.timer = typeof performance !== "undefined" && performance !== null && typeof performance.now === "function" ? performance : Date;
 
 /***/ },
-/* 44 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1486,7 +1465,7 @@
 	});
 	exports.default = diffLogger;
 	
-	var _deepDiff = __webpack_require__(45);
+	var _deepDiff = __webpack_require__(24);
 	
 	var _deepDiff2 = _interopRequireDefault(_deepDiff);
 	
@@ -1572,7 +1551,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 45 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {/*!
@@ -2001,7 +1980,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 46 */
+/* 25 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -2052,7 +2031,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 47 */
+/* 26 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2080,7 +2059,7 @@
 	exports['default'] = thunk;
 
 /***/ },
-/* 48 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2090,15 +2069,15 @@
 	});
 	exports.alias = exports.wrapStore = exports.Store = undefined;
 	
-	var _Store = __webpack_require__(49);
+	var _Store = __webpack_require__(28);
 	
 	var _Store2 = _interopRequireDefault(_Store);
 	
-	var _wrapStore = __webpack_require__(95);
+	var _wrapStore = __webpack_require__(74);
 	
 	var _wrapStore2 = _interopRequireDefault(_wrapStore);
 	
-	var _alias = __webpack_require__(96);
+	var _alias = __webpack_require__(75);
 	
 	var _alias2 = _interopRequireDefault(_alias);
 	
@@ -2109,7 +2088,7 @@
 	exports.alias = _alias2.default;
 
 /***/ },
-/* 49 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2120,11 +2099,11 @@
 	  value: true
 	});
 	
-	var _assignIn = __webpack_require__(50);
+	var _assignIn = __webpack_require__(29);
 	
 	var _assignIn2 = _interopRequireDefault(_assignIn);
 	
-	var _constants = __webpack_require__(94);
+	var _constants = __webpack_require__(73);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -2239,12 +2218,12 @@
 	exports.default = Store;
 
 /***/ },
-/* 50 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var copyObject = __webpack_require__(51),
-	    createAssigner = __webpack_require__(66),
-	    keysIn = __webpack_require__(79);
+	var copyObject = __webpack_require__(30),
+	    createAssigner = __webpack_require__(45),
+	    keysIn = __webpack_require__(58);
 	
 	/**
 	 * This method is like `_.assign` except that it iterates over own and
@@ -2285,11 +2264,11 @@
 
 
 /***/ },
-/* 51 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assignValue = __webpack_require__(52),
-	    baseAssignValue = __webpack_require__(53);
+	var assignValue = __webpack_require__(31),
+	    baseAssignValue = __webpack_require__(32);
 	
 	/**
 	 * Copies properties of `source` to `object`.
@@ -2331,11 +2310,11 @@
 
 
 /***/ },
-/* 52 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseAssignValue = __webpack_require__(53),
-	    eq = __webpack_require__(65);
+	var baseAssignValue = __webpack_require__(32),
+	    eq = __webpack_require__(44);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -2365,10 +2344,10 @@
 
 
 /***/ },
-/* 53 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var defineProperty = __webpack_require__(54);
+	var defineProperty = __webpack_require__(33);
 	
 	/**
 	 * The base implementation of `assignValue` and `assignMergeValue` without
@@ -2396,10 +2375,10 @@
 
 
 /***/ },
-/* 54 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getNative = __webpack_require__(55);
+	var getNative = __webpack_require__(34);
 	
 	var defineProperty = (function() {
 	  try {
@@ -2413,11 +2392,11 @@
 
 
 /***/ },
-/* 55 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIsNative = __webpack_require__(56),
-	    getValue = __webpack_require__(64);
+	var baseIsNative = __webpack_require__(35),
+	    getValue = __webpack_require__(43);
 	
 	/**
 	 * Gets the native function at `key` of `object`.
@@ -2436,13 +2415,13 @@
 
 
 /***/ },
-/* 56 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isFunction = __webpack_require__(57),
-	    isMasked = __webpack_require__(59),
-	    isObject = __webpack_require__(58),
-	    toSource = __webpack_require__(63);
+	var isFunction = __webpack_require__(36),
+	    isMasked = __webpack_require__(38),
+	    isObject = __webpack_require__(37),
+	    toSource = __webpack_require__(42);
 	
 	/**
 	 * Used to match `RegExp`
@@ -2489,10 +2468,10 @@
 
 
 /***/ },
-/* 57 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(58);
+	var isObject = __webpack_require__(37);
 	
 	/** `Object#toString` result references. */
 	var funcTag = '[object Function]',
@@ -2537,7 +2516,7 @@
 
 
 /***/ },
-/* 58 */
+/* 37 */
 /***/ function(module, exports) {
 
 	/**
@@ -2574,10 +2553,10 @@
 
 
 /***/ },
-/* 59 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var coreJsData = __webpack_require__(60);
+	var coreJsData = __webpack_require__(39);
 	
 	/** Used to detect methods masquerading as native. */
 	var maskSrcKey = (function() {
@@ -2600,10 +2579,10 @@
 
 
 /***/ },
-/* 60 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var root = __webpack_require__(61);
+	var root = __webpack_require__(40);
 	
 	/** Used to detect overreaching core-js shims. */
 	var coreJsData = root['__core-js_shared__'];
@@ -2612,10 +2591,10 @@
 
 
 /***/ },
-/* 61 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var freeGlobal = __webpack_require__(62);
+	var freeGlobal = __webpack_require__(41);
 	
 	/** Detect free variable `self`. */
 	var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
@@ -2627,7 +2606,7 @@
 
 
 /***/ },
-/* 62 */
+/* 41 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */
@@ -2638,7 +2617,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 63 */
+/* 42 */
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
@@ -2670,7 +2649,7 @@
 
 
 /***/ },
-/* 64 */
+/* 43 */
 /***/ function(module, exports) {
 
 	/**
@@ -2689,7 +2668,7 @@
 
 
 /***/ },
-/* 65 */
+/* 44 */
 /***/ function(module, exports) {
 
 	/**
@@ -2732,11 +2711,11 @@
 
 
 /***/ },
-/* 66 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseRest = __webpack_require__(67),
-	    isIterateeCall = __webpack_require__(75);
+	var baseRest = __webpack_require__(46),
+	    isIterateeCall = __webpack_require__(54);
 	
 	/**
 	 * Creates a function like `_.assign`.
@@ -2775,12 +2754,12 @@
 
 
 /***/ },
-/* 67 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var identity = __webpack_require__(68),
-	    overRest = __webpack_require__(69),
-	    setToString = __webpack_require__(71);
+	var identity = __webpack_require__(47),
+	    overRest = __webpack_require__(48),
+	    setToString = __webpack_require__(50);
 	
 	/**
 	 * The base implementation of `_.rest` which doesn't validate or coerce arguments.
@@ -2798,7 +2777,7 @@
 
 
 /***/ },
-/* 68 */
+/* 47 */
 /***/ function(module, exports) {
 
 	/**
@@ -2825,10 +2804,10 @@
 
 
 /***/ },
-/* 69 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var apply = __webpack_require__(70);
+	var apply = __webpack_require__(49);
 	
 	/* Built-in method references for those with the same name as other `lodash` methods. */
 	var nativeMax = Math.max;
@@ -2867,7 +2846,7 @@
 
 
 /***/ },
-/* 70 */
+/* 49 */
 /***/ function(module, exports) {
 
 	/**
@@ -2894,11 +2873,11 @@
 
 
 /***/ },
-/* 71 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseSetToString = __webpack_require__(72),
-	    shortOut = __webpack_require__(74);
+	var baseSetToString = __webpack_require__(51),
+	    shortOut = __webpack_require__(53);
 	
 	/**
 	 * Sets the `toString` method of `func` to return `string`.
@@ -2914,12 +2893,12 @@
 
 
 /***/ },
-/* 72 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var constant = __webpack_require__(73),
-	    defineProperty = __webpack_require__(54),
-	    identity = __webpack_require__(68);
+	var constant = __webpack_require__(52),
+	    defineProperty = __webpack_require__(33),
+	    identity = __webpack_require__(47);
 	
 	/**
 	 * The base implementation of `setToString` without support for hot loop shorting.
@@ -2942,7 +2921,7 @@
 
 
 /***/ },
-/* 73 */
+/* 52 */
 /***/ function(module, exports) {
 
 	/**
@@ -2974,7 +2953,7 @@
 
 
 /***/ },
-/* 74 */
+/* 53 */
 /***/ function(module, exports) {
 
 	/** Used to detect hot functions by number of calls within a span of milliseconds. */
@@ -3017,13 +2996,13 @@
 
 
 /***/ },
-/* 75 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var eq = __webpack_require__(65),
-	    isArrayLike = __webpack_require__(76),
-	    isIndex = __webpack_require__(78),
-	    isObject = __webpack_require__(58);
+	var eq = __webpack_require__(44),
+	    isArrayLike = __webpack_require__(55),
+	    isIndex = __webpack_require__(57),
+	    isObject = __webpack_require__(37);
 	
 	/**
 	 * Checks if the given arguments are from an iteratee call.
@@ -3053,11 +3032,11 @@
 
 
 /***/ },
-/* 76 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isFunction = __webpack_require__(57),
-	    isLength = __webpack_require__(77);
+	var isFunction = __webpack_require__(36),
+	    isLength = __webpack_require__(56);
 	
 	/**
 	 * Checks if `value` is array-like. A value is considered array-like if it's
@@ -3092,7 +3071,7 @@
 
 
 /***/ },
-/* 77 */
+/* 56 */
 /***/ function(module, exports) {
 
 	/** Used as references for various `Number` constants. */
@@ -3133,7 +3112,7 @@
 
 
 /***/ },
-/* 78 */
+/* 57 */
 /***/ function(module, exports) {
 
 	/** Used as references for various `Number` constants. */
@@ -3161,12 +3140,12 @@
 
 
 /***/ },
-/* 79 */
+/* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var arrayLikeKeys = __webpack_require__(80),
-	    baseKeysIn = __webpack_require__(91),
-	    isArrayLike = __webpack_require__(76);
+	var arrayLikeKeys = __webpack_require__(59),
+	    baseKeysIn = __webpack_require__(70),
+	    isArrayLike = __webpack_require__(55);
 	
 	/**
 	 * Creates an array of the own and inherited enumerable property names of `object`.
@@ -3199,15 +3178,15 @@
 
 
 /***/ },
-/* 80 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseTimes = __webpack_require__(81),
-	    isArguments = __webpack_require__(82),
-	    isArray = __webpack_require__(84),
-	    isBuffer = __webpack_require__(85),
-	    isIndex = __webpack_require__(78),
-	    isTypedArray = __webpack_require__(87);
+	var baseTimes = __webpack_require__(60),
+	    isArguments = __webpack_require__(61),
+	    isArray = __webpack_require__(63),
+	    isBuffer = __webpack_require__(64),
+	    isIndex = __webpack_require__(57),
+	    isTypedArray = __webpack_require__(66);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -3254,7 +3233,7 @@
 
 
 /***/ },
-/* 81 */
+/* 60 */
 /***/ function(module, exports) {
 
 	/**
@@ -3280,11 +3259,11 @@
 
 
 /***/ },
-/* 82 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIsArguments = __webpack_require__(83),
-	    isObjectLike = __webpack_require__(31);
+	var baseIsArguments = __webpack_require__(62),
+	    isObjectLike = __webpack_require__(10);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -3322,10 +3301,10 @@
 
 
 /***/ },
-/* 83 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObjectLike = __webpack_require__(31);
+	var isObjectLike = __webpack_require__(10);
 	
 	/** `Object#toString` result references. */
 	var argsTag = '[object Arguments]';
@@ -3355,7 +3334,7 @@
 
 
 /***/ },
-/* 84 */
+/* 63 */
 /***/ function(module, exports) {
 
 	/**
@@ -3387,11 +3366,11 @@
 
 
 /***/ },
-/* 85 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(61),
-	    stubFalse = __webpack_require__(86);
+	/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(40),
+	    stubFalse = __webpack_require__(65);
 	
 	/** Detect free variable `exports`. */
 	var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
@@ -3429,10 +3408,10 @@
 	
 	module.exports = isBuffer;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(34)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)(module)))
 
 /***/ },
-/* 86 */
+/* 65 */
 /***/ function(module, exports) {
 
 	/**
@@ -3456,12 +3435,12 @@
 
 
 /***/ },
-/* 87 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIsTypedArray = __webpack_require__(88),
-	    baseUnary = __webpack_require__(89),
-	    nodeUtil = __webpack_require__(90);
+	var baseIsTypedArray = __webpack_require__(67),
+	    baseUnary = __webpack_require__(68),
+	    nodeUtil = __webpack_require__(69);
 	
 	/* Node.js helper references. */
 	var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
@@ -3489,11 +3468,11 @@
 
 
 /***/ },
-/* 88 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isLength = __webpack_require__(77),
-	    isObjectLike = __webpack_require__(31);
+	var isLength = __webpack_require__(56),
+	    isObjectLike = __webpack_require__(10);
 	
 	/** `Object#toString` result references. */
 	var argsTag = '[object Arguments]',
@@ -3564,7 +3543,7 @@
 
 
 /***/ },
-/* 89 */
+/* 68 */
 /***/ function(module, exports) {
 
 	/**
@@ -3584,10 +3563,10 @@
 
 
 /***/ },
-/* 90 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(module) {var freeGlobal = __webpack_require__(62);
+	/* WEBPACK VAR INJECTION */(function(module) {var freeGlobal = __webpack_require__(41);
 	
 	/** Detect free variable `exports`. */
 	var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
@@ -3610,15 +3589,15 @@
 	
 	module.exports = nodeUtil;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(34)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)(module)))
 
 /***/ },
-/* 91 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(58),
-	    isPrototype = __webpack_require__(92),
-	    nativeKeysIn = __webpack_require__(93);
+	var isObject = __webpack_require__(37),
+	    isPrototype = __webpack_require__(71),
+	    nativeKeysIn = __webpack_require__(72);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -3652,7 +3631,7 @@
 
 
 /***/ },
-/* 92 */
+/* 71 */
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
@@ -3676,7 +3655,7 @@
 
 
 /***/ },
-/* 93 */
+/* 72 */
 /***/ function(module, exports) {
 
 	/**
@@ -3702,7 +3681,7 @@
 
 
 /***/ },
-/* 94 */
+/* 73 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3719,7 +3698,7 @@
 	var STATE_TYPE = exports.STATE_TYPE = 'chromex.state';
 
 /***/ },
-/* 95 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3728,7 +3707,7 @@
 	  value: true
 	});
 	
-	var _constants = __webpack_require__(94);
+	var _constants = __webpack_require__(73);
 	
 	/**
 	 * Responder for promisified results
@@ -3804,7 +3783,7 @@
 	};
 
 /***/ },
-/* 96 */
+/* 75 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -3835,57 +3814,43 @@
 	};
 
 /***/ },
-/* 97 */
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 	
-	var _redux = __webpack_require__(25);
+	var _redux = __webpack_require__(4);
 	
-	var _Candidate = __webpack_require__(98);
-	
-	var _Candidate2 = _interopRequireDefault(_Candidate);
-	
-	var _environment = __webpack_require__(100);
-	
-	var _environment2 = _interopRequireDefault(_environment);
-	
-	var _Election = __webpack_require__(101);
+	var _Election = __webpack_require__(77);
 	
 	var _Election2 = _interopRequireDefault(_Election);
-	
-	var _PlatformCounts = __webpack_require__(102);
-	
-	var _PlatformCounts2 = _interopRequireDefault(_PlatformCounts);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var _default = (0, _redux.combineReducers)({
-	    Candidate: _Candidate2.default,
-	    environment: _environment2.default,
-	    Election: _Election2.default,
-	    PlatformCounts: _PlatformCounts2.default
+	
+	  Election: _Election2.default
 	});
 	
 	exports.default = _default;
 	;
 
 	var _temp = function () {
-	    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	        return;
-	    }
+	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+	    return;
+	  }
 
-	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/index.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/index.js');
 	}();
 
 	;
 
 /***/ },
-/* 98 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3894,32 +3859,24 @@
 	    value: true
 	});
 	
-	var _actionTypes = __webpack_require__(99);
+	var _actionTypes = __webpack_require__(78);
 	
 	var types = _interopRequireWildcard(_actionTypes);
 	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
 	var initalState = {
-	    activeSegment: 'history',
-	    name: '',
-	    party: '',
-	    bannerImageUrl: '',
-	    contributions: {
-	        chartData: {},
-	        totalRaised: 0,
-	        totalSpent: 0,
-	        onHand: 0
-	    },
-	    generalInfo: {
-	        dateOfBirth: '',
-	        donateLink: '',
-	        education: '',
-	        placeOfBirth: '',
-	        politicalExperience: ''
-	    },
-	    votingHistory: [],
-	    latestPollResult: ''
+	    activeSegment: 'platform',
+	    title: '',
+	    democrat: '',
+	    republican: '',
+	    d_image: '',
+	    r_image: '',
+	    d_index: 0,
+	    r_index: 0,
+	    electionDate: '2016-11-08T00:00:00.000Z',
+	    livePolling: {},
+	    summary: ''
 	};
 	
 	var _default = function _default() {
@@ -3927,19 +3884,54 @@
 	    var action = arguments[1];
 	
 	    switch (action.type) {
-	        case types.CHANGE_CANDIDATE_SEGMENT:
+	        case types.CHANGE_ELECTION_SEGMENT:
 	            return Object.assign({}, state, {
 	                activeSegment: action.segment
 	            });
-	        case types.CHANGE_ACTIVE_CANDIDATE:
+	        case types.CHANGE_ACTIVE_ELECTION:
 	            return Object.assign({}, state, {
-	                name: action.candidate.name,
-	                party: action.candidate.party,
-	                bannerImageUrl: action.candidate.bannerImageUrl,
-	                contributions: action.candidate.contributions,
-	                generalInfo: action.candidate.generalInfo,
-	                votingHistory: action.candidate.votingHistory,
-	                latestPollResult: action.candidate.latestPollResult
+	                title: action.election.title,
+	                democrat: action.election.democrat,
+	                republican: action.election.republican,
+	                d_image: action.election.d_image,
+	                r_image: action.election.r_image,
+	                d_index: action.election.d_index,
+	                r_index: action.election.r_index,
+	                electionDate: action.election.electionDate,
+	                livePolling: action.election.livePolling
+	
+	                // case types.GENERAL_ELECTION:
+	                //     return Object.assign({}, state, {
+	                //         race: action.type
+	                //     });
+	                // case types.FLORIDA_SENATE:
+	                //     return Object.assign({}, state, {
+	                //         race: action.type
+	                //     });
+	                // case types.RUBIO:
+	                //     return Object.assign({}, state, {
+	                //         candidate: action.type
+	                //     });
+	                // case types.MURPHY:
+	                //     return Object.assign({}, state, {
+	                //         candidate: action.type
+	                //     });
+	                // case types.TRUMP:
+	                //     return Object.assign({}, state, {
+	                //         candidate: action.type
+	                //     });
+	                // case types.CLINTON:
+	                //     return Object.assign({}, state, {
+	                //         candidate: action.type
+	                //     });
+	                // case types.DEMOCRAT:
+	                //     return Object.assign({}, state, {
+	                //         party: action.type
+	                //     });
+	                // case types.REPUBLICAN:
+	                //     return Object.assign({}, state, {
+	                //         party: action.type
+	                //     });
 	            });
 	        default:
 	            return state;
@@ -3954,15 +3946,15 @@
 	        return;
 	    }
 	
-	    __REACT_HOT_LOADER__.register(initalState, 'initalState', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/Candidate.js');
+	    __REACT_HOT_LOADER__.register(initalState, 'initalState', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/Election.js');
 	
-	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/Candidate.js');
+	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/Election.js');
 	}();
 
 	;
 
 /***/ },
-/* 99 */
+/* 78 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4207,507 +4199,6 @@
 	  __REACT_HOT_LOADER__.register(REPUBLICAN, 'REPUBLICAN', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
 	
 	  __REACT_HOT_LOADER__.register(DEMOCRAT, 'DEMOCRAT', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	}();
-
-	;
-
-/***/ },
-/* 100 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _actionTypes = __webpack_require__(99);
-	
-	var types = _interopRequireWildcard(_actionTypes);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
-	var initalState = {
-	    activeComponent: 'CandidateView',
-	    candidates: [{
-	        name: 'Hillary Clinton',
-	        race: 'Presidential Election',
-	        party: 'democrat',
-	        image: '/images/clinton.jpg',
-	        bannerImageUrl: 'https://s3-us-west-2.amazonaws.com/setgov/Hillary.jpg',
-	        contributions: {
-	            chartData: {},
-	            totalRaised: '$530 M',
-	            totalSpent: '$420 M',
-	            onHand: '$109 M'
-	        },
-	        generalInfo: {
-	            dateOfBirth: 'October 26, 1947',
-	            donateLink: 'https://www.hillaryclinton.com/donate/',
-	            education: 'Yale Law',
-	            placeOfBirth: 'Chicago, Illinois',
-	            politicalExperience: 'Senator (NY), Secretary of State'
-	        },
-	        votingHistory: [{
-	            date: '',
-	            name: '',
-	            status: '',
-	            vote: ''
-	        }],
-	        latestPollResult: '48.9%'
-	    }, {
-	        name: 'Donald Trump',
-	        race: 'Presidential Election',
-	        party: 'republican',
-	        image: '/images/donald.jpg',
-	        bannerImageUrl: 'https://s3-us-west-2.amazonaws.com/setgov/Trump.jpg',
-	        contributions: {
-	            chartData: {},
-	            totalRaised: '$209 M',
-	            totalSpent: '$147 M',
-	            onHand: '$62 M'
-	        },
-	        generalInfo: {
-	            dateOfBirth: 'June 14, 1946',
-	            donateLink: 'https://secure.donaldjtrump.com/donate-homepage-btn/',
-	            education: 'University of Pennsylvania',
-	            placeOfBirth: 'New York, New York',
-	            politicalExperience: 'No Experience'
-	        },
-	        votingHistory: [{
-	            date: '',
-	            name: '',
-	            status: '',
-	            vote: ''
-	        }],
-	        latestPollResult: '40.7%'
-	    }, {
-	        name: 'Patrick Murphy',
-	        race: 'Florida Senate Election',
-	        party: 'democrat',
-	        image: '/images/murphy.jpeg',
-	        bannerImageUrl: 'https://s3-us-west-2.amazonaws.com/setgov/patrick+murphy+resized.jpg',
-	        contributions: {
-	            chartData: {},
-	            totalRaised: '$11 M',
-	            totalSpent: '$7 M',
-	            onHand: '$4 M'
-	        },
-	        generalInfo: {
-	            dateOfBirth: 'March 30, 1983',
-	            donateLink: 'https://secure.actblue.com/contribute/page/patrickmurphyforsenate',
-	            education: 'University of Miami',
-	            placeOfBirth: 'Miami, Florida',
-	            politicalExperience: 'House of Representatives (FL)'
-	        },
-	        votingHistory: [{
-	            date: '',
-	            name: '',
-	            status: '',
-	            vote: ''
-	        }],
-	        latestPollResult: '42.3%'
-	    }, {
-	        name: 'Marco Rubio',
-	        race: 'Florida Senate Election',
-	        party: 'republican',
-	        image: '/images/rubio.png',
-	        bannerImageUrl: 'https://s3-us-west-2.amazonaws.com/setgov/Marco-Rubio.jpg',
-	        contributions: {
-	            chartData: {},
-	            totalRaised: '$14 M',
-	            totalSpent: '$6 M',
-	            onHand: '$4 M'
-	        },
-	        generalInfo: {
-	            dateOfBirth: 'May 28, 1971',
-	            donateLink: 'https://marcorubio.com/donate/',
-	            education: 'University of Miami',
-	            placeOfBirth: 'Miami, Florida',
-	            politicalExperience: 'House of Representatives (FL), Speaker of the House (FL), Senator(FL)'
-	        },
-	        votingHistory: [{
-	            date: '',
-	            name: '',
-	            status: '',
-	            vote: ''
-	        }],
-	        latestPollResult: '48.5%'
-	    }, {
-	        name: 'Debbie Lieberman',
-	        race: 'Montgomery County Commissioner',
-	        party: 'democrat',
-	        image: '/images/lieberman.jpg',
-	        bannerImageUrl: 'https://s3-us-west-2.amazonaws.com/setgov/Debbie+Lieberman.jpg',
-	        contributions: {
-	            chartData: {},
-	            totalRaised: '',
-	            totalSpent: '',
-	            onHand: ''
-	        },
-	        generalInfo: {
-	            dateOfBirth: '',
-	            donateLink: 'https://debbielieberman.nationbuilder.com/donate',
-	            education: 'University of Dayton',
-	            placeOfBirth: '',
-	            politicalExperience: 'City Council (Clay, OH), County Commisioner (Montgomery, OH)'
-	        },
-	        votingHistory: [{
-	            date: '',
-	            name: '',
-	            status: '',
-	            vote: ''
-	        }],
-	        latestPollResult: ''
-	    }, {
-	        name: 'Gary Leitzell',
-	        race: 'Montgomery County Commissioner',
-	        party: 'republican',
-	        image: '/images/leitzell.jpg',
-	        bannerImageUrl: 'https://s3-us-west-2.amazonaws.com/setgov/Gary+Leitzell.jpg',
-	        contributions: {
-	            chartData: {},
-	            totalRaised: '',
-	            totalSpent: '',
-	            onHand: ''
-	        },
-	        generalInfo: {
-	            dateOfBirth: '',
-	            donateLink: 'http://gogarygo.com/',
-	            education: 'University of London',
-	            placeOfBirth: '',
-	            politicalExperience: 'Mayor (Dayton, OH), County Commisioner (Montgomery, OH)'
-	        },
-	        votingHistory: [{
-	            date: '',
-	            name: '',
-	            status: '',
-	            vote: ''
-	        }],
-	        latestPollResult: ''
-	    }],
-	    elections: [{
-	        title: 'Presidential Election',
-	        democrat: 'Hillary Clinton',
-	        republican: 'Donald Trump',
-	        list_image: '/images/USA-icon.png',
-	        d_image: '/images/clinton.jpg',
-	        r_image: '/images/donald.jpg',
-	        d_index: 0,
-	        r_index: 1
-	    }, {
-	        title: 'Florida Senate',
-	        democrat: 'Patrick Murphy',
-	        republican: 'Marco Rubio',
-	        list_image: '/images/Florida-icon.png',
-	        d_image: '/images/murphy.jpeg',
-	        r_image: '/images/rubio.png',
-	        d_index: 2,
-	        r_index: 3
-	    }, {
-	        title: 'County Commissioner',
-	        democrat: 'Debbie Lieberman',
-	        republican: 'Gary Leitzell',
-	        list_image: '/images/ohio.png',
-	        d_image: '/images/lieberman.jpg',
-	        r_image: '/images/leitzell.jpg',
-	        d_index: 4,
-	        r_index: 5
-	    }]
-	};
-	
-	var _default = function _default() {
-	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initalState;
-	    var action = arguments[1];
-	
-	    switch (action.type) {
-	        case types.CHANGE_ACTIVE_COMPONENT:
-	            return Object.assign({}, state, {
-	                activeComponent: action.component
-	            });
-	        default:
-	            return state;
-	    }
-	};
-	
-	exports.default = _default;
-	;
-	
-	var _temp = function () {
-	    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	        return;
-	    }
-	
-	    __REACT_HOT_LOADER__.register(initalState, 'initalState', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/environment.js');
-	
-	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/environment.js');
-	}();
-
-	;
-
-/***/ },
-/* 101 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _actionTypes = __webpack_require__(99);
-	
-	var types = _interopRequireWildcard(_actionTypes);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
-	var initalState = {
-	    activeSegment: 'platform',
-	    title: '',
-	    democrat: '',
-	    republican: '',
-	    d_image: '',
-	    r_image: '',
-	    d_index: 0,
-	    r_index: 0,
-	    electionDate: '2016-11-08T00:00:00.000Z',
-	    livePolling: {},
-	    summary: ''
-	};
-	
-	var _default = function _default() {
-	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initalState;
-	    var action = arguments[1];
-	
-	    switch (action.type) {
-	        case types.CHANGE_ELECTION_SEGMENT:
-	            return Object.assign({}, state, {
-	                activeSegment: action.segment
-	            });
-	        case types.CHANGE_ACTIVE_ELECTION:
-	            return Object.assign({}, state, {
-	                title: action.election.title,
-	                democrat: action.election.democrat,
-	                republican: action.election.republican,
-	                d_image: action.election.d_image,
-	                r_image: action.election.r_image,
-	                d_index: action.election.d_index,
-	                r_index: action.election.r_index,
-	                electionDate: action.election.electionDate,
-	                livePolling: action.election.livePolling
-	
-	                // case types.GENERAL_ELECTION:
-	                //     return Object.assign({}, state, {
-	                //         race: action.type
-	                //     });
-	                // case types.FLORIDA_SENATE:
-	                //     return Object.assign({}, state, {
-	                //         race: action.type
-	                //     });
-	                // case types.RUBIO:
-	                //     return Object.assign({}, state, {
-	                //         candidate: action.type
-	                //     });
-	                // case types.MURPHY:
-	                //     return Object.assign({}, state, {
-	                //         candidate: action.type
-	                //     });
-	                // case types.TRUMP:
-	                //     return Object.assign({}, state, {
-	                //         candidate: action.type
-	                //     });
-	                // case types.CLINTON:
-	                //     return Object.assign({}, state, {
-	                //         candidate: action.type
-	                //     });
-	                // case types.DEMOCRAT:
-	                //     return Object.assign({}, state, {
-	                //         party: action.type
-	                //     });
-	                // case types.REPUBLICAN:
-	                //     return Object.assign({}, state, {
-	                //         party: action.type
-	                //     });
-	            });
-	        default:
-	            return state;
-	    }
-	};
-	
-	exports.default = _default;
-	;
-	
-	var _temp = function () {
-	    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	        return;
-	    }
-	
-	    __REACT_HOT_LOADER__.register(initalState, 'initalState', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/Election.js');
-	
-	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/Election.js');
-	}();
-
-	;
-
-/***/ },
-/* 102 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _actionTypes = __webpack_require__(99);
-	
-	var types = _interopRequireWildcard(_actionTypes);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
-	var initalState = {
-	    economy: {
-	        economy_a_fair_tax_system: 0,
-	        economy_farmers_ranchers: 0,
-	        economy_fixing_americas_infrastructure: 0,
-	        economy_manufacturing: 0,
-	        economy_small_business: 0,
-	        economy_social_security_and_medicare: 0,
-	        economy_wall_street_reform: 0,
-	        economy_works_for_everyone: 0,
-	        economy_regulation: 0,
-	        economy_taxplan: 0,
-	        economy_trade: 0,
-	        economy: 0
-	    },
-	    education: {
-	        education_campus_sexual_assault: 0,
-	        education_college_debt: 0,
-	        education_common_core: 0,
-	        education_early_childhood: 0,
-	        education_k_12: 0,
-	        education_technology_and_innovation: 0,
-	        improving_education: 0,
-	        education: 0
-	    },
-	    environment: {
-	        environment_climate_change: 0,
-	        environment_protecting_animals_and_wildlife: 0,
-	        environment_rural_communities: 0,
-	        environment_our_environment: 0,
-	        environment_energy: 0,
-	        environment: 0
-	    },
-	    equality: {
-	        equality_campaign_finance_reform: 0,
-	        equality_criminal_justice_reform: 0,
-	        equality_immigration_reform: 0,
-	        equality_lgbt_rights_and_equality: 0,
-	        equality_racial_justice: 0,
-	        equality_voting_rights: 0,
-	        equality_seniors: 0,
-	        equality_womens_rights_and_opportunity: 0,
-	        equality_gun_control: 0,
-	        equality: 0
-	    },
-	    health: {
-	        health_addiction_and_substance_use: 0,
-	        health_an_end_to_alzheimers: 0,
-	        health_autism: 0,
-	        health_disability_rights: 0,
-	        health_health_care: 0,
-	        health_hiv_and_aids: 0,
-	        health_child_care: 0,
-	        healthcare: 0,
-	        health: 0
-	    },
-	    jobs: {
-	        jobs_paid_family_and_medical_leave: 0,
-	        jobs_labor_and_workers_rights: 0,
-	        jobs_veterans_the_armed_forces_and_their_families: 0,
-	        jobs_wages: 0,
-	        jobs_workforce_skills_and_jobs_training: 0,
-	        jobs: 0
-	    },
-	    security: {
-	        security_combating_terrorism: 0,
-	        security_gun_violence: 0,
-	        security_miliary_and_defense: 0,
-	        security_national_security: 0,
-	        security_foreign_policy: 0,
-	        security: 0
-	    }
-	};
-	
-	var _default = function _default() {
-	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initalState;
-	    var action = arguments[1];
-	
-	    var payload = action.payload;
-	    var obj = {};
-	    switch (action.type) {
-	
-	        case types.ECONOMY:
-	            state.economy.economy += 1;
-	            obj[payload.subtag_name] = payload.subtag_count;
-	            return Object.assign({}, state, {
-	                economy: Object.assign({}, state.economy, obj)
-	            });
-	        case types.EDUCATION:
-	            state.education.education += 1;
-	            obj[payload.subtag_name] = payload.subtag_count;
-	            return Object.assign({}, state, {
-	                education: Object.assign({}, state.education, obj)
-	            });
-	        case types.ENVIRONMENT:
-	            state.environment.environment += 1;
-	            obj[payload.subtag_name] = payload.subtag_count;
-	            return Object.assign({}, state, {
-	                environment: Object.assign({}, state.environment, obj)
-	            });
-	        case types.EQUALITY:
-	            state.equality.equality += 1;
-	            obj[payload.subtag_name] = payload.subtag_count;
-	            return Object.assign({}, state, {
-	                equality: Object.assign({}, state.equality, obj)
-	            });
-	        case types.HEALTH:
-	            state.health.health += 1;
-	            obj[payload.subtag_name] = payload.subtag_count;
-	            return Object.assign({}, state, {
-	                health: Object.assign({}, state.health, obj)
-	            });
-	        case types.JOBS:
-	            state.jobs.jobs += 1;
-	            obj[payload.subtag_name] = payload.subtag_count;
-	            return Object.assign({}, state, {
-	                jobs: Object.assign({}, state.jobs, obj)
-	            });
-	        case types.SECURITY:
-	            state.security.security += 1;
-	            obj[payload.subtag_name] = payload.subtag_count;
-	            return Object.assign({}, state, {
-	                security: Object.assign({}, state.security, obj)
-	            });
-	
-	        case types.RESET:
-	            return initalState;
-	        default:
-	            return state;
-	    }
-	};
-	
-	exports.default = _default;
-	;
-	
-	var _temp = function () {
-	    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	        return;
-	    }
-	
-	    __REACT_HOT_LOADER__.register(initalState, 'initalState', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/PlatformCounts.js');
-	
-	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/PlatformCounts.js');
 	}();
 
 	;
