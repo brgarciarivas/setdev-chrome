@@ -46,19 +46,19 @@
 
 	'use strict';
 	
-	var _redux = __webpack_require__(4);
+	var _redux = __webpack_require__(1);
 	
-	var _reduxLogger = __webpack_require__(20);
+	var _reduxLogger = __webpack_require__(17);
 	
 	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 	
-	var _reduxThunk = __webpack_require__(26);
+	var _reduxThunk = __webpack_require__(23);
 	
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 	
-	var _reactChromeRedux = __webpack_require__(27);
+	var _reactChromeRedux = __webpack_require__(24);
 	
-	var _reducers = __webpack_require__(76);
+	var _reducers = __webpack_require__(73);
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
 	
@@ -77,17 +77,18 @@
 	    portName: 'setgov'
 	});
 	
-	// //Inject content Script on each tab change//
-	chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-	    console.log('content script injected');
-	    chrome.tabs.executeScript(null, { file: 'content.js' });
-	});
+	// // //Inject content Script on each tab change//
+	// chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+	//   console.log('content script injected')
+	//   chrome.tabs.executeScript(null, {file: 'content.js'});
+	// }); 
 	
-	//Inject content script when first tab is activated//
-	chrome.tabs.onActivated.addListener(function (tabId, changeInfo, tab) {
-	    console.log('content script injected');
-	    chrome.tabs.executeScript(null, { file: 'content.js' });
-	});
+	// //Inject content script when first tab is activated//
+	// chrome.tabs.onActivated.addListener(function(tabId, changeInfo, tab) {
+	//   console.log('content script injected')
+	//   chrome.tabs.executeScript(null, {file: 'content.js'});
+	// });
+	
 	;
 	
 	var _temp = function () {
@@ -105,10 +106,7 @@
 	;
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */
+/* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -116,27 +114,27 @@
 	exports.__esModule = true;
 	exports.compose = exports.applyMiddleware = exports.bindActionCreators = exports.combineReducers = exports.createStore = undefined;
 	
-	var _createStore = __webpack_require__(6);
+	var _createStore = __webpack_require__(3);
 	
 	var _createStore2 = _interopRequireDefault(_createStore);
 	
-	var _combineReducers = __webpack_require__(15);
+	var _combineReducers = __webpack_require__(12);
 	
 	var _combineReducers2 = _interopRequireDefault(_combineReducers);
 	
-	var _bindActionCreators = __webpack_require__(17);
+	var _bindActionCreators = __webpack_require__(14);
 	
 	var _bindActionCreators2 = _interopRequireDefault(_bindActionCreators);
 	
-	var _applyMiddleware = __webpack_require__(18);
+	var _applyMiddleware = __webpack_require__(15);
 	
 	var _applyMiddleware2 = _interopRequireDefault(_applyMiddleware);
 	
-	var _compose = __webpack_require__(19);
+	var _compose = __webpack_require__(16);
 	
 	var _compose2 = _interopRequireDefault(_compose);
 	
-	var _warning = __webpack_require__(16);
+	var _warning = __webpack_require__(13);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -157,10 +155,10 @@
 	exports.bindActionCreators = _bindActionCreators2['default'];
 	exports.applyMiddleware = _applyMiddleware2['default'];
 	exports.compose = _compose2['default'];
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 5 */
+/* 2 */
 /***/ function(module, exports) {
 
 	// shim for using process in browser
@@ -346,7 +344,7 @@
 
 
 /***/ },
-/* 6 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -355,11 +353,11 @@
 	exports.ActionTypes = undefined;
 	exports['default'] = createStore;
 	
-	var _isPlainObject = __webpack_require__(7);
+	var _isPlainObject = __webpack_require__(4);
 	
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 	
-	var _symbolObservable = __webpack_require__(11);
+	var _symbolObservable = __webpack_require__(8);
 	
 	var _symbolObservable2 = _interopRequireDefault(_symbolObservable);
 	
@@ -612,11 +610,11 @@
 	}
 
 /***/ },
-/* 7 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getPrototype = __webpack_require__(8),
-	    isObjectLike = __webpack_require__(10);
+	var getPrototype = __webpack_require__(5),
+	    isObjectLike = __webpack_require__(7);
 	
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -686,10 +684,10 @@
 
 
 /***/ },
-/* 8 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var overArg = __webpack_require__(9);
+	var overArg = __webpack_require__(6);
 	
 	/** Built-in value references. */
 	var getPrototype = overArg(Object.getPrototypeOf, Object);
@@ -698,7 +696,7 @@
 
 
 /***/ },
-/* 9 */
+/* 6 */
 /***/ function(module, exports) {
 
 	/**
@@ -719,7 +717,7 @@
 
 
 /***/ },
-/* 10 */
+/* 7 */
 /***/ function(module, exports) {
 
 	/**
@@ -754,14 +752,14 @@
 
 
 /***/ },
-/* 11 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(12);
+	module.exports = __webpack_require__(9);
 
 
 /***/ },
-/* 12 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, module) {'use strict';
@@ -770,7 +768,7 @@
 	  value: true
 	});
 	
-	var _ponyfill = __webpack_require__(14);
+	var _ponyfill = __webpack_require__(11);
 	
 	var _ponyfill2 = _interopRequireDefault(_ponyfill);
 	
@@ -793,10 +791,10 @@
 	
 	var result = (0, _ponyfill2['default'])(root);
 	exports['default'] = result;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(13)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(10)(module)))
 
 /***/ },
-/* 13 */
+/* 10 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -812,7 +810,7 @@
 
 
 /***/ },
-/* 14 */
+/* 11 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -840,7 +838,7 @@
 	};
 
 /***/ },
-/* 15 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -848,13 +846,13 @@
 	exports.__esModule = true;
 	exports['default'] = combineReducers;
 	
-	var _createStore = __webpack_require__(6);
+	var _createStore = __webpack_require__(3);
 	
-	var _isPlainObject = __webpack_require__(7);
+	var _isPlainObject = __webpack_require__(4);
 	
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 	
-	var _warning = __webpack_require__(16);
+	var _warning = __webpack_require__(13);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -985,10 +983,10 @@
 	    return hasChanged ? nextState : state;
 	  };
 	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 16 */
+/* 13 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1018,7 +1016,7 @@
 	}
 
 /***/ },
-/* 17 */
+/* 14 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1074,7 +1072,7 @@
 	}
 
 /***/ },
-/* 18 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1085,7 +1083,7 @@
 	
 	exports['default'] = applyMiddleware;
 	
-	var _compose = __webpack_require__(19);
+	var _compose = __webpack_require__(16);
 	
 	var _compose2 = _interopRequireDefault(_compose);
 	
@@ -1137,7 +1135,7 @@
 	}
 
 /***/ },
-/* 19 */
+/* 16 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1180,7 +1178,7 @@
 	}
 
 /***/ },
-/* 20 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1191,11 +1189,11 @@
 	  value: true
 	});
 	
-	var _core = __webpack_require__(21);
+	var _core = __webpack_require__(18);
 	
-	var _helpers = __webpack_require__(22);
+	var _helpers = __webpack_require__(19);
 	
-	var _defaults = __webpack_require__(25);
+	var _defaults = __webpack_require__(22);
 	
 	var _defaults2 = _interopRequireDefault(_defaults);
 	
@@ -1298,7 +1296,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 21 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1308,9 +1306,9 @@
 	});
 	exports.printBuffer = printBuffer;
 	
-	var _helpers = __webpack_require__(22);
+	var _helpers = __webpack_require__(19);
 	
-	var _diff = __webpack_require__(23);
+	var _diff = __webpack_require__(20);
 	
 	var _diff2 = _interopRequireDefault(_diff);
 	
@@ -1431,7 +1429,7 @@
 	}
 
 /***/ },
-/* 22 */
+/* 19 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1455,7 +1453,7 @@
 	var timer = exports.timer = typeof performance !== "undefined" && performance !== null && typeof performance.now === "function" ? performance : Date;
 
 /***/ },
-/* 23 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1465,7 +1463,7 @@
 	});
 	exports.default = diffLogger;
 	
-	var _deepDiff = __webpack_require__(24);
+	var _deepDiff = __webpack_require__(21);
 	
 	var _deepDiff2 = _interopRequireDefault(_deepDiff);
 	
@@ -1551,7 +1549,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 24 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {/*!
@@ -1980,7 +1978,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 25 */
+/* 22 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -2031,7 +2029,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 26 */
+/* 23 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2059,7 +2057,7 @@
 	exports['default'] = thunk;
 
 /***/ },
-/* 27 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2069,15 +2067,15 @@
 	});
 	exports.alias = exports.wrapStore = exports.Store = undefined;
 	
-	var _Store = __webpack_require__(28);
+	var _Store = __webpack_require__(25);
 	
 	var _Store2 = _interopRequireDefault(_Store);
 	
-	var _wrapStore = __webpack_require__(74);
+	var _wrapStore = __webpack_require__(71);
 	
 	var _wrapStore2 = _interopRequireDefault(_wrapStore);
 	
-	var _alias = __webpack_require__(75);
+	var _alias = __webpack_require__(72);
 	
 	var _alias2 = _interopRequireDefault(_alias);
 	
@@ -2088,7 +2086,7 @@
 	exports.alias = _alias2.default;
 
 /***/ },
-/* 28 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2099,11 +2097,11 @@
 	  value: true
 	});
 	
-	var _assignIn = __webpack_require__(29);
+	var _assignIn = __webpack_require__(26);
 	
 	var _assignIn2 = _interopRequireDefault(_assignIn);
 	
-	var _constants = __webpack_require__(73);
+	var _constants = __webpack_require__(70);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -2218,12 +2216,12 @@
 	exports.default = Store;
 
 /***/ },
-/* 29 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var copyObject = __webpack_require__(30),
-	    createAssigner = __webpack_require__(45),
-	    keysIn = __webpack_require__(58);
+	var copyObject = __webpack_require__(27),
+	    createAssigner = __webpack_require__(42),
+	    keysIn = __webpack_require__(55);
 	
 	/**
 	 * This method is like `_.assign` except that it iterates over own and
@@ -2264,11 +2262,11 @@
 
 
 /***/ },
-/* 30 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assignValue = __webpack_require__(31),
-	    baseAssignValue = __webpack_require__(32);
+	var assignValue = __webpack_require__(28),
+	    baseAssignValue = __webpack_require__(29);
 	
 	/**
 	 * Copies properties of `source` to `object`.
@@ -2310,11 +2308,11 @@
 
 
 /***/ },
-/* 31 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseAssignValue = __webpack_require__(32),
-	    eq = __webpack_require__(44);
+	var baseAssignValue = __webpack_require__(29),
+	    eq = __webpack_require__(41);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -2344,10 +2342,10 @@
 
 
 /***/ },
-/* 32 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var defineProperty = __webpack_require__(33);
+	var defineProperty = __webpack_require__(30);
 	
 	/**
 	 * The base implementation of `assignValue` and `assignMergeValue` without
@@ -2375,10 +2373,10 @@
 
 
 /***/ },
-/* 33 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getNative = __webpack_require__(34);
+	var getNative = __webpack_require__(31);
 	
 	var defineProperty = (function() {
 	  try {
@@ -2392,11 +2390,11 @@
 
 
 /***/ },
-/* 34 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIsNative = __webpack_require__(35),
-	    getValue = __webpack_require__(43);
+	var baseIsNative = __webpack_require__(32),
+	    getValue = __webpack_require__(40);
 	
 	/**
 	 * Gets the native function at `key` of `object`.
@@ -2415,13 +2413,13 @@
 
 
 /***/ },
-/* 35 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isFunction = __webpack_require__(36),
-	    isMasked = __webpack_require__(38),
-	    isObject = __webpack_require__(37),
-	    toSource = __webpack_require__(42);
+	var isFunction = __webpack_require__(33),
+	    isMasked = __webpack_require__(35),
+	    isObject = __webpack_require__(34),
+	    toSource = __webpack_require__(39);
 	
 	/**
 	 * Used to match `RegExp`
@@ -2468,10 +2466,10 @@
 
 
 /***/ },
-/* 36 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(37);
+	var isObject = __webpack_require__(34);
 	
 	/** `Object#toString` result references. */
 	var funcTag = '[object Function]',
@@ -2516,7 +2514,7 @@
 
 
 /***/ },
-/* 37 */
+/* 34 */
 /***/ function(module, exports) {
 
 	/**
@@ -2553,10 +2551,10 @@
 
 
 /***/ },
-/* 38 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var coreJsData = __webpack_require__(39);
+	var coreJsData = __webpack_require__(36);
 	
 	/** Used to detect methods masquerading as native. */
 	var maskSrcKey = (function() {
@@ -2579,10 +2577,10 @@
 
 
 /***/ },
-/* 39 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var root = __webpack_require__(40);
+	var root = __webpack_require__(37);
 	
 	/** Used to detect overreaching core-js shims. */
 	var coreJsData = root['__core-js_shared__'];
@@ -2591,10 +2589,10 @@
 
 
 /***/ },
-/* 40 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var freeGlobal = __webpack_require__(41);
+	var freeGlobal = __webpack_require__(38);
 	
 	/** Detect free variable `self`. */
 	var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
@@ -2606,7 +2604,7 @@
 
 
 /***/ },
-/* 41 */
+/* 38 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */
@@ -2617,7 +2615,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 42 */
+/* 39 */
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
@@ -2649,7 +2647,7 @@
 
 
 /***/ },
-/* 43 */
+/* 40 */
 /***/ function(module, exports) {
 
 	/**
@@ -2668,7 +2666,7 @@
 
 
 /***/ },
-/* 44 */
+/* 41 */
 /***/ function(module, exports) {
 
 	/**
@@ -2711,11 +2709,11 @@
 
 
 /***/ },
-/* 45 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseRest = __webpack_require__(46),
-	    isIterateeCall = __webpack_require__(54);
+	var baseRest = __webpack_require__(43),
+	    isIterateeCall = __webpack_require__(51);
 	
 	/**
 	 * Creates a function like `_.assign`.
@@ -2754,12 +2752,12 @@
 
 
 /***/ },
-/* 46 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var identity = __webpack_require__(47),
-	    overRest = __webpack_require__(48),
-	    setToString = __webpack_require__(50);
+	var identity = __webpack_require__(44),
+	    overRest = __webpack_require__(45),
+	    setToString = __webpack_require__(47);
 	
 	/**
 	 * The base implementation of `_.rest` which doesn't validate or coerce arguments.
@@ -2777,7 +2775,7 @@
 
 
 /***/ },
-/* 47 */
+/* 44 */
 /***/ function(module, exports) {
 
 	/**
@@ -2804,10 +2802,10 @@
 
 
 /***/ },
-/* 48 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var apply = __webpack_require__(49);
+	var apply = __webpack_require__(46);
 	
 	/* Built-in method references for those with the same name as other `lodash` methods. */
 	var nativeMax = Math.max;
@@ -2846,7 +2844,7 @@
 
 
 /***/ },
-/* 49 */
+/* 46 */
 /***/ function(module, exports) {
 
 	/**
@@ -2873,11 +2871,11 @@
 
 
 /***/ },
-/* 50 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseSetToString = __webpack_require__(51),
-	    shortOut = __webpack_require__(53);
+	var baseSetToString = __webpack_require__(48),
+	    shortOut = __webpack_require__(50);
 	
 	/**
 	 * Sets the `toString` method of `func` to return `string`.
@@ -2893,12 +2891,12 @@
 
 
 /***/ },
-/* 51 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var constant = __webpack_require__(52),
-	    defineProperty = __webpack_require__(33),
-	    identity = __webpack_require__(47);
+	var constant = __webpack_require__(49),
+	    defineProperty = __webpack_require__(30),
+	    identity = __webpack_require__(44);
 	
 	/**
 	 * The base implementation of `setToString` without support for hot loop shorting.
@@ -2921,7 +2919,7 @@
 
 
 /***/ },
-/* 52 */
+/* 49 */
 /***/ function(module, exports) {
 
 	/**
@@ -2953,7 +2951,7 @@
 
 
 /***/ },
-/* 53 */
+/* 50 */
 /***/ function(module, exports) {
 
 	/** Used to detect hot functions by number of calls within a span of milliseconds. */
@@ -2996,13 +2994,13 @@
 
 
 /***/ },
-/* 54 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var eq = __webpack_require__(44),
-	    isArrayLike = __webpack_require__(55),
-	    isIndex = __webpack_require__(57),
-	    isObject = __webpack_require__(37);
+	var eq = __webpack_require__(41),
+	    isArrayLike = __webpack_require__(52),
+	    isIndex = __webpack_require__(54),
+	    isObject = __webpack_require__(34);
 	
 	/**
 	 * Checks if the given arguments are from an iteratee call.
@@ -3032,11 +3030,11 @@
 
 
 /***/ },
-/* 55 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isFunction = __webpack_require__(36),
-	    isLength = __webpack_require__(56);
+	var isFunction = __webpack_require__(33),
+	    isLength = __webpack_require__(53);
 	
 	/**
 	 * Checks if `value` is array-like. A value is considered array-like if it's
@@ -3071,7 +3069,7 @@
 
 
 /***/ },
-/* 56 */
+/* 53 */
 /***/ function(module, exports) {
 
 	/** Used as references for various `Number` constants. */
@@ -3112,7 +3110,7 @@
 
 
 /***/ },
-/* 57 */
+/* 54 */
 /***/ function(module, exports) {
 
 	/** Used as references for various `Number` constants. */
@@ -3140,12 +3138,12 @@
 
 
 /***/ },
-/* 58 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var arrayLikeKeys = __webpack_require__(59),
-	    baseKeysIn = __webpack_require__(70),
-	    isArrayLike = __webpack_require__(55);
+	var arrayLikeKeys = __webpack_require__(56),
+	    baseKeysIn = __webpack_require__(67),
+	    isArrayLike = __webpack_require__(52);
 	
 	/**
 	 * Creates an array of the own and inherited enumerable property names of `object`.
@@ -3178,15 +3176,15 @@
 
 
 /***/ },
-/* 59 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseTimes = __webpack_require__(60),
-	    isArguments = __webpack_require__(61),
-	    isArray = __webpack_require__(63),
-	    isBuffer = __webpack_require__(64),
-	    isIndex = __webpack_require__(57),
-	    isTypedArray = __webpack_require__(66);
+	var baseTimes = __webpack_require__(57),
+	    isArguments = __webpack_require__(58),
+	    isArray = __webpack_require__(60),
+	    isBuffer = __webpack_require__(61),
+	    isIndex = __webpack_require__(54),
+	    isTypedArray = __webpack_require__(63);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -3233,7 +3231,7 @@
 
 
 /***/ },
-/* 60 */
+/* 57 */
 /***/ function(module, exports) {
 
 	/**
@@ -3259,11 +3257,11 @@
 
 
 /***/ },
-/* 61 */
+/* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIsArguments = __webpack_require__(62),
-	    isObjectLike = __webpack_require__(10);
+	var baseIsArguments = __webpack_require__(59),
+	    isObjectLike = __webpack_require__(7);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -3301,10 +3299,10 @@
 
 
 /***/ },
-/* 62 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObjectLike = __webpack_require__(10);
+	var isObjectLike = __webpack_require__(7);
 	
 	/** `Object#toString` result references. */
 	var argsTag = '[object Arguments]';
@@ -3334,7 +3332,7 @@
 
 
 /***/ },
-/* 63 */
+/* 60 */
 /***/ function(module, exports) {
 
 	/**
@@ -3366,11 +3364,11 @@
 
 
 /***/ },
-/* 64 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(40),
-	    stubFalse = __webpack_require__(65);
+	/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(37),
+	    stubFalse = __webpack_require__(62);
 	
 	/** Detect free variable `exports`. */
 	var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
@@ -3408,10 +3406,10 @@
 	
 	module.exports = isBuffer;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)(module)))
 
 /***/ },
-/* 65 */
+/* 62 */
 /***/ function(module, exports) {
 
 	/**
@@ -3435,12 +3433,12 @@
 
 
 /***/ },
-/* 66 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIsTypedArray = __webpack_require__(67),
-	    baseUnary = __webpack_require__(68),
-	    nodeUtil = __webpack_require__(69);
+	var baseIsTypedArray = __webpack_require__(64),
+	    baseUnary = __webpack_require__(65),
+	    nodeUtil = __webpack_require__(66);
 	
 	/* Node.js helper references. */
 	var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
@@ -3468,11 +3466,11 @@
 
 
 /***/ },
-/* 67 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isLength = __webpack_require__(56),
-	    isObjectLike = __webpack_require__(10);
+	var isLength = __webpack_require__(53),
+	    isObjectLike = __webpack_require__(7);
 	
 	/** `Object#toString` result references. */
 	var argsTag = '[object Arguments]',
@@ -3543,7 +3541,7 @@
 
 
 /***/ },
-/* 68 */
+/* 65 */
 /***/ function(module, exports) {
 
 	/**
@@ -3563,10 +3561,10 @@
 
 
 /***/ },
-/* 69 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(module) {var freeGlobal = __webpack_require__(41);
+	/* WEBPACK VAR INJECTION */(function(module) {var freeGlobal = __webpack_require__(38);
 	
 	/** Detect free variable `exports`. */
 	var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
@@ -3589,15 +3587,15 @@
 	
 	module.exports = nodeUtil;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)(module)))
 
 /***/ },
-/* 70 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(37),
-	    isPrototype = __webpack_require__(71),
-	    nativeKeysIn = __webpack_require__(72);
+	var isObject = __webpack_require__(34),
+	    isPrototype = __webpack_require__(68),
+	    nativeKeysIn = __webpack_require__(69);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -3631,7 +3629,7 @@
 
 
 /***/ },
-/* 71 */
+/* 68 */
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
@@ -3655,7 +3653,7 @@
 
 
 /***/ },
-/* 72 */
+/* 69 */
 /***/ function(module, exports) {
 
 	/**
@@ -3681,7 +3679,7 @@
 
 
 /***/ },
-/* 73 */
+/* 70 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3698,7 +3696,7 @@
 	var STATE_TYPE = exports.STATE_TYPE = 'chromex.state';
 
 /***/ },
-/* 74 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3707,7 +3705,7 @@
 	  value: true
 	});
 	
-	var _constants = __webpack_require__(73);
+	var _constants = __webpack_require__(70);
 	
 	/**
 	 * Responder for promisified results
@@ -3783,7 +3781,7 @@
 	};
 
 /***/ },
-/* 75 */
+/* 72 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -3814,7 +3812,7 @@
 	};
 
 /***/ },
-/* 76 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3823,9 +3821,9 @@
 	  value: true
 	});
 	
-	var _redux = __webpack_require__(4);
+	var _redux = __webpack_require__(1);
 	
-	var _Election = __webpack_require__(77);
+	var _Election = __webpack_require__(74);
 	
 	var _Election2 = _interopRequireDefault(_Election);
 	
@@ -3850,7 +3848,7 @@
 	;
 
 /***/ },
-/* 77 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3859,7 +3857,7 @@
 	    value: true
 	});
 	
-	var _actionTypes = __webpack_require__(78);
+	var _actionTypes = __webpack_require__(75);
 	
 	var types = _interopRequireWildcard(_actionTypes);
 	
@@ -3954,7 +3952,7 @@
 	;
 
 /***/ },
-/* 78 */
+/* 75 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3962,95 +3960,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	// CANDIDATE VIEW ACTIONS
-	var CHANGE_CANDIDATE_SEGMENT = exports.CHANGE_CANDIDATE_SEGMENT = 'CHANGE_CANDIDATE_SEGMENT';
-	var CHANGE_ELECTION_SEGMENT = exports.CHANGE_ELECTION_SEGMENT = 'CHANGE_ELECTION_SEGMENT';
-	
-	var CHANGE_ACTIVE_CANDIDATE = exports.CHANGE_ACTIVE_CANDIDATE = 'CHANGE_ACTIVE_CANDIDATE';
-	var CHANGE_ACTIVE_ELECTION = exports.CHANGE_ACTIVE_ELECTION = 'CHANGE_ACTIVE_ELECTION';
-	
-	// Environment actions
-	var CHANGE_ACTIVE_COMPONENT = exports.CHANGE_ACTIVE_COMPONENT = 'CHANGE_ACTIVE_COMPONENT';
-	
-	// FOR GENERAL ELECTION AND FLORIDA SENATE ELECTION
-	var ECONOMY = exports.ECONOMY = 'ECONOMY';
-	var ECONOMY_A_FAIR_TAX_SYSTEM = exports.ECONOMY_A_FAIR_TAX_SYSTEM = 'ECONOMY_A_FAIR_TAX_SYSTEM';
-	var ECONOMY_FIXING_AMERICAS_INFRASTRUCTURE = exports.ECONOMY_FIXING_AMERICAS_INFRASTRUCTURE = 'ECONOMY_FIXING_AMERICAS_INFRASTRUCTURE';
-	var ECONOMY_MANUFACTURING = exports.ECONOMY_MANUFACTURING = 'ECONOMY_MANUFACTURING';
-	var ECONOMY_SMALL_BUSINESS = exports.ECONOMY_SMALL_BUSINESS = 'ECONOMY_SMALL_BUSINESS';
-	var ECONOMY_SOCIAL_SECURITY_AND_MEDICARE = exports.ECONOMY_SOCIAL_SECURITY_AND_MEDICARE = 'ECONOMY_SOCIAL_SECURITY_AND_MEDICARE';
-	var ECONOMY_WALL_STREET_REFORM = exports.ECONOMY_WALL_STREET_REFORM = 'ECONOMY_WALL_STREET_REFORM';
-	var ECONOMY_WORKS_FOR_EVERYONE = exports.ECONOMY_WORKS_FOR_EVERYONE = 'ECONOMY_WORKS_FOR_EVERYONE';
-	var ECONOMY_REGULATION = exports.ECONOMY_REGULATION = 'ECONOMY_REGULATION';
-	var ECONOMY_TAXPLAN = exports.ECONOMY_TAXPLAN = 'ECONOMY_TAXPLAN';
-	var ECONOMY_TRADE = exports.ECONOMY_TRADE = 'ECONOMY_TRADE';
-	
-	var ECONOMY_FARMERS_RANCHERS = exports.ECONOMY_FARMERS_RANCHERS = 'ECONOMY_FARMERS_RANCHERS';
-	var IMPROVING_EDUCATION = exports.IMPROVING_EDUCATION = 'IMPROVING_EDUCATION';
-	var EDUCATION_COMMON_CORE = exports.EDUCATION_COMMON_CORE = 'EDUCATION_COMMON_CORE';
-	
-	var EDUCATION = exports.EDUCATION = 'EDUCATION';
-	var EDUCATION_CAMPUS_SEXUAL_ASSULT = exports.EDUCATION_CAMPUS_SEXUAL_ASSULT = 'EDUCATION_CAMPUS_SEXUAL_ASSULT';
-	var EDUCATION_COLLEGE_DEBT = exports.EDUCATION_COLLEGE_DEBT = 'EDUCATION_COLLEGE_DEBT';
-	var EDUCATION_EARLY_CHILDHOOD = exports.EDUCATION_EARLY_CHILDHOOD = 'EDUCATION_EARLY_CHILDHOOD';
-	var EDUCATION_K_12 = exports.EDUCATION_K_12 = 'EDUCATION_K_12';
-	var EDUCATION_TECHNOLOGY_AND_INNOVATION = exports.EDUCATION_TECHNOLOGY_AND_INNOVATION = 'EDUCATION_TECHNOLOGY_AND_INNOVATION';
-	
-	var ENVIRONMENT = exports.ENVIRONMENT = 'ENVIRONMENT';
-	var ENVIRONMENT_CLIMATE_CHANGE = exports.ENVIRONMENT_CLIMATE_CHANGE = 'ENVIRONMENT_CLIMATE_CHANGE';
-	var ENVIRONMENT_PROTECTING_ANIMALS_AND_WILDLIFE = exports.ENVIRONMENT_PROTECTING_ANIMALS_AND_WILDLIFE = 'ENVIRONMENT_PROTECTING_ANIMALS_AND_WILDLIFE';
-	var ENVIRONMENT_RURAL_COMMUNITIES = exports.ENVIRONMENT_RURAL_COMMUNITIES = 'ENVIRONMENT_RURAL_COMMUNITIES';
-	var ENVIRONMENT_ENERGY = exports.ENVIRONMENT_ENERGY = 'ENVIRONMENT_ENERGY';
-	
-	var ENVIRONMENT_OUR_ENVIRONMENT = exports.ENVIRONMENT_OUR_ENVIRONMENT = 'ENVIRONMENT_OUR_ENVIRONMENT';
-	
-	var EQUALITY = exports.EQUALITY = 'EQUALITY';
-	var EQUALITY_CAMPAIGN_FINANCE_REFORM = exports.EQUALITY_CAMPAIGN_FINANCE_REFORM = 'EQUALITY_CAMPAIGN_FINANCE_REFORM';
-	var EQUALITY_CRIMINAL_JUSTICE_REFORM = exports.EQUALITY_CRIMINAL_JUSTICE_REFORM = 'EQUALITY_CRIMINAL_JUSTICE_REFORM';
-	var EQUALITY_IMMIGRATION_REFORM = exports.EQUALITY_IMMIGRATION_REFORM = 'EQUALITY_IMMIGRATION_REFORM';
-	var EQUALITY_LFBT_RIGHTS_AND_EQULITY = exports.EQUALITY_LFBT_RIGHTS_AND_EQULITY = 'EQUALITY_LFBT_RIGHTS_AND_EQULITY';
-	var EQUALITY_RACIAL_JUSTICE = exports.EQUALITY_RACIAL_JUSTICE = 'EQUALITY_RACIAL_JUSTICE';
-	var EQUALITY_VOTING_RIGHTS = exports.EQUALITY_VOTING_RIGHTS = 'EQUALITY_VOTING_RIGHTS';
-	var EQUALITY_WOMENS_RIGHTS_AND_OPPORTUNITY = exports.EQUALITY_WOMENS_RIGHTS_AND_OPPORTUNITY = 'EQUALITY_WOMENS_RIGHTS_AND_OPPORTUNITY';
-	var EQUALITY_GUN_CONTROL = exports.EQUALITY_GUN_CONTROL = 'EQUALITY_GUN_CONTROL';
-	
-	var EQUALITY_SENIORS = exports.EQUALITY_SENIORS = 'EQUALITY_SENIORS';
-	
-	var HEALTH = exports.HEALTH = 'HEALTH';
-	var HEALTH_ADDICATION_AND_SUBSTANCE_USE = exports.HEALTH_ADDICATION_AND_SUBSTANCE_USE = 'HEALTH_ADDICATION_AND_SUBSTANCE_USE';
-	var HEALTH_AN_END_T0_ALZHEIMERS = exports.HEALTH_AN_END_T0_ALZHEIMERS = 'HEALTH_AN_END_T0_ALZHEIMERS';
-	var HEALTH_AUTISM = exports.HEALTH_AUTISM = 'HEALTH_AUTISM';
-	var HEALTH_DISABILITY_RIGHTS = exports.HEALTH_DISABILITY_RIGHTS = 'HEALTH_DISABILITY_RIGHTS';
-	var HEALTH_HEALTH_CARE = exports.HEALTH_HEALTH_CARE = 'HEALTH_HEALTH_CARE';
-	var HEALTH_HIV_AND_AIDS = exports.HEALTH_HIV_AND_AIDS = 'HEALTH_HIV_AND_AIDS';
-	var HEALTH_CHILD_CARE = exports.HEALTH_CHILD_CARE = 'HEALTH_CHILD_CARE';
-	
-	var HEALTHCARE = exports.HEALTHCARE = 'HEALTHCARE';
-	var JOBS = exports.JOBS = 'JOBS';
-	var JOBS_PAID_FAMILY_AND_MEDICAL_LEAVE = exports.JOBS_PAID_FAMILY_AND_MEDICAL_LEAVE = 'JOBS_PAID_FAMILY_AND_MEDICAL_LEAVE';
-	var JOBS_LABOR_AND_WORKERS_RIGHTS = exports.JOBS_LABOR_AND_WORKERS_RIGHTS = 'JOBS_LABOR_AND_WORKERS_RIGHTS';
-	var JOBS_VETERANS_THE_ARMED_FORCES_AND_THEIR_FAMILIES = exports.JOBS_VETERANS_THE_ARMED_FORCES_AND_THEIR_FAMILIES = 'JOBS_VETERANS_THE_ARMED_FORCES_AND_THEIR_FAMILIES';
-	var JOBS_WAGES = exports.JOBS_WAGES = 'JOBS_WAGES';
-	var JOBS_WORKFORCE_SKILLS_AND_JOBS_TRAINING = exports.JOBS_WORKFORCE_SKILLS_AND_JOBS_TRAINING = 'JOBS_WORKFORCE_SKILLS_AND_JOBS_TRAINING';
-	
-	var SECURITY = exports.SECURITY = 'SECURITY';
-	var SECURITY_COMBATING_TERRORISM = exports.SECURITY_COMBATING_TERRORISM = 'SECURITY_COMBATING_TERRORISM';
-	var SECUTIRY_GUN_VIOLENCE = exports.SECUTIRY_GUN_VIOLENCE = 'SECUTIRY_GUN_VIOLENCE';
-	var SECURITY_MILITARY_AND_DEFENSE = exports.SECURITY_MILITARY_AND_DEFENSE = 'SECURITY_MILITARY_AND_DEFENSE';
-	var SECURITY_NATIONAL_SECURITY = exports.SECURITY_NATIONAL_SECURITY = 'SECURITY_NATIONAL_SECURITY';
-	var SECURITY_FOREGIN_POLICY = exports.SECURITY_FOREGIN_POLICY = 'SECURITY_FOREGIN_POLICY';
-	
 	var RESET = exports.RESET = 'RESET';
-	
-	// ELECTION INFO 
-	var RUBIO = exports.RUBIO = 'RUBIO';
-	var MURPHY = exports.MURPHY = 'MURPHY';
-	var TRUMP = exports.TRUMP = 'TRUMP';
-	var CLINTON = exports.CLINTON = 'CLINTON';
-	var GENERAL_ELECTION = exports.GENERAL_ELECTION = 'GENERAL_ELECTION';
-	var FLORIDA_SENATE = exports.FLORIDA_SENATE = 'FLORIDA_SENATE';
-	var REPUBLICAN = exports.REPUBLICAN = 'REPUBLICAN';
-	var DEMOCRAT = exports.DEMOCRAT = 'DEMOCRAT';
 	;
 	
 	var _temp = function () {
@@ -4058,147 +3968,7 @@
 	    return;
 	  }
 	
-	  __REACT_HOT_LOADER__.register(CHANGE_CANDIDATE_SEGMENT, 'CHANGE_CANDIDATE_SEGMENT', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(CHANGE_ELECTION_SEGMENT, 'CHANGE_ELECTION_SEGMENT', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(CHANGE_ACTIVE_CANDIDATE, 'CHANGE_ACTIVE_CANDIDATE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(CHANGE_ACTIVE_ELECTION, 'CHANGE_ACTIVE_ELECTION', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(CHANGE_ACTIVE_COMPONENT, 'CHANGE_ACTIVE_COMPONENT', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(ECONOMY, 'ECONOMY', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(ECONOMY_A_FAIR_TAX_SYSTEM, 'ECONOMY_A_FAIR_TAX_SYSTEM', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(ECONOMY_FIXING_AMERICAS_INFRASTRUCTURE, 'ECONOMY_FIXING_AMERICAS_INFRASTRUCTURE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(ECONOMY_MANUFACTURING, 'ECONOMY_MANUFACTURING', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(ECONOMY_SMALL_BUSINESS, 'ECONOMY_SMALL_BUSINESS', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(ECONOMY_SOCIAL_SECURITY_AND_MEDICARE, 'ECONOMY_SOCIAL_SECURITY_AND_MEDICARE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(ECONOMY_WALL_STREET_REFORM, 'ECONOMY_WALL_STREET_REFORM', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(ECONOMY_WORKS_FOR_EVERYONE, 'ECONOMY_WORKS_FOR_EVERYONE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(ECONOMY_REGULATION, 'ECONOMY_REGULATION', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(ECONOMY_TAXPLAN, 'ECONOMY_TAXPLAN', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(ECONOMY_TRADE, 'ECONOMY_TRADE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(ECONOMY_FARMERS_RANCHERS, 'ECONOMY_FARMERS_RANCHERS', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(IMPROVING_EDUCATION, 'IMPROVING_EDUCATION', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(EDUCATION_COMMON_CORE, 'EDUCATION_COMMON_CORE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(EDUCATION, 'EDUCATION', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(EDUCATION_CAMPUS_SEXUAL_ASSULT, 'EDUCATION_CAMPUS_SEXUAL_ASSULT', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(EDUCATION_COLLEGE_DEBT, 'EDUCATION_COLLEGE_DEBT', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(EDUCATION_EARLY_CHILDHOOD, 'EDUCATION_EARLY_CHILDHOOD', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(EDUCATION_K_12, 'EDUCATION_K_12', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(EDUCATION_TECHNOLOGY_AND_INNOVATION, 'EDUCATION_TECHNOLOGY_AND_INNOVATION', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(ENVIRONMENT, 'ENVIRONMENT', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(ENVIRONMENT_CLIMATE_CHANGE, 'ENVIRONMENT_CLIMATE_CHANGE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(ENVIRONMENT_PROTECTING_ANIMALS_AND_WILDLIFE, 'ENVIRONMENT_PROTECTING_ANIMALS_AND_WILDLIFE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(ENVIRONMENT_RURAL_COMMUNITIES, 'ENVIRONMENT_RURAL_COMMUNITIES', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(ENVIRONMENT_ENERGY, 'ENVIRONMENT_ENERGY', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(ENVIRONMENT_OUR_ENVIRONMENT, 'ENVIRONMENT_OUR_ENVIRONMENT', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(EQUALITY, 'EQUALITY', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(EQUALITY_CAMPAIGN_FINANCE_REFORM, 'EQUALITY_CAMPAIGN_FINANCE_REFORM', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(EQUALITY_CRIMINAL_JUSTICE_REFORM, 'EQUALITY_CRIMINAL_JUSTICE_REFORM', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(EQUALITY_IMMIGRATION_REFORM, 'EQUALITY_IMMIGRATION_REFORM', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(EQUALITY_LFBT_RIGHTS_AND_EQULITY, 'EQUALITY_LFBT_RIGHTS_AND_EQULITY', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(EQUALITY_RACIAL_JUSTICE, 'EQUALITY_RACIAL_JUSTICE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(EQUALITY_VOTING_RIGHTS, 'EQUALITY_VOTING_RIGHTS', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(EQUALITY_WOMENS_RIGHTS_AND_OPPORTUNITY, 'EQUALITY_WOMENS_RIGHTS_AND_OPPORTUNITY', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(EQUALITY_GUN_CONTROL, 'EQUALITY_GUN_CONTROL', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(EQUALITY_SENIORS, 'EQUALITY_SENIORS', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(HEALTH, 'HEALTH', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(HEALTH_ADDICATION_AND_SUBSTANCE_USE, 'HEALTH_ADDICATION_AND_SUBSTANCE_USE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(HEALTH_AN_END_T0_ALZHEIMERS, 'HEALTH_AN_END_T0_ALZHEIMERS', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(HEALTH_AUTISM, 'HEALTH_AUTISM', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(HEALTH_DISABILITY_RIGHTS, 'HEALTH_DISABILITY_RIGHTS', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(HEALTH_HEALTH_CARE, 'HEALTH_HEALTH_CARE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(HEALTH_HIV_AND_AIDS, 'HEALTH_HIV_AND_AIDS', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(HEALTH_CHILD_CARE, 'HEALTH_CHILD_CARE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(HEALTHCARE, 'HEALTHCARE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(JOBS, 'JOBS', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(JOBS_PAID_FAMILY_AND_MEDICAL_LEAVE, 'JOBS_PAID_FAMILY_AND_MEDICAL_LEAVE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(JOBS_LABOR_AND_WORKERS_RIGHTS, 'JOBS_LABOR_AND_WORKERS_RIGHTS', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(JOBS_VETERANS_THE_ARMED_FORCES_AND_THEIR_FAMILIES, 'JOBS_VETERANS_THE_ARMED_FORCES_AND_THEIR_FAMILIES', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(JOBS_WAGES, 'JOBS_WAGES', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(JOBS_WORKFORCE_SKILLS_AND_JOBS_TRAINING, 'JOBS_WORKFORCE_SKILLS_AND_JOBS_TRAINING', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(SECURITY, 'SECURITY', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(SECURITY_COMBATING_TERRORISM, 'SECURITY_COMBATING_TERRORISM', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(SECUTIRY_GUN_VIOLENCE, 'SECUTIRY_GUN_VIOLENCE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(SECURITY_MILITARY_AND_DEFENSE, 'SECURITY_MILITARY_AND_DEFENSE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(SECURITY_NATIONAL_SECURITY, 'SECURITY_NATIONAL_SECURITY', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(SECURITY_FOREGIN_POLICY, 'SECURITY_FOREGIN_POLICY', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
 	  __REACT_HOT_LOADER__.register(RESET, 'RESET', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(RUBIO, 'RUBIO', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(MURPHY, 'MURPHY', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(TRUMP, 'TRUMP', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(CLINTON, 'CLINTON', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(GENERAL_ELECTION, 'GENERAL_ELECTION', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(FLORIDA_SENATE, 'FLORIDA_SENATE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(REPUBLICAN, 'REPUBLICAN', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
-	
-	  __REACT_HOT_LOADER__.register(DEMOCRAT, 'DEMOCRAT', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
 	}();
 
 	;

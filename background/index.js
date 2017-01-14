@@ -21,14 +21,14 @@ wrapStore(store, {
 });
 
 
-// //Inject content Script on each tab change//
-chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-  console.log('content script injected')
-  chrome.tabs.executeScript(null, {file: 'content.js'});
-}); 
+// // //Inject content Script on each tab change//
+// chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+//   console.log('content script injected')
+//   chrome.tabs.executeScript(null, {file: 'content.js'});
+// }); 
 
-//Inject content script when first tab is activated//
-chrome.tabs.onActivated.addListener(function(tabId, changeInfo, tab) {
-  console.log('content script injected')
-  chrome.tabs.executeScript(null, {file: 'content.js'});
-});
+// //Inject content script when first tab is activated//
+// chrome.tabs.onActivated.addListener(function(tabId, changeInfo, tab) {
+//   console.log('content script injected')
+//   chrome.tabs.executeScript(null, {file: 'content.js'});
+// });

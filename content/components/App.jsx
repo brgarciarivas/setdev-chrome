@@ -7,11 +7,11 @@ class App extends Component {
         super(props);
     }
 
-    componentDidMount() {
+    // componentDidMount() {
         
-        setStateFromKeywords(this.props.dispatch);
+    //     setStateFromKeywords(this.props.dispatch);
       
-    }
+    // }
 
     render() {
         return (
