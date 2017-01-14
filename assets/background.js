@@ -1,41 +1,41 @@
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-
+/******/
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-
+/******/
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			exports: {},
 /******/ 			id: moduleId,
 /******/ 			loaded: false
 /******/ 		};
-
+/******/
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-
-
+/******/
+/******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-
+/******/
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-
+/******/
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "/assets";
-
+/******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
 /******/ })
@@ -45,136 +45,156 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-
-	var _redux = __webpack_require__(1);
-
-	var _reducers = __webpack_require__(17);
-
-	var _reducers2 = _interopRequireDefault(_reducers);
-
-	var _reduxLogger = __webpack_require__(19);
-
+	
+	var _redux = __webpack_require__(25);
+	
+	var _reduxLogger = __webpack_require__(41);
+	
 	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
-
-	var _reduxThunk = __webpack_require__(25);
-
+	
+	var _reduxThunk = __webpack_require__(47);
+	
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
-
-	var _reactChromeRedux = __webpack_require__(26);
-
+	
+	var _reactChromeRedux = __webpack_require__(48);
+	
+	var _reducers = __webpack_require__(97);
+	
+	var _reducers2 = _interopRequireDefault(_reducers);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+	
 	var logger = (0, _reduxLogger2.default)({
-	  level: 'info',
-	  collapsed: true
+	    level: 'info',
+	    collapsed: true
 	});
-
+	
 	var middleware = [_reduxThunk2.default, logger];
-
+	
 	var store = (0, _redux.compose)(_redux.applyMiddleware.apply(undefined, middleware))(_redux.createStore)(_reducers2.default);
-
+	
 	(0, _reactChromeRedux.wrapStore)(store, {
-	  portName: 'example'
+	    portName: 'setgov'
 	});
-
-	// ////////////////////////////////////////////
+	
 	// //Inject content Script on each tab change//
-	// ////////////////////////////////////////////
-	// chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-	//   console.log('content script injected')
-	//   chrome.tabs.executeScript(null, {file: "content.js"});
-	// }); 
-
-	/////////////////////////////////////////////////////
+	chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+	    console.log('content script injected');
+	    chrome.tabs.executeScript(null, { file: 'content.js' });
+	});
+	
 	//Inject content script when first tab is activated//
-	///////////////////////////////////////////////////// 
 	chrome.tabs.onActivated.addListener(function (tabId, changeInfo, tab) {
-	  console.log('content script injected');
-	  chrome.tabs.executeScript(null, { file: "content.js" });
+	    console.log('content script injected');
+	    chrome.tabs.executeScript(null, { file: 'content.js' });
 	});
 	;
-
+	
 	var _temp = function () {
-	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	    return;
-	  }
-
-	  __REACT_HOT_LOADER__.register(logger, 'logger', '/Users/BernSternWhoEarns/Documents/react-chrome-redux-boilerplate/background/index.js');
-
-	  __REACT_HOT_LOADER__.register(middleware, 'middleware', '/Users/BernSternWhoEarns/Documents/react-chrome-redux-boilerplate/background/index.js');
-
-	  __REACT_HOT_LOADER__.register(store, 'store', '/Users/BernSternWhoEarns/Documents/react-chrome-redux-boilerplate/background/index.js');
+	    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+	        return;
+	    }
+	
+	    __REACT_HOT_LOADER__.register(logger, 'logger', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/index.js');
+	
+	    __REACT_HOT_LOADER__.register(middleware, 'middleware', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/index.js');
+	
+	    __REACT_HOT_LOADER__.register(store, 'store', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/index.js');
 	}();
 
 	;
 
 /***/ },
-/* 1 */
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-
+	
 	exports.__esModule = true;
 	exports.compose = exports.applyMiddleware = exports.bindActionCreators = exports.combineReducers = exports.createStore = undefined;
-
-	var _createStore = __webpack_require__(3);
-
+	
+	var _createStore = __webpack_require__(27);
+	
 	var _createStore2 = _interopRequireDefault(_createStore);
-
-	var _combineReducers = __webpack_require__(12);
-
+	
+	var _combineReducers = __webpack_require__(36);
+	
 	var _combineReducers2 = _interopRequireDefault(_combineReducers);
-
-	var _bindActionCreators = __webpack_require__(14);
-
+	
+	var _bindActionCreators = __webpack_require__(38);
+	
 	var _bindActionCreators2 = _interopRequireDefault(_bindActionCreators);
-
-	var _applyMiddleware = __webpack_require__(15);
-
+	
+	var _applyMiddleware = __webpack_require__(39);
+	
 	var _applyMiddleware2 = _interopRequireDefault(_applyMiddleware);
-
-	var _compose = __webpack_require__(16);
-
+	
+	var _compose = __webpack_require__(40);
+	
 	var _compose2 = _interopRequireDefault(_compose);
-
-	var _warning = __webpack_require__(13);
-
+	
+	var _warning = __webpack_require__(37);
+	
 	var _warning2 = _interopRequireDefault(_warning);
-
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
+	
 	/*
 	* This is a dummy function to check if the function name has been altered by minification.
 	* If the function has been minified and NODE_ENV !== 'production', warn the user.
 	*/
 	function isCrushed() {}
-
+	
 	if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
 	  (0, _warning2['default'])('You are currently using minified code outside of NODE_ENV === \'production\'. ' + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) ' + 'to ensure you have the correct code for your production build.');
 	}
-
+	
 	exports.createStore = _createStore2['default'];
 	exports.combineReducers = _combineReducers2['default'];
 	exports.bindActionCreators = _bindActionCreators2['default'];
 	exports.applyMiddleware = _applyMiddleware2['default'];
 	exports.compose = _compose2['default'];
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(26)))
 
 /***/ },
-/* 2 */
+/* 26 */
 /***/ function(module, exports) {
 
 	// shim for using process in browser
 	var process = module.exports = {};
-
+	
 	// cached from whatever global is present so that test runners that stub it
 	// don't break things.  But we need to wrap it in a try catch in case it is
 	// wrapped in strict mode code which doesn't define any globals.  It's inside a
 	// function because try/catches deoptimize in certain engines.
-
+	
 	var cachedSetTimeout;
 	var cachedClearTimeout;
-
+	
 	function defaultSetTimout() {
 	    throw new Error('setTimeout has not been defined');
 	}
@@ -223,8 +243,8 @@
 	            return cachedSetTimeout.call(this, fun, 0);
 	        }
 	    }
-
-
+	
+	
 	}
 	function runClearTimeout(marker) {
 	    if (cachedClearTimeout === clearTimeout) {
@@ -249,15 +269,15 @@
 	            return cachedClearTimeout.call(this, marker);
 	        }
 	    }
-
-
-
+	
+	
+	
 	}
 	var queue = [];
 	var draining = false;
 	var currentQueue;
 	var queueIndex = -1;
-
+	
 	function cleanUpNextTick() {
 	    if (!draining || !currentQueue) {
 	        return;
@@ -272,14 +292,14 @@
 	        drainQueue();
 	    }
 	}
-
+	
 	function drainQueue() {
 	    if (draining) {
 	        return;
 	    }
 	    var timeout = runTimeout(cleanUpNextTick);
 	    draining = true;
-
+	
 	    var len = queue.length;
 	    while(len) {
 	        currentQueue = queue;
@@ -296,7 +316,7 @@
 	    draining = false;
 	    runClearTimeout(timeout);
 	}
-
+	
 	process.nextTick = function (fun) {
 	    var args = new Array(arguments.length - 1);
 	    if (arguments.length > 1) {
@@ -309,7 +329,7 @@
 	        runTimeout(drainQueue);
 	    }
 	};
-
+	
 	// v8 likes predictible objects
 	function Item(fun, array) {
 	    this.fun = fun;
@@ -324,9 +344,9 @@
 	process.argv = [];
 	process.version = ''; // empty string to avoid regexp issues
 	process.versions = {};
-
+	
 	function noop() {}
-
+	
 	process.on = noop;
 	process.addListener = noop;
 	process.once = noop;
@@ -334,11 +354,11 @@
 	process.removeListener = noop;
 	process.removeAllListeners = noop;
 	process.emit = noop;
-
+	
 	process.binding = function (name) {
 	    throw new Error('process.binding is not supported');
 	};
-
+	
 	process.cwd = function () { return '/' };
 	process.chdir = function (dir) {
 	    throw new Error('process.chdir is not supported');
@@ -347,25 +367,25 @@
 
 
 /***/ },
-/* 3 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-
+	
 	exports.__esModule = true;
 	exports.ActionTypes = undefined;
 	exports['default'] = createStore;
-
-	var _isPlainObject = __webpack_require__(4);
-
+	
+	var _isPlainObject = __webpack_require__(28);
+	
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
-
-	var _symbolObservable = __webpack_require__(8);
-
+	
+	var _symbolObservable = __webpack_require__(32);
+	
 	var _symbolObservable2 = _interopRequireDefault(_symbolObservable);
-
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
+	
 	/**
 	 * These are private action types reserved by Redux.
 	 * For any unknown actions, you must return the current state.
@@ -375,7 +395,7 @@
 	var ActionTypes = exports.ActionTypes = {
 	  INIT: '@@redux/INIT'
 	};
-
+	
 	/**
 	 * Creates a Redux store that holds the state tree.
 	 * The only way to change the data in the store is to call `dispatch()` on it.
@@ -403,36 +423,36 @@
 	 */
 	function createStore(reducer, preloadedState, enhancer) {
 	  var _ref2;
-
+	
 	  if (typeof preloadedState === 'function' && typeof enhancer === 'undefined') {
 	    enhancer = preloadedState;
 	    preloadedState = undefined;
 	  }
-
+	
 	  if (typeof enhancer !== 'undefined') {
 	    if (typeof enhancer !== 'function') {
 	      throw new Error('Expected the enhancer to be a function.');
 	    }
-
+	
 	    return enhancer(createStore)(reducer, preloadedState);
 	  }
-
+	
 	  if (typeof reducer !== 'function') {
 	    throw new Error('Expected the reducer to be a function.');
 	  }
-
+	
 	  var currentReducer = reducer;
 	  var currentState = preloadedState;
 	  var currentListeners = [];
 	  var nextListeners = currentListeners;
 	  var isDispatching = false;
-
+	
 	  function ensureCanMutateNextListeners() {
 	    if (nextListeners === currentListeners) {
 	      nextListeners = currentListeners.slice();
 	    }
 	  }
-
+	
 	  /**
 	   * Reads the state tree managed by the store.
 	   *
@@ -441,7 +461,7 @@
 	  function getState() {
 	    return currentState;
 	  }
-
+	
 	  /**
 	   * Adds a change listener. It will be called any time an action is dispatched,
 	   * and some part of the state tree may potentially have changed. You may then
@@ -469,25 +489,25 @@
 	    if (typeof listener !== 'function') {
 	      throw new Error('Expected listener to be a function.');
 	    }
-
+	
 	    var isSubscribed = true;
-
+	
 	    ensureCanMutateNextListeners();
 	    nextListeners.push(listener);
-
+	
 	    return function unsubscribe() {
 	      if (!isSubscribed) {
 	        return;
 	      }
-
+	
 	      isSubscribed = false;
-
+	
 	      ensureCanMutateNextListeners();
 	      var index = nextListeners.indexOf(listener);
 	      nextListeners.splice(index, 1);
 	    };
 	  }
-
+	
 	  /**
 	   * Dispatches an action. It is the only way to trigger a state change.
 	   *
@@ -517,30 +537,30 @@
 	    if (!(0, _isPlainObject2['default'])(action)) {
 	      throw new Error('Actions must be plain objects. ' + 'Use custom middleware for async actions.');
 	    }
-
+	
 	    if (typeof action.type === 'undefined') {
 	      throw new Error('Actions may not have an undefined "type" property. ' + 'Have you misspelled a constant?');
 	    }
-
+	
 	    if (isDispatching) {
 	      throw new Error('Reducers may not dispatch actions.');
 	    }
-
+	
 	    try {
 	      isDispatching = true;
 	      currentState = currentReducer(currentState, action);
 	    } finally {
 	      isDispatching = false;
 	    }
-
+	
 	    var listeners = currentListeners = nextListeners;
 	    for (var i = 0; i < listeners.length; i++) {
 	      listeners[i]();
 	    }
-
+	
 	    return action;
 	  }
-
+	
 	  /**
 	   * Replaces the reducer currently used by the store to calculate the state.
 	   *
@@ -555,11 +575,11 @@
 	    if (typeof nextReducer !== 'function') {
 	      throw new Error('Expected the nextReducer to be a function.');
 	    }
-
+	
 	    currentReducer = nextReducer;
 	    dispatch({ type: ActionTypes.INIT });
 	  }
-
+	
 	  /**
 	   * Interoperability point for observable/reactive libraries.
 	   * @returns {observable} A minimal observable of state changes.
@@ -568,7 +588,7 @@
 	   */
 	  function observable() {
 	    var _ref;
-
+	
 	    var outerSubscribe = subscribe;
 	    return _ref = {
 	      /**
@@ -583,13 +603,13 @@
 	        if (typeof observer !== 'object') {
 	          throw new TypeError('Expected the observer to be an object.');
 	        }
-
+	
 	        function observeState() {
 	          if (observer.next) {
 	            observer.next(getState());
 	          }
 	        }
-
+	
 	        observeState();
 	        var unsubscribe = outerSubscribe(observeState);
 	        return { unsubscribe: unsubscribe };
@@ -598,12 +618,12 @@
 	      return this;
 	    }, _ref;
 	  }
-
+	
 	  // When a store is created, an "INIT" action is dispatched so that every
 	  // reducer returns their initial state. This effectively populates
 	  // the initial state tree.
 	  dispatch({ type: ActionTypes.INIT });
-
+	
 	  return _ref2 = {
 	    dispatch: dispatch,
 	    subscribe: subscribe,
@@ -613,35 +633,35 @@
 	}
 
 /***/ },
-/* 4 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getPrototype = __webpack_require__(5),
-	    isObjectLike = __webpack_require__(7);
-
+	var getPrototype = __webpack_require__(29),
+	    isObjectLike = __webpack_require__(31);
+	
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
-
+	
 	/** Used for built-in method references. */
 	var funcProto = Function.prototype,
 	    objectProto = Object.prototype;
-
+	
 	/** Used to resolve the decompiled source of functions. */
 	var funcToString = funcProto.toString;
-
+	
 	/** Used to check objects for own properties. */
 	var hasOwnProperty = objectProto.hasOwnProperty;
-
+	
 	/** Used to infer the `Object` constructor. */
 	var objectCtorString = funcToString.call(Object);
-
+	
 	/**
 	 * Used to resolve the
 	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
 	 * of values.
 	 */
 	var objectToString = objectProto.toString;
-
+	
 	/**
 	 * Checks if `value` is a plain object, that is, an object created by the
 	 * `Object` constructor or one with a `[[Prototype]]` of `null`.
@@ -682,24 +702,24 @@
 	  return (typeof Ctor == 'function' &&
 	    Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString);
 	}
-
+	
 	module.exports = isPlainObject;
 
 
 /***/ },
-/* 5 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var overArg = __webpack_require__(6);
-
+	var overArg = __webpack_require__(30);
+	
 	/** Built-in value references. */
 	var getPrototype = overArg(Object.getPrototypeOf, Object);
-
+	
 	module.exports = getPrototype;
 
 
 /***/ },
-/* 6 */
+/* 30 */
 /***/ function(module, exports) {
 
 	/**
@@ -715,12 +735,12 @@
 	    return func(transform(arg));
 	  };
 	}
-
+	
 	module.exports = overArg;
 
 
 /***/ },
-/* 7 */
+/* 31 */
 /***/ function(module, exports) {
 
 	/**
@@ -750,52 +770,54 @@
 	function isObjectLike(value) {
 	  return value != null && typeof value == 'object';
 	}
-
+	
 	module.exports = isObjectLike;
 
 
 /***/ },
-/* 8 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(9);
+	module.exports = __webpack_require__(33);
 
 
 /***/ },
-/* 9 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(module, global) {'use strict';
-
+	/* WEBPACK VAR INJECTION */(function(global, module) {'use strict';
+	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-
-	var _ponyfill = __webpack_require__(11);
-
+	
+	var _ponyfill = __webpack_require__(35);
+	
 	var _ponyfill2 = _interopRequireDefault(_ponyfill);
-
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var root = module; /* global window */
-
-
+	
+	var root; /* global window */
+	
+	
 	if (typeof self !== 'undefined') {
 	  root = self;
 	} else if (typeof window !== 'undefined') {
 	  root = window;
 	} else if (typeof global !== 'undefined') {
 	  root = global;
+	} else if (true) {
+	  root = module;
 	} else {
 	  root = Function('return this')();
 	}
-
+	
 	var result = (0, _ponyfill2['default'])(root);
 	exports['default'] = result;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(34)(module)))
 
 /***/ },
-/* 10 */
+/* 34 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -811,11 +833,11 @@
 
 
 /***/ },
-/* 11 */
+/* 35 */
 /***/ function(module, exports) {
 
 	'use strict';
-
+	
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
@@ -823,7 +845,7 @@
 	function symbolObservablePonyfill(root) {
 		var result;
 		var _Symbol = root.Symbol;
-
+	
 		if (typeof _Symbol === 'function') {
 			if (_Symbol.observable) {
 				result = _Symbol.observable;
@@ -834,79 +856,79 @@
 		} else {
 			result = '@@observable';
 		}
-
+	
 		return result;
 	};
 
 /***/ },
-/* 12 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-
+	
 	exports.__esModule = true;
 	exports['default'] = combineReducers;
-
-	var _createStore = __webpack_require__(3);
-
-	var _isPlainObject = __webpack_require__(4);
-
+	
+	var _createStore = __webpack_require__(27);
+	
+	var _isPlainObject = __webpack_require__(28);
+	
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
-
-	var _warning = __webpack_require__(13);
-
+	
+	var _warning = __webpack_require__(37);
+	
 	var _warning2 = _interopRequireDefault(_warning);
-
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
+	
 	function getUndefinedStateErrorMessage(key, action) {
 	  var actionType = action && action.type;
 	  var actionName = actionType && '"' + actionType.toString() + '"' || 'an action';
-
+	
 	  return 'Given action ' + actionName + ', reducer "' + key + '" returned undefined. ' + 'To ignore an action, you must explicitly return the previous state.';
 	}
-
+	
 	function getUnexpectedStateShapeWarningMessage(inputState, reducers, action, unexpectedKeyCache) {
 	  var reducerKeys = Object.keys(reducers);
 	  var argumentName = action && action.type === _createStore.ActionTypes.INIT ? 'preloadedState argument passed to createStore' : 'previous state received by the reducer';
-
+	
 	  if (reducerKeys.length === 0) {
 	    return 'Store does not have a valid reducer. Make sure the argument passed ' + 'to combineReducers is an object whose values are reducers.';
 	  }
-
+	
 	  if (!(0, _isPlainObject2['default'])(inputState)) {
 	    return 'The ' + argumentName + ' has unexpected type of "' + {}.toString.call(inputState).match(/\s([a-z|A-Z]+)/)[1] + '". Expected argument to be an object with the following ' + ('keys: "' + reducerKeys.join('", "') + '"');
 	  }
-
+	
 	  var unexpectedKeys = Object.keys(inputState).filter(function (key) {
 	    return !reducers.hasOwnProperty(key) && !unexpectedKeyCache[key];
 	  });
-
+	
 	  unexpectedKeys.forEach(function (key) {
 	    unexpectedKeyCache[key] = true;
 	  });
-
+	
 	  if (unexpectedKeys.length > 0) {
 	    return 'Unexpected ' + (unexpectedKeys.length > 1 ? 'keys' : 'key') + ' ' + ('"' + unexpectedKeys.join('", "') + '" found in ' + argumentName + '. ') + 'Expected to find one of the known reducer keys instead: ' + ('"' + reducerKeys.join('", "') + '". Unexpected keys will be ignored.');
 	  }
 	}
-
+	
 	function assertReducerSanity(reducers) {
 	  Object.keys(reducers).forEach(function (key) {
 	    var reducer = reducers[key];
 	    var initialState = reducer(undefined, { type: _createStore.ActionTypes.INIT });
-
+	
 	    if (typeof initialState === 'undefined') {
 	      throw new Error('Reducer "' + key + '" returned undefined during initialization. ' + 'If the state passed to the reducer is undefined, you must ' + 'explicitly return the initial state. The initial state may ' + 'not be undefined.');
 	    }
-
+	
 	    var type = '@@redux/PROBE_UNKNOWN_ACTION_' + Math.random().toString(36).substring(7).split('').join('.');
 	    if (typeof reducer(undefined, { type: type }) === 'undefined') {
 	      throw new Error('Reducer "' + key + '" returned undefined when probed with a random type. ' + ('Don\'t try to handle ' + _createStore.ActionTypes.INIT + ' or other actions in "redux/*" ') + 'namespace. They are considered private. Instead, you must return the ' + 'current state for any unknown actions, unless it is undefined, ' + 'in which case you must return the initial state, regardless of the ' + 'action type. The initial state may not be undefined.');
 	    }
 	  });
 	}
-
+	
 	/**
 	 * Turns an object whose values are different reducer functions, into a single
 	 * reducer function. It will call every child reducer, and gather their results
@@ -928,45 +950,45 @@
 	  var finalReducers = {};
 	  for (var i = 0; i < reducerKeys.length; i++) {
 	    var key = reducerKeys[i];
-
+	
 	    if (process.env.NODE_ENV !== 'production') {
 	      if (typeof reducers[key] === 'undefined') {
 	        (0, _warning2['default'])('No reducer provided for key "' + key + '"');
 	      }
 	    }
-
+	
 	    if (typeof reducers[key] === 'function') {
 	      finalReducers[key] = reducers[key];
 	    }
 	  }
 	  var finalReducerKeys = Object.keys(finalReducers);
-
+	
 	  if (process.env.NODE_ENV !== 'production') {
 	    var unexpectedKeyCache = {};
 	  }
-
+	
 	  var sanityError;
 	  try {
 	    assertReducerSanity(finalReducers);
 	  } catch (e) {
 	    sanityError = e;
 	  }
-
+	
 	  return function combination() {
 	    var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 	    var action = arguments[1];
-
+	
 	    if (sanityError) {
 	      throw sanityError;
 	    }
-
+	
 	    if (process.env.NODE_ENV !== 'production') {
 	      var warningMessage = getUnexpectedStateShapeWarningMessage(state, finalReducers, action, unexpectedKeyCache);
 	      if (warningMessage) {
 	        (0, _warning2['default'])(warningMessage);
 	      }
 	    }
-
+	
 	    var hasChanged = false;
 	    var nextState = {};
 	    for (var i = 0; i < finalReducerKeys.length; i++) {
@@ -984,14 +1006,14 @@
 	    return hasChanged ? nextState : state;
 	  };
 	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(26)))
 
 /***/ },
-/* 13 */
+/* 37 */
 /***/ function(module, exports) {
 
 	'use strict';
-
+	
 	exports.__esModule = true;
 	exports['default'] = warning;
 	/**
@@ -1017,11 +1039,11 @@
 	}
 
 /***/ },
-/* 14 */
+/* 38 */
 /***/ function(module, exports) {
 
 	'use strict';
-
+	
 	exports.__esModule = true;
 	exports['default'] = bindActionCreators;
 	function bindActionCreator(actionCreator, dispatch) {
@@ -1029,7 +1051,7 @@
 	    return dispatch(actionCreator.apply(undefined, arguments));
 	  };
 	}
-
+	
 	/**
 	 * Turns an object whose values are action creators, into an object with the
 	 * same keys, but with every function wrapped into a `dispatch` call so they
@@ -1055,11 +1077,11 @@
 	  if (typeof actionCreators === 'function') {
 	    return bindActionCreator(actionCreators, dispatch);
 	  }
-
+	
 	  if (typeof actionCreators !== 'object' || actionCreators === null) {
 	    throw new Error('bindActionCreators expected an object or a function, instead received ' + (actionCreators === null ? 'null' : typeof actionCreators) + '. ' + 'Did you write "import ActionCreators from" instead of "import * as ActionCreators from"?');
 	  }
-
+	
 	  var keys = Object.keys(actionCreators);
 	  var boundActionCreators = {};
 	  for (var i = 0; i < keys.length; i++) {
@@ -1073,23 +1095,23 @@
 	}
 
 /***/ },
-/* 15 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-
+	
 	exports.__esModule = true;
-
+	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
+	
 	exports['default'] = applyMiddleware;
-
-	var _compose = __webpack_require__(16);
-
+	
+	var _compose = __webpack_require__(40);
+	
 	var _compose2 = _interopRequireDefault(_compose);
-
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
+	
 	/**
 	 * Creates a store enhancer that applies middleware to the dispatch method
 	 * of the Redux store. This is handy for a variety of tasks, such as expressing
@@ -1110,13 +1132,13 @@
 	  for (var _len = arguments.length, middlewares = Array(_len), _key = 0; _key < _len; _key++) {
 	    middlewares[_key] = arguments[_key];
 	  }
-
+	
 	  return function (createStore) {
 	    return function (reducer, preloadedState, enhancer) {
 	      var store = createStore(reducer, preloadedState, enhancer);
 	      var _dispatch = store.dispatch;
 	      var chain = [];
-
+	
 	      var middlewareAPI = {
 	        getState: store.getState,
 	        dispatch: function dispatch(action) {
@@ -1127,7 +1149,7 @@
 	        return middleware(middlewareAPI);
 	      });
 	      _dispatch = _compose2['default'].apply(undefined, chain)(store.dispatch);
-
+	
 	      return _extends({}, store, {
 	        dispatch: _dispatch
 	      });
@@ -1136,11 +1158,11 @@
 	}
 
 /***/ },
-/* 16 */
+/* 40 */
 /***/ function(module, exports) {
 
 	"use strict";
-
+	
 	exports.__esModule = true;
 	exports["default"] = compose;
 	/**
@@ -1153,22 +1175,22 @@
 	 * from right to left. For example, compose(f, g, h) is identical to doing
 	 * (...args) => f(g(h(...args))).
 	 */
-
+	
 	function compose() {
 	  for (var _len = arguments.length, funcs = Array(_len), _key = 0; _key < _len; _key++) {
 	    funcs[_key] = arguments[_key];
 	  }
-
+	
 	  if (funcs.length === 0) {
 	    return function (arg) {
 	      return arg;
 	    };
 	  }
-
+	
 	  if (funcs.length === 1) {
 	    return funcs[0];
 	  }
-
+	
 	  var last = funcs[funcs.length - 1];
 	  var rest = funcs.slice(0, -1);
 	  return function () {
@@ -1179,101 +1201,27 @@
 	}
 
 /***/ },
-/* 17 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _redux = __webpack_require__(1);
-
-	var _start = __webpack_require__(18);
-
-	var _start2 = _interopRequireDefault(_start);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var _default = (0, _redux.combineReducers)({
-	  count: _start2.default
-	});
-
-	exports.default = _default;
-	;
-
-	var _temp = function () {
-	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	    return;
-	  }
-
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/BernSternWhoEarns/Documents/react-chrome-redux-boilerplate/background/reducers/index.js');
-	}();
-
-	;
-
-/***/ },
-/* 18 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var initialState = 10;
-
-	var _default = function _default() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-	  var action = arguments[1];
-
-	  switch (action.type) {
-	    case 'ADD_COUNT':
-	      console.log('testing background page ');
-	      return state + (action.payload || 1);
-	    default:
-	      return state;
-	  }
-	};
-
-	exports.default = _default;
-	;
-
-	var _temp = function () {
-	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	    return;
-	  }
-
-	  __REACT_HOT_LOADER__.register(initialState, 'initialState', '/Users/BernSternWhoEarns/Documents/react-chrome-redux-boilerplate/background/reducers/start.js');
-
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/BernSternWhoEarns/Documents/react-chrome-redux-boilerplate/background/reducers/start.js');
-	}();
-
-	;
-
-/***/ },
-/* 19 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
+	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
+	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-
-	var _core = __webpack_require__(20);
-
-	var _helpers = __webpack_require__(21);
-
-	var _defaults = __webpack_require__(24);
-
+	
+	var _core = __webpack_require__(42);
+	
+	var _helpers = __webpack_require__(43);
+	
+	var _defaults = __webpack_require__(46);
+	
 	var _defaults2 = _interopRequireDefault(_defaults);
-
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+	
 	/**
 	 * Creates logger with following options
 	 *
@@ -1295,9 +1243,9 @@
 	 */
 	function createLogger() {
 	  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-
+	
 	  var loggerOptions = _extends({}, _defaults2.default, options);
-
+	
 	  var logger = loggerOptions.logger;
 	  var transformer = loggerOptions.transformer;
 	  var stateTransformer = loggerOptions.stateTransformer;
@@ -1305,9 +1253,9 @@
 	  var predicate = loggerOptions.predicate;
 	  var logErrors = loggerOptions.logErrors;
 	  var diffPredicate = loggerOptions.diffPredicate;
-
+	
 	  // Return if 'console' object is not defined
-
+	
 	  if (typeof logger === 'undefined') {
 	    return function () {
 	      return function (next) {
@@ -1317,13 +1265,13 @@
 	      };
 	    };
 	  }
-
+	
 	  if (transformer) {
 	    console.error('Option \'transformer\' is deprecated, use \'stateTransformer\' instead!'); // eslint-disable-line no-console
 	  }
-
+	
 	  var logBuffer = [];
-
+	
 	  return function (_ref) {
 	    var getState = _ref.getState;
 	    return function (next) {
@@ -1332,15 +1280,15 @@
 	        if (typeof predicate === 'function' && !predicate(getState, action)) {
 	          return next(action);
 	        }
-
+	
 	        var logEntry = {};
 	        logBuffer.push(logEntry);
-
+	
 	        logEntry.started = _helpers.timer.now();
 	        logEntry.startedTime = new Date();
 	        logEntry.prevState = stateTransformer(getState());
 	        logEntry.action = action;
-
+	
 	        var returnedValue = undefined;
 	        if (logErrors) {
 	          try {
@@ -1351,48 +1299,48 @@
 	        } else {
 	          returnedValue = next(action);
 	        }
-
+	
 	        logEntry.took = _helpers.timer.now() - logEntry.started;
 	        logEntry.nextState = stateTransformer(getState());
-
+	
 	        var diff = loggerOptions.diff && typeof diffPredicate === 'function' ? diffPredicate(getState, action) : loggerOptions.diff;
-
+	
 	        (0, _core.printBuffer)(logBuffer, _extends({}, loggerOptions, { diff: diff }));
 	        logBuffer.length = 0;
-
+	
 	        if (logEntry.error) throw logEntry.error;
 	        return returnedValue;
 	      };
 	    };
 	  };
 	}
-
+	
 	exports.default = createLogger;
 	module.exports = exports['default'];
 
 /***/ },
-/* 20 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-
+	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	exports.printBuffer = printBuffer;
-
-	var _helpers = __webpack_require__(21);
-
-	var _diff = __webpack_require__(22);
-
+	
+	var _helpers = __webpack_require__(43);
+	
+	var _diff = __webpack_require__(44);
+	
 	var _diff2 = _interopRequireDefault(_diff);
-
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+	
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
+	
 	function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj; }
-
+	
 	/**
 	 * Get log level string based on supplied params
 	 *
@@ -1413,16 +1361,16 @@
 	      return level;
 	  }
 	}
-
+	
 	function defaultTitleFormatter(options) {
 	  var timestamp = options.timestamp;
 	  var duration = options.duration;
-
+	
 	  return function (action, time, took) {
 	    return 'action @ ' + (timestamp ? time : '') + ' ' + action.type + ' ' + (duration ? '(in ' + took.toFixed(2) + ' ms)' : '');
 	  };
 	}
-
+	
 	function printBuffer(buffer, options) {
 	  var logger = options.logger;
 	  var actionTransformer = options.actionTransformer;
@@ -1432,7 +1380,7 @@
 	  var colors = options.colors;
 	  var level = options.level;
 	  var diff = options.diff;
-
+	
 	  buffer.forEach(function (logEntry, key) {
 	    var started = logEntry.started;
 	    var startedTime = logEntry.startedTime;
@@ -1441,24 +1389,24 @@
 	    var error = logEntry.error;
 	    var took = logEntry.took;
 	    var nextState = logEntry.nextState;
-
+	
 	    var nextEntry = buffer[key + 1];
-
+	
 	    if (nextEntry) {
 	      nextState = nextEntry.prevState;
 	      took = nextEntry.started - started;
 	    }
-
+	
 	    // Message
 	    var formattedAction = actionTransformer(action);
 	    var isCollapsed = typeof collapsed === 'function' ? collapsed(function () {
 	      return nextState;
 	    }, action) : collapsed;
-
+	
 	    var formattedTime = (0, _helpers.formatTime)(startedTime);
 	    var titleCSS = colors.title ? 'color: ' + colors.title(formattedAction) + ';' : null;
 	    var title = titleFormatter(formattedAction, formattedTime, took);
-
+	
 	    // Render
 	    try {
 	      if (isCollapsed) {
@@ -1469,32 +1417,32 @@
 	    } catch (e) {
 	      logger.log(title);
 	    }
-
+	
 	    var prevStateLevel = getLogLevel(level, formattedAction, [prevState], 'prevState');
 	    var actionLevel = getLogLevel(level, formattedAction, [formattedAction], 'action');
 	    var errorLevel = getLogLevel(level, formattedAction, [error, prevState], 'error');
 	    var nextStateLevel = getLogLevel(level, formattedAction, [nextState], 'nextState');
-
+	
 	    if (prevStateLevel) {
 	      if (colors.prevState) logger[prevStateLevel]('%c prev state', 'color: ' + colors.prevState(prevState) + '; font-weight: bold', prevState);else logger[prevStateLevel]('prev state', prevState);
 	    }
-
+	
 	    if (actionLevel) {
 	      if (colors.action) logger[actionLevel]('%c action', 'color: ' + colors.action(formattedAction) + '; font-weight: bold', formattedAction);else logger[actionLevel]('action', formattedAction);
 	    }
-
+	
 	    if (error && errorLevel) {
 	      if (colors.error) logger[errorLevel]('%c error', 'color: ' + colors.error(error, prevState) + '; font-weight: bold', error);else logger[errorLevel]('error', error);
 	    }
-
+	
 	    if (nextStateLevel) {
 	      if (colors.nextState) logger[nextStateLevel]('%c next state', 'color: ' + colors.nextState(nextState) + '; font-weight: bold', nextState);else logger[nextStateLevel]('next state', nextState);
 	    }
-
+	
 	    if (diff) {
 	      (0, _diff2.default)(prevState, nextState, logger, isCollapsed);
 	    }
-
+	
 	    try {
 	      logger.groupEnd();
 	    } catch (e) {
@@ -1504,46 +1452,46 @@
 	}
 
 /***/ },
-/* 21 */
+/* 43 */
 /***/ function(module, exports) {
 
 	"use strict";
-
+	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	var repeat = exports.repeat = function repeat(str, times) {
 	  return new Array(times + 1).join(str);
 	};
-
+	
 	var pad = exports.pad = function pad(num, maxLength) {
 	  return repeat("0", maxLength - num.toString().length) + num;
 	};
-
+	
 	var formatTime = exports.formatTime = function formatTime(time) {
 	  return pad(time.getHours(), 2) + ":" + pad(time.getMinutes(), 2) + ":" + pad(time.getSeconds(), 2) + "." + pad(time.getMilliseconds(), 3);
 	};
-
+	
 	// Use performance API if it's available in order to get better precision
 	var timer = exports.timer = typeof performance !== "undefined" && performance !== null && typeof performance.now === "function" ? performance : Date;
 
 /***/ },
-/* 22 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-
+	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	exports.default = diffLogger;
-
-	var _deepDiff = __webpack_require__(23);
-
+	
+	var _deepDiff = __webpack_require__(45);
+	
 	var _deepDiff2 = _interopRequireDefault(_deepDiff);
-
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+	
 	// https://github.com/flitbit/diff#differences
 	var dictionary = {
 	  'E': {
@@ -1563,11 +1511,11 @@
 	    text: 'ARRAY:'
 	  }
 	};
-
+	
 	function style(kind) {
 	  return 'color: ' + dictionary[kind].color + '; font-weight: bold';
 	}
-
+	
 	function render(diff) {
 	  var kind = diff.kind;
 	  var path = diff.path;
@@ -1575,7 +1523,7 @@
 	  var rhs = diff.rhs;
 	  var index = diff.index;
 	  var item = diff.item;
-
+	
 	  switch (kind) {
 	    case 'E':
 	      return path.join('.') + ' ' + lhs + ' → ' + rhs;
@@ -1589,10 +1537,10 @@
 	      return null;
 	  }
 	}
-
+	
 	function diffLogger(prevState, newState, logger, isCollapsed) {
 	  var diff = (0, _deepDiff2.default)(prevState, newState);
-
+	
 	  try {
 	    if (isCollapsed) {
 	      logger.groupCollapsed('diff');
@@ -1602,19 +1550,19 @@
 	  } catch (e) {
 	    logger.log('diff');
 	  }
-
+	
 	  if (diff) {
 	    diff.forEach(function (elem) {
 	      var kind = elem.kind;
-
+	
 	      var output = render(elem);
-
+	
 	      logger.log('%c ' + dictionary[kind].text, style(kind), output);
 	    });
 	  } else {
 	    logger.log('—— no diff ——');
 	  }
-
+	
 	  try {
 	    logger.groupEnd();
 	  } catch (e) {
@@ -1624,7 +1572,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 23 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {/*!
@@ -1649,7 +1597,7 @@
 	  }
 	}(this, function(undefined) {
 	  'use strict';
-
+	
 	  var $scope, conflict, conflictResolution = [];
 	  if (typeof global === 'object' && global) {
 	    $scope = global;
@@ -1668,7 +1616,7 @@
 	        }
 	      });
 	  }
-
+	
 	  // nodejs compatible on server side and in the browser.
 	  function inherits(ctor, superCtor) {
 	    ctor.super_ = superCtor;
@@ -1681,7 +1629,7 @@
 	      }
 	    });
 	  }
-
+	
 	  function Diff(kind, path) {
 	    Object.defineProperty(this, 'kind', {
 	      value: kind,
@@ -1694,7 +1642,7 @@
 	      });
 	    }
 	  }
-
+	
 	  function DiffEdit(path, origin, value) {
 	    DiffEdit.super_.call(this, 'E', path);
 	    Object.defineProperty(this, 'lhs', {
@@ -1707,7 +1655,7 @@
 	    });
 	  }
 	  inherits(DiffEdit, Diff);
-
+	
 	  function DiffNew(path, value) {
 	    DiffNew.super_.call(this, 'N', path);
 	    Object.defineProperty(this, 'rhs', {
@@ -1716,7 +1664,7 @@
 	    });
 	  }
 	  inherits(DiffNew, Diff);
-
+	
 	  function DiffDeleted(path, value) {
 	    DiffDeleted.super_.call(this, 'D', path);
 	    Object.defineProperty(this, 'lhs', {
@@ -1725,7 +1673,7 @@
 	    });
 	  }
 	  inherits(DiffDeleted, Diff);
-
+	
 	  function DiffArray(path, index, item) {
 	    DiffArray.super_.call(this, 'A', path);
 	    Object.defineProperty(this, 'index', {
@@ -1738,20 +1686,20 @@
 	    });
 	  }
 	  inherits(DiffArray, Diff);
-
+	
 	  function arrayRemove(arr, from, to) {
 	    var rest = arr.slice((to || from) + 1 || arr.length);
 	    arr.length = from < 0 ? arr.length + from : from;
 	    arr.push.apply(arr, rest);
 	    return arr;
 	  }
-
+	
 	  function realTypeOf(subject) {
 	    var type = typeof subject;
 	    if (type !== 'object') {
 	      return type;
 	    }
-
+	
 	    if (subject === Math) {
 	      return 'math';
 	    } else if (subject === null) {
@@ -1765,7 +1713,7 @@
 	    }
 	    return 'object';
 	  }
-
+	
 	  function deepDiff(lhs, rhs, changes, prefilter, path, key, stack) {
 	    path = path || [];
 	    var currentPath = path.slice(0);
@@ -1785,13 +1733,13 @@
 	      }
 	      currentPath.push(key);
 	    }
-
+	
 	    // Use string comparison for regexes
 	    if (realTypeOf(lhs) === 'regexp' && realTypeOf(rhs) === 'regexp') {
 	      lhs = lhs.toString();
 	      rhs = rhs.toString();
 	    }
-
+	
 	    var ltype = typeof lhs;
 	    var rtype = typeof rhs;
 	    if (ltype === 'undefined') {
@@ -1844,7 +1792,7 @@
 	      }
 	    }
 	  }
-
+	
 	  function accumulateDiff(lhs, rhs, prefilter, accum) {
 	    accum = accum || [];
 	    deepDiff(lhs, rhs,
@@ -1856,7 +1804,7 @@
 	      prefilter);
 	    return (accum.length) ? accum : undefined;
 	  }
-
+	
 	  function applyArrayChange(arr, index, change) {
 	    if (change.path && change.path.length) {
 	      var it = arr[index],
@@ -1892,7 +1840,7 @@
 	    }
 	    return arr;
 	  }
-
+	
 	  function applyChange(target, source, change) {
 	    if (target && source && change && change.kind) {
 	      var it = target,
@@ -1918,7 +1866,7 @@
 	      }
 	    }
 	  }
-
+	
 	  function revertArrayChange(arr, index, change) {
 	    if (change.path && change.path.length) {
 	      // the structure of the object at the index has changed...
@@ -1960,7 +1908,7 @@
 	    }
 	    return arr;
 	  }
-
+	
 	  function revertChange(target, source, change) {
 	    if (target && source && change && change.kind) {
 	      var it = target,
@@ -1993,7 +1941,7 @@
 	      }
 	    }
 	  }
-
+	
 	  function applyDiff(target, source, filter) {
 	    if (target && source) {
 	      var onChange = function(change) {
@@ -2004,9 +1952,9 @@
 	      deepDiff(target, source, onChange);
 	    }
 	  }
-
+	
 	  Object.defineProperties(accumulateDiff, {
-
+	
 	    diff: {
 	      value: accumulateDiff,
 	      enumerable: true
@@ -2046,18 +1994,18 @@
 	      enumerable: true
 	    }
 	  });
-
+	
 	  return accumulateDiff;
 	}));
-
+	
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 24 */
+/* 46 */
 /***/ function(module, exports) {
 
 	"use strict";
-
+	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
@@ -2097,18 +2045,18 @@
 	  },
 	  diff: false,
 	  diffPredicate: undefined,
-
+	
 	  // Deprecated options
 	  transformer: undefined
 	};
 	module.exports = exports['default'];
 
 /***/ },
-/* 25 */
+/* 47 */
 /***/ function(module, exports) {
 
 	'use strict';
-
+	
 	exports.__esModule = true;
 	function createThunkMiddleware(extraArgument) {
 	  return function (_ref) {
@@ -2119,151 +2067,151 @@
 	        if (typeof action === 'function') {
 	          return action(dispatch, getState, extraArgument);
 	        }
-
+	
 	        return next(action);
 	      };
 	    };
 	  };
 	}
-
+	
 	var thunk = createThunkMiddleware();
 	thunk.withExtraArgument = createThunkMiddleware;
-
+	
 	exports['default'] = thunk;
 
 /***/ },
-/* 26 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-
+	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	exports.alias = exports.wrapStore = exports.Store = undefined;
-
-	var _Store = __webpack_require__(27);
-
+	
+	var _Store = __webpack_require__(49);
+	
 	var _Store2 = _interopRequireDefault(_Store);
-
-	var _wrapStore = __webpack_require__(73);
-
+	
+	var _wrapStore = __webpack_require__(95);
+	
 	var _wrapStore2 = _interopRequireDefault(_wrapStore);
-
-	var _alias = __webpack_require__(74);
-
+	
+	var _alias = __webpack_require__(96);
+	
 	var _alias2 = _interopRequireDefault(_alias);
-
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+	
 	exports.Store = _Store2.default;
 	exports.wrapStore = _wrapStore2.default;
 	exports.alias = _alias2.default;
 
 /***/ },
-/* 27 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-
+	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
+	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-
-	var _assignIn = __webpack_require__(28);
-
+	
+	var _assignIn = __webpack_require__(50);
+	
 	var _assignIn2 = _interopRequireDefault(_assignIn);
-
-	var _constants = __webpack_require__(72);
-
+	
+	var _constants = __webpack_require__(94);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
+	
 	var Store = function () {
 	  /**
 	   * Creates a new Proxy store
 	   * @param  {object} options An object of form {portName, state}, where `portName` is a required string and defines the name of the port for state transition changes and `state` is the initial state of this store (default `{}`)
 	   */
-
+	
 	  function Store(_ref) {
 	    var _this = this;
-
+	
 	    var portName = _ref.portName;
 	    var _ref$state = _ref.state;
 	    var state = _ref$state === undefined ? {} : _ref$state;
-
+	
 	    _classCallCheck(this, Store);
-
+	
 	    if (!portName) {
 	      throw new Error('portName is required in options');
 	    }
-
+	
 	    this.port = chrome.runtime.connect({ name: portName });
 	    this.listeners = [];
 	    this.state = state;
-
+	
 	    this.port.onMessage.addListener(function (message) {
 	      if (message.type === _constants.STATE_TYPE) {
 	        _this.replaceState(message.payload);
 	      }
 	    });
 	  }
-
+	
 	  /**
 	   * Subscribes a listener function for all state changes
 	   * @param  {function} listener A listener function to be called when store state changes
 	   * @return {function}          An unsubscribe function which can be called to remove the listener from state updates
 	   */
-
+	
 	  _createClass(Store, [{
 	    key: 'subscribe',
 	    value: function subscribe(listener) {
 	      var _this2 = this;
-
+	
 	      this.listeners.push(listener);
-
+	
 	      return function () {
 	        _this2.listeners = _this2.listeners.filter(function (l) {
 	          return l !== listener;
 	        });
 	      };
 	    }
-
+	
 	    /**
 	     * Replace the current state with a new state. Notifies all listeners of state change.
 	     * @param  {object} state The new state for the store
 	     */
-
+	
 	  }, {
 	    key: 'replaceState',
 	    value: function replaceState(state) {
 	      this.state = state;
-
+	
 	      this.listeners.forEach(function (l) {
 	        return l();
 	      });
 	    }
-
+	
 	    /**
 	     * Get the current state of the store
 	     * @return {object} the current store state
 	     */
-
+	
 	  }, {
 	    key: 'getState',
 	    value: function getState() {
 	      return this.state;
 	    }
-
+	
 	    /**
 	     * Dispatch an action to the background using messaging passing
 	     * @param  {object} data The action data to dispatch
 	     * @return {Promise}     Promise that will resolve/reject based on the action response from the background
 	     */
-
+	
 	  }, {
 	    key: 'dispatch',
 	    value: function dispatch(data) {
@@ -2274,7 +2222,7 @@
 	        }, function (_ref2) {
 	          var error = _ref2.error;
 	          var value = _ref2.value;
-
+	
 	          if (error) {
 	            reject((0, _assignIn2.default)(new Error(), error));
 	          } else {
@@ -2284,20 +2232,20 @@
 	      });
 	    }
 	  }]);
-
+	
 	  return Store;
 	}();
-
+	
 	exports.default = Store;
 
 /***/ },
-/* 28 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var copyObject = __webpack_require__(29),
-	    createAssigner = __webpack_require__(44),
-	    keysIn = __webpack_require__(57);
-
+	var copyObject = __webpack_require__(51),
+	    createAssigner = __webpack_require__(66),
+	    keysIn = __webpack_require__(79);
+	
 	/**
 	 * This method is like `_.assign` except that it iterates over own and
 	 * inherited source properties.
@@ -2332,17 +2280,17 @@
 	var assignIn = createAssigner(function(object, source) {
 	  copyObject(source, keysIn(source), object);
 	});
-
+	
 	module.exports = assignIn;
 
 
 /***/ },
-/* 29 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assignValue = __webpack_require__(30),
-	    baseAssignValue = __webpack_require__(31);
-
+	var assignValue = __webpack_require__(52),
+	    baseAssignValue = __webpack_require__(53);
+	
 	/**
 	 * Copies properties of `source` to `object`.
 	 *
@@ -2356,17 +2304,17 @@
 	function copyObject(source, props, object, customizer) {
 	  var isNew = !object;
 	  object || (object = {});
-
+	
 	  var index = -1,
 	      length = props.length;
-
+	
 	  while (++index < length) {
 	    var key = props[index];
-
+	
 	    var newValue = customizer
 	      ? customizer(object[key], source[key], key, object, source)
 	      : undefined;
-
+	
 	    if (newValue === undefined) {
 	      newValue = source[key];
 	    }
@@ -2378,23 +2326,23 @@
 	  }
 	  return object;
 	}
-
+	
 	module.exports = copyObject;
 
 
 /***/ },
-/* 30 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseAssignValue = __webpack_require__(31),
-	    eq = __webpack_require__(43);
-
+	var baseAssignValue = __webpack_require__(53),
+	    eq = __webpack_require__(65);
+	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
-
+	
 	/** Used to check objects for own properties. */
 	var hasOwnProperty = objectProto.hasOwnProperty;
-
+	
 	/**
 	 * Assigns `value` to `key` of `object` if the existing value is not equivalent
 	 * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
@@ -2412,16 +2360,16 @@
 	    baseAssignValue(object, key, value);
 	  }
 	}
-
+	
 	module.exports = assignValue;
 
 
 /***/ },
-/* 31 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var defineProperty = __webpack_require__(32);
-
+	var defineProperty = __webpack_require__(54);
+	
 	/**
 	 * The base implementation of `assignValue` and `assignMergeValue` without
 	 * value checks.
@@ -2443,16 +2391,16 @@
 	    object[key] = value;
 	  }
 	}
-
+	
 	module.exports = baseAssignValue;
 
 
 /***/ },
-/* 32 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getNative = __webpack_require__(33);
-
+	var getNative = __webpack_require__(55);
+	
 	var defineProperty = (function() {
 	  try {
 	    var func = getNative(Object, 'defineProperty');
@@ -2460,17 +2408,17 @@
 	    return func;
 	  } catch (e) {}
 	}());
-
+	
 	module.exports = defineProperty;
 
 
 /***/ },
-/* 33 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIsNative = __webpack_require__(34),
-	    getValue = __webpack_require__(42);
-
+	var baseIsNative = __webpack_require__(56),
+	    getValue = __webpack_require__(64);
+	
 	/**
 	 * Gets the native function at `key` of `object`.
 	 *
@@ -2483,44 +2431,44 @@
 	  var value = getValue(object, key);
 	  return baseIsNative(value) ? value : undefined;
 	}
-
+	
 	module.exports = getNative;
 
 
 /***/ },
-/* 34 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isFunction = __webpack_require__(35),
-	    isMasked = __webpack_require__(37),
-	    isObject = __webpack_require__(36),
-	    toSource = __webpack_require__(41);
-
+	var isFunction = __webpack_require__(57),
+	    isMasked = __webpack_require__(59),
+	    isObject = __webpack_require__(58),
+	    toSource = __webpack_require__(63);
+	
 	/**
 	 * Used to match `RegExp`
 	 * [syntax characters](http://ecma-international.org/ecma-262/7.0/#sec-patterns).
 	 */
 	var reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
-
+	
 	/** Used to detect host constructors (Safari). */
 	var reIsHostCtor = /^\[object .+?Constructor\]$/;
-
+	
 	/** Used for built-in method references. */
 	var funcProto = Function.prototype,
 	    objectProto = Object.prototype;
-
+	
 	/** Used to resolve the decompiled source of functions. */
 	var funcToString = funcProto.toString;
-
+	
 	/** Used to check objects for own properties. */
 	var hasOwnProperty = objectProto.hasOwnProperty;
-
+	
 	/** Used to detect if a method is native. */
 	var reIsNative = RegExp('^' +
 	  funcToString.call(hasOwnProperty).replace(reRegExpChar, '\\$&')
 	  .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
 	);
-
+	
 	/**
 	 * The base implementation of `_.isNative` without bad shim checks.
 	 *
@@ -2536,31 +2484,31 @@
 	  var pattern = isFunction(value) ? reIsNative : reIsHostCtor;
 	  return pattern.test(toSource(value));
 	}
-
+	
 	module.exports = baseIsNative;
 
 
 /***/ },
-/* 35 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(36);
-
+	var isObject = __webpack_require__(58);
+	
 	/** `Object#toString` result references. */
 	var funcTag = '[object Function]',
 	    genTag = '[object GeneratorFunction]',
 	    proxyTag = '[object Proxy]';
-
+	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
-
+	
 	/**
 	 * Used to resolve the
 	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
 	 * of values.
 	 */
 	var objectToString = objectProto.toString;
-
+	
 	/**
 	 * Checks if `value` is classified as a `Function` object.
 	 *
@@ -2584,12 +2532,12 @@
 	  var tag = isObject(value) ? objectToString.call(value) : '';
 	  return tag == funcTag || tag == genTag || tag == proxyTag;
 	}
-
+	
 	module.exports = isFunction;
 
 
 /***/ },
-/* 36 */
+/* 58 */
 /***/ function(module, exports) {
 
 	/**
@@ -2621,22 +2569,22 @@
 	  var type = typeof value;
 	  return value != null && (type == 'object' || type == 'function');
 	}
-
+	
 	module.exports = isObject;
 
 
 /***/ },
-/* 37 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var coreJsData = __webpack_require__(38);
-
+	var coreJsData = __webpack_require__(60);
+	
 	/** Used to detect methods masquerading as native. */
 	var maskSrcKey = (function() {
 	  var uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || '');
 	  return uid ? ('Symbol(src)_1.' + uid) : '';
 	}());
-
+	
 	/**
 	 * Checks if `func` has its source masked.
 	 *
@@ -2647,58 +2595,58 @@
 	function isMasked(func) {
 	  return !!maskSrcKey && (maskSrcKey in func);
 	}
-
+	
 	module.exports = isMasked;
 
 
 /***/ },
-/* 38 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var root = __webpack_require__(39);
-
+	var root = __webpack_require__(61);
+	
 	/** Used to detect overreaching core-js shims. */
 	var coreJsData = root['__core-js_shared__'];
-
+	
 	module.exports = coreJsData;
 
 
 /***/ },
-/* 39 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var freeGlobal = __webpack_require__(40);
-
+	var freeGlobal = __webpack_require__(62);
+	
 	/** Detect free variable `self`. */
 	var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
-
+	
 	/** Used as a reference to the global object. */
 	var root = freeGlobal || freeSelf || Function('return this')();
-
+	
 	module.exports = root;
 
 
 /***/ },
-/* 40 */
+/* 62 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */
 	var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
-
+	
 	module.exports = freeGlobal;
-
+	
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 41 */
+/* 63 */
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
 	var funcProto = Function.prototype;
-
+	
 	/** Used to resolve the decompiled source of functions. */
 	var funcToString = funcProto.toString;
-
+	
 	/**
 	 * Converts `func` to its source code.
 	 *
@@ -2717,12 +2665,12 @@
 	  }
 	  return '';
 	}
-
+	
 	module.exports = toSource;
 
 
 /***/ },
-/* 42 */
+/* 64 */
 /***/ function(module, exports) {
 
 	/**
@@ -2736,12 +2684,12 @@
 	function getValue(object, key) {
 	  return object == null ? undefined : object[key];
 	}
-
+	
 	module.exports = getValue;
 
 
 /***/ },
-/* 43 */
+/* 65 */
 /***/ function(module, exports) {
 
 	/**
@@ -2779,17 +2727,17 @@
 	function eq(value, other) {
 	  return value === other || (value !== value && other !== other);
 	}
-
+	
 	module.exports = eq;
 
 
 /***/ },
-/* 44 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseRest = __webpack_require__(45),
-	    isIterateeCall = __webpack_require__(53);
-
+	var baseRest = __webpack_require__(67),
+	    isIterateeCall = __webpack_require__(75);
+	
 	/**
 	 * Creates a function like `_.assign`.
 	 *
@@ -2803,11 +2751,11 @@
 	        length = sources.length,
 	        customizer = length > 1 ? sources[length - 1] : undefined,
 	        guard = length > 2 ? sources[2] : undefined;
-
+	
 	    customizer = (assigner.length > 3 && typeof customizer == 'function')
 	      ? (length--, customizer)
 	      : undefined;
-
+	
 	    if (guard && isIterateeCall(sources[0], sources[1], guard)) {
 	      customizer = length < 3 ? undefined : customizer;
 	      length = 1;
@@ -2822,18 +2770,18 @@
 	    return object;
 	  });
 	}
-
+	
 	module.exports = createAssigner;
 
 
 /***/ },
-/* 45 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var identity = __webpack_require__(46),
-	    overRest = __webpack_require__(47),
-	    setToString = __webpack_require__(49);
-
+	var identity = __webpack_require__(68),
+	    overRest = __webpack_require__(69),
+	    setToString = __webpack_require__(71);
+	
 	/**
 	 * The base implementation of `_.rest` which doesn't validate or coerce arguments.
 	 *
@@ -2845,12 +2793,12 @@
 	function baseRest(func, start) {
 	  return setToString(overRest(func, start, identity), func + '');
 	}
-
+	
 	module.exports = baseRest;
 
 
 /***/ },
-/* 46 */
+/* 68 */
 /***/ function(module, exports) {
 
 	/**
@@ -2872,19 +2820,19 @@
 	function identity(value) {
 	  return value;
 	}
-
+	
 	module.exports = identity;
 
 
 /***/ },
-/* 47 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var apply = __webpack_require__(48);
-
+	var apply = __webpack_require__(70);
+	
 	/* Built-in method references for those with the same name as other `lodash` methods. */
 	var nativeMax = Math.max;
-
+	
 	/**
 	 * A specialized version of `baseRest` which transforms the rest array.
 	 *
@@ -2901,7 +2849,7 @@
 	        index = -1,
 	        length = nativeMax(args.length - start, 0),
 	        array = Array(length);
-
+	
 	    while (++index < length) {
 	      array[index] = args[start + index];
 	    }
@@ -2914,12 +2862,12 @@
 	    return apply(func, this, otherArgs);
 	  };
 	}
-
+	
 	module.exports = overRest;
 
 
 /***/ },
-/* 48 */
+/* 70 */
 /***/ function(module, exports) {
 
 	/**
@@ -2941,17 +2889,17 @@
 	  }
 	  return func.apply(thisArg, args);
 	}
-
+	
 	module.exports = apply;
 
 
 /***/ },
-/* 49 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseSetToString = __webpack_require__(50),
-	    shortOut = __webpack_require__(52);
-
+	var baseSetToString = __webpack_require__(72),
+	    shortOut = __webpack_require__(74);
+	
 	/**
 	 * Sets the `toString` method of `func` to return `string`.
 	 *
@@ -2961,18 +2909,18 @@
 	 * @returns {Function} Returns `func`.
 	 */
 	var setToString = shortOut(baseSetToString);
-
+	
 	module.exports = setToString;
 
 
 /***/ },
-/* 50 */
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var constant = __webpack_require__(51),
-	    defineProperty = __webpack_require__(32),
-	    identity = __webpack_require__(46);
-
+	var constant = __webpack_require__(73),
+	    defineProperty = __webpack_require__(54),
+	    identity = __webpack_require__(68);
+	
 	/**
 	 * The base implementation of `setToString` without support for hot loop shorting.
 	 *
@@ -2989,12 +2937,12 @@
 	    'writable': true
 	  });
 	};
-
+	
 	module.exports = baseSetToString;
 
 
 /***/ },
-/* 51 */
+/* 73 */
 /***/ function(module, exports) {
 
 	/**
@@ -3021,21 +2969,21 @@
 	    return value;
 	  };
 	}
-
+	
 	module.exports = constant;
 
 
 /***/ },
-/* 52 */
+/* 74 */
 /***/ function(module, exports) {
 
 	/** Used to detect hot functions by number of calls within a span of milliseconds. */
 	var HOT_COUNT = 500,
 	    HOT_SPAN = 16;
-
+	
 	/* Built-in method references for those with the same name as other `lodash` methods. */
 	var nativeNow = Date.now;
-
+	
 	/**
 	 * Creates a function that'll short out and invoke `identity` instead
 	 * of `func` when it's called `HOT_COUNT` or more times in `HOT_SPAN`
@@ -3048,11 +2996,11 @@
 	function shortOut(func) {
 	  var count = 0,
 	      lastCalled = 0;
-
+	
 	  return function() {
 	    var stamp = nativeNow(),
 	        remaining = HOT_SPAN - (stamp - lastCalled);
-
+	
 	    lastCalled = stamp;
 	    if (remaining > 0) {
 	      if (++count >= HOT_COUNT) {
@@ -3064,19 +3012,19 @@
 	    return func.apply(undefined, arguments);
 	  };
 	}
-
+	
 	module.exports = shortOut;
 
 
 /***/ },
-/* 53 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var eq = __webpack_require__(43),
-	    isArrayLike = __webpack_require__(54),
-	    isIndex = __webpack_require__(56),
-	    isObject = __webpack_require__(36);
-
+	var eq = __webpack_require__(65),
+	    isArrayLike = __webpack_require__(76),
+	    isIndex = __webpack_require__(78),
+	    isObject = __webpack_require__(58);
+	
 	/**
 	 * Checks if the given arguments are from an iteratee call.
 	 *
@@ -3100,17 +3048,17 @@
 	  }
 	  return false;
 	}
-
+	
 	module.exports = isIterateeCall;
 
 
 /***/ },
-/* 54 */
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isFunction = __webpack_require__(35),
-	    isLength = __webpack_require__(55);
-
+	var isFunction = __webpack_require__(57),
+	    isLength = __webpack_require__(77);
+	
 	/**
 	 * Checks if `value` is array-like. A value is considered array-like if it's
 	 * not a function and has a `value.length` that's an integer greater than or
@@ -3139,17 +3087,17 @@
 	function isArrayLike(value) {
 	  return value != null && isLength(value.length) && !isFunction(value);
 	}
-
+	
 	module.exports = isArrayLike;
 
 
 /***/ },
-/* 55 */
+/* 77 */
 /***/ function(module, exports) {
 
 	/** Used as references for various `Number` constants. */
 	var MAX_SAFE_INTEGER = 9007199254740991;
-
+	
 	/**
 	 * Checks if `value` is a valid array-like length.
 	 *
@@ -3180,20 +3128,20 @@
 	  return typeof value == 'number' &&
 	    value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
 	}
-
+	
 	module.exports = isLength;
 
 
 /***/ },
-/* 56 */
+/* 78 */
 /***/ function(module, exports) {
 
 	/** Used as references for various `Number` constants. */
 	var MAX_SAFE_INTEGER = 9007199254740991;
-
+	
 	/** Used to detect unsigned integer values. */
 	var reIsUint = /^(?:0|[1-9]\d*)$/;
-
+	
 	/**
 	 * Checks if `value` is a valid array-like index.
 	 *
@@ -3208,18 +3156,18 @@
 	    (typeof value == 'number' || reIsUint.test(value)) &&
 	    (value > -1 && value % 1 == 0 && value < length);
 	}
-
+	
 	module.exports = isIndex;
 
 
 /***/ },
-/* 57 */
+/* 79 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var arrayLikeKeys = __webpack_require__(58),
-	    baseKeysIn = __webpack_require__(69),
-	    isArrayLike = __webpack_require__(54);
-
+	var arrayLikeKeys = __webpack_require__(80),
+	    baseKeysIn = __webpack_require__(91),
+	    isArrayLike = __webpack_require__(76);
+	
 	/**
 	 * Creates an array of the own and inherited enumerable property names of `object`.
 	 *
@@ -3246,27 +3194,27 @@
 	function keysIn(object) {
 	  return isArrayLike(object) ? arrayLikeKeys(object, true) : baseKeysIn(object);
 	}
-
+	
 	module.exports = keysIn;
 
 
 /***/ },
-/* 58 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseTimes = __webpack_require__(59),
-	    isArguments = __webpack_require__(60),
-	    isArray = __webpack_require__(62),
-	    isBuffer = __webpack_require__(63),
-	    isIndex = __webpack_require__(56),
-	    isTypedArray = __webpack_require__(65);
-
+	var baseTimes = __webpack_require__(81),
+	    isArguments = __webpack_require__(82),
+	    isArray = __webpack_require__(84),
+	    isBuffer = __webpack_require__(85),
+	    isIndex = __webpack_require__(78),
+	    isTypedArray = __webpack_require__(87);
+	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
-
+	
 	/** Used to check objects for own properties. */
 	var hasOwnProperty = objectProto.hasOwnProperty;
-
+	
 	/**
 	 * Creates an array of the enumerable property names of the array-like `value`.
 	 *
@@ -3283,7 +3231,7 @@
 	      skipIndexes = isArr || isArg || isBuff || isType,
 	      result = skipIndexes ? baseTimes(value.length, String) : [],
 	      length = result.length;
-
+	
 	  for (var key in value) {
 	    if ((inherited || hasOwnProperty.call(value, key)) &&
 	        !(skipIndexes && (
@@ -3301,12 +3249,12 @@
 	  }
 	  return result;
 	}
-
+	
 	module.exports = arrayLikeKeys;
 
 
 /***/ },
-/* 59 */
+/* 81 */
 /***/ function(module, exports) {
 
 	/**
@@ -3321,32 +3269,32 @@
 	function baseTimes(n, iteratee) {
 	  var index = -1,
 	      result = Array(n);
-
+	
 	  while (++index < n) {
 	    result[index] = iteratee(index);
 	  }
 	  return result;
 	}
-
+	
 	module.exports = baseTimes;
 
 
 /***/ },
-/* 60 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIsArguments = __webpack_require__(61),
-	    isObjectLike = __webpack_require__(7);
-
+	var baseIsArguments = __webpack_require__(83),
+	    isObjectLike = __webpack_require__(31);
+	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
-
+	
 	/** Used to check objects for own properties. */
 	var hasOwnProperty = objectProto.hasOwnProperty;
-
+	
 	/** Built-in value references. */
 	var propertyIsEnumerable = objectProto.propertyIsEnumerable;
-
+	
 	/**
 	 * Checks if `value` is likely an `arguments` object.
 	 *
@@ -3369,29 +3317,29 @@
 	  return isObjectLike(value) && hasOwnProperty.call(value, 'callee') &&
 	    !propertyIsEnumerable.call(value, 'callee');
 	};
-
+	
 	module.exports = isArguments;
 
 
 /***/ },
-/* 61 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObjectLike = __webpack_require__(7);
-
+	var isObjectLike = __webpack_require__(31);
+	
 	/** `Object#toString` result references. */
 	var argsTag = '[object Arguments]';
-
+	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
-
+	
 	/**
 	 * Used to resolve the
 	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
 	 * of values.
 	 */
 	var objectToString = objectProto.toString;
-
+	
 	/**
 	 * The base implementation of `_.isArguments`.
 	 *
@@ -3402,12 +3350,12 @@
 	function baseIsArguments(value) {
 	  return isObjectLike(value) && objectToString.call(value) == argsTag;
 	}
-
+	
 	module.exports = baseIsArguments;
 
 
 /***/ },
-/* 62 */
+/* 84 */
 /***/ function(module, exports) {
 
 	/**
@@ -3434,32 +3382,32 @@
 	 * // => false
 	 */
 	var isArray = Array.isArray;
-
+	
 	module.exports = isArray;
 
 
 /***/ },
-/* 63 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(39),
-	    stubFalse = __webpack_require__(64);
-
+	/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(61),
+	    stubFalse = __webpack_require__(86);
+	
 	/** Detect free variable `exports`. */
 	var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
-
+	
 	/** Detect free variable `module`. */
 	var freeModule = freeExports && typeof module == 'object' && module && !module.nodeType && module;
-
+	
 	/** Detect the popular CommonJS extension `module.exports`. */
 	var moduleExports = freeModule && freeModule.exports === freeExports;
-
+	
 	/** Built-in value references. */
 	var Buffer = moduleExports ? root.Buffer : undefined;
-
+	
 	/* Built-in method references for those with the same name as other `lodash` methods. */
 	var nativeIsBuffer = Buffer ? Buffer.isBuffer : undefined;
-
+	
 	/**
 	 * Checks if `value` is a buffer.
 	 *
@@ -3478,13 +3426,13 @@
 	 * // => false
 	 */
 	var isBuffer = nativeIsBuffer || stubFalse;
-
+	
 	module.exports = isBuffer;
-
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)(module)))
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(34)(module)))
 
 /***/ },
-/* 64 */
+/* 86 */
 /***/ function(module, exports) {
 
 	/**
@@ -3503,21 +3451,21 @@
 	function stubFalse() {
 	  return false;
 	}
-
+	
 	module.exports = stubFalse;
 
 
 /***/ },
-/* 65 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIsTypedArray = __webpack_require__(66),
-	    baseUnary = __webpack_require__(67),
-	    nodeUtil = __webpack_require__(68);
-
+	var baseIsTypedArray = __webpack_require__(88),
+	    baseUnary = __webpack_require__(89),
+	    nodeUtil = __webpack_require__(90);
+	
 	/* Node.js helper references. */
 	var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
-
+	
 	/**
 	 * Checks if `value` is classified as a typed array.
 	 *
@@ -3536,17 +3484,17 @@
 	 * // => false
 	 */
 	var isTypedArray = nodeIsTypedArray ? baseUnary(nodeIsTypedArray) : baseIsTypedArray;
-
+	
 	module.exports = isTypedArray;
 
 
 /***/ },
-/* 66 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isLength = __webpack_require__(55),
-	    isObjectLike = __webpack_require__(7);
-
+	var isLength = __webpack_require__(77),
+	    isObjectLike = __webpack_require__(31);
+	
 	/** `Object#toString` result references. */
 	var argsTag = '[object Arguments]',
 	    arrayTag = '[object Array]',
@@ -3561,7 +3509,7 @@
 	    setTag = '[object Set]',
 	    stringTag = '[object String]',
 	    weakMapTag = '[object WeakMap]';
-
+	
 	var arrayBufferTag = '[object ArrayBuffer]',
 	    dataViewTag = '[object DataView]',
 	    float32Tag = '[object Float32Array]',
@@ -3573,7 +3521,7 @@
 	    uint8ClampedTag = '[object Uint8ClampedArray]',
 	    uint16Tag = '[object Uint16Array]',
 	    uint32Tag = '[object Uint32Array]';
-
+	
 	/** Used to identify `toStringTag` values of typed arrays. */
 	var typedArrayTags = {};
 	typedArrayTags[float32Tag] = typedArrayTags[float64Tag] =
@@ -3589,17 +3537,17 @@
 	typedArrayTags[objectTag] = typedArrayTags[regexpTag] =
 	typedArrayTags[setTag] = typedArrayTags[stringTag] =
 	typedArrayTags[weakMapTag] = false;
-
+	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
-
+	
 	/**
 	 * Used to resolve the
 	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
 	 * of values.
 	 */
 	var objectToString = objectProto.toString;
-
+	
 	/**
 	 * The base implementation of `_.isTypedArray` without Node.js optimizations.
 	 *
@@ -3611,12 +3559,12 @@
 	  return isObjectLike(value) &&
 	    isLength(value.length) && !!typedArrayTags[objectToString.call(value)];
 	}
-
+	
 	module.exports = baseIsTypedArray;
 
 
 /***/ },
-/* 67 */
+/* 89 */
 /***/ function(module, exports) {
 
 	/**
@@ -3631,53 +3579,53 @@
 	    return func(value);
 	  };
 	}
-
+	
 	module.exports = baseUnary;
 
 
 /***/ },
-/* 68 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(module) {var freeGlobal = __webpack_require__(40);
-
+	/* WEBPACK VAR INJECTION */(function(module) {var freeGlobal = __webpack_require__(62);
+	
 	/** Detect free variable `exports`. */
 	var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
-
+	
 	/** Detect free variable `module`. */
 	var freeModule = freeExports && typeof module == 'object' && module && !module.nodeType && module;
-
+	
 	/** Detect the popular CommonJS extension `module.exports`. */
 	var moduleExports = freeModule && freeModule.exports === freeExports;
-
+	
 	/** Detect free variable `process` from Node.js. */
 	var freeProcess = moduleExports && freeGlobal.process;
-
+	
 	/** Used to access faster Node.js helpers. */
 	var nodeUtil = (function() {
 	  try {
 	    return freeProcess && freeProcess.binding('util');
 	  } catch (e) {}
 	}());
-
+	
 	module.exports = nodeUtil;
-
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)(module)))
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(34)(module)))
 
 /***/ },
-/* 69 */
+/* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(36),
-	    isPrototype = __webpack_require__(70),
-	    nativeKeysIn = __webpack_require__(71);
-
+	var isObject = __webpack_require__(58),
+	    isPrototype = __webpack_require__(92),
+	    nativeKeysIn = __webpack_require__(93);
+	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
-
+	
 	/** Used to check objects for own properties. */
 	var hasOwnProperty = objectProto.hasOwnProperty;
-
+	
 	/**
 	 * The base implementation of `_.keysIn` which doesn't treat sparse arrays as dense.
 	 *
@@ -3691,7 +3639,7 @@
 	  }
 	  var isProto = isPrototype(object),
 	      result = [];
-
+	
 	  for (var key in object) {
 	    if (!(key == 'constructor' && (isProto || !hasOwnProperty.call(object, key)))) {
 	      result.push(key);
@@ -3699,17 +3647,17 @@
 	  }
 	  return result;
 	}
-
+	
 	module.exports = baseKeysIn;
 
 
 /***/ },
-/* 70 */
+/* 92 */
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
-
+	
 	/**
 	 * Checks if `value` is likely a prototype object.
 	 *
@@ -3720,15 +3668,15 @@
 	function isPrototype(value) {
 	  var Ctor = value && value.constructor,
 	      proto = (typeof Ctor == 'function' && Ctor.prototype) || objectProto;
-
+	
 	  return value === proto;
 	}
-
+	
 	module.exports = isPrototype;
 
 
 /***/ },
-/* 71 */
+/* 93 */
 /***/ function(module, exports) {
 
 	/**
@@ -3749,39 +3697,39 @@
 	  }
 	  return result;
 	}
-
+	
 	module.exports = nativeKeysIn;
 
 
 /***/ },
-/* 72 */
+/* 94 */
 /***/ function(module, exports) {
 
 	'use strict';
-
+	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	// Message type used for dispatch events
 	// from the Proxy Stores to background
 	var DISPATCH_TYPE = exports.DISPATCH_TYPE = 'chromex.dispatch';
-
+	
 	// Message type for state update events from
 	// background to Proxy Stores
 	var STATE_TYPE = exports.STATE_TYPE = 'chromex.state';
 
 /***/ },
-/* 73 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-
+	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-
-	var _constants = __webpack_require__(72);
-
+	
+	var _constants = __webpack_require__(94);
+	
 	/**
 	 * Responder for promisified results
 	 * @param  {object} dispatchResult The result from `store.dispatch()`
@@ -3801,20 +3749,20 @@
 	    });
 	  });
 	};
-
+	
 	exports.default = function (store, _ref) {
 	  var portName = _ref.portName;
 	  var dispatchResponder = _ref.dispatchResponder;
-
+	
 	  if (!portName) {
 	    throw new Error('portName is required in options');
 	  }
-
+	
 	  // set dispatch responder as promise responder
 	  if (!dispatchResponder) {
 	    dispatchResponder = promiseResponder;
 	  }
-
+	
 	  /**
 	   * Setup action handler to respond to dispatches from UI components
 	   */
@@ -3824,7 +3772,7 @@
 	      return true;
 	    }
 	  });
-
+	
 	  /**
 	   * Setup extended connection for state updates
 	   */
@@ -3832,7 +3780,7 @@
 	    if (port.name !== portName) {
 	      return;
 	    }
-
+	
 	    /**
 	     * Send store's current state through port
 	     * @return undefined
@@ -3843,24 +3791,24 @@
 	        payload: store.getState()
 	      });
 	    };
-
+	
 	    // Send new state down connected port on every redux store state change
 	    var unsubscribe = store.subscribe(sendState);
-
+	
 	    // when the port disconnects, unsubscribe the sendState listener
 	    port.onDisconnect.addListener(unsubscribe);
-
+	
 	    // send initial state
 	    sendState();
 	  });
 	};
 
 /***/ },
-/* 74 */
+/* 96 */
 /***/ function(module, exports) {
 
 	"use strict";
-
+	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
@@ -3869,13 +3817,13 @@
 	 * another by calling an alias function with the original action
 	 * @type {object} aliases an object that maps action types (keys) to alias functions (values) (e.g. { SOME_ACTION: newActionAliasFunc })
 	 */
-
+	
 	exports.default = function (aliases) {
 	  return function (store) {
 	    return function (next) {
 	      return function (action) {
 	        var alias = aliases[action.type];
-
+	
 	        if (alias) {
 	          return next(alias(action));
 	        } else {
@@ -3886,5 +3834,884 @@
 	  };
 	};
 
+/***/ },
+/* 97 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _redux = __webpack_require__(25);
+	
+	var _Candidate = __webpack_require__(98);
+	
+	var _Candidate2 = _interopRequireDefault(_Candidate);
+	
+	var _environment = __webpack_require__(100);
+	
+	var _environment2 = _interopRequireDefault(_environment);
+	
+	var _Election = __webpack_require__(101);
+	
+	var _Election2 = _interopRequireDefault(_Election);
+	
+	var _PlatformCounts = __webpack_require__(102);
+	
+	var _PlatformCounts2 = _interopRequireDefault(_PlatformCounts);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var _default = (0, _redux.combineReducers)({
+	    Candidate: _Candidate2.default,
+	    environment: _environment2.default,
+	    Election: _Election2.default,
+	    PlatformCounts: _PlatformCounts2.default
+	});
+	
+	exports.default = _default;
+	;
+
+	var _temp = function () {
+	    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+	        return;
+	    }
+
+	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/index.js');
+	}();
+
+	;
+
+/***/ },
+/* 98 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _actionTypes = __webpack_require__(99);
+	
+	var types = _interopRequireWildcard(_actionTypes);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
+	var initalState = {
+	    activeSegment: 'history',
+	    name: '',
+	    party: '',
+	    bannerImageUrl: '',
+	    contributions: {
+	        chartData: {},
+	        totalRaised: 0,
+	        totalSpent: 0,
+	        onHand: 0
+	    },
+	    generalInfo: {
+	        dateOfBirth: '',
+	        donateLink: '',
+	        education: '',
+	        placeOfBirth: '',
+	        politicalExperience: ''
+	    },
+	    votingHistory: [],
+	    latestPollResult: ''
+	};
+	
+	var _default = function _default() {
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initalState;
+	    var action = arguments[1];
+	
+	    switch (action.type) {
+	        case types.CHANGE_CANDIDATE_SEGMENT:
+	            return Object.assign({}, state, {
+	                activeSegment: action.segment
+	            });
+	        case types.CHANGE_ACTIVE_CANDIDATE:
+	            return Object.assign({}, state, {
+	                name: action.candidate.name,
+	                party: action.candidate.party,
+	                bannerImageUrl: action.candidate.bannerImageUrl,
+	                contributions: action.candidate.contributions,
+	                generalInfo: action.candidate.generalInfo,
+	                votingHistory: action.candidate.votingHistory,
+	                latestPollResult: action.candidate.latestPollResult
+	            });
+	        default:
+	            return state;
+	    }
+	};
+	
+	exports.default = _default;
+	;
+	
+	var _temp = function () {
+	    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+	        return;
+	    }
+	
+	    __REACT_HOT_LOADER__.register(initalState, 'initalState', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/Candidate.js');
+	
+	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/Candidate.js');
+	}();
+
+	;
+
+/***/ },
+/* 99 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	// CANDIDATE VIEW ACTIONS
+	var CHANGE_CANDIDATE_SEGMENT = exports.CHANGE_CANDIDATE_SEGMENT = 'CHANGE_CANDIDATE_SEGMENT';
+	var CHANGE_ELECTION_SEGMENT = exports.CHANGE_ELECTION_SEGMENT = 'CHANGE_ELECTION_SEGMENT';
+	
+	var CHANGE_ACTIVE_CANDIDATE = exports.CHANGE_ACTIVE_CANDIDATE = 'CHANGE_ACTIVE_CANDIDATE';
+	var CHANGE_ACTIVE_ELECTION = exports.CHANGE_ACTIVE_ELECTION = 'CHANGE_ACTIVE_ELECTION';
+	
+	// Environment actions
+	var CHANGE_ACTIVE_COMPONENT = exports.CHANGE_ACTIVE_COMPONENT = 'CHANGE_ACTIVE_COMPONENT';
+	
+	// FOR GENERAL ELECTION AND FLORIDA SENATE ELECTION
+	var ECONOMY = exports.ECONOMY = 'ECONOMY';
+	var ECONOMY_A_FAIR_TAX_SYSTEM = exports.ECONOMY_A_FAIR_TAX_SYSTEM = 'ECONOMY_A_FAIR_TAX_SYSTEM';
+	var ECONOMY_FIXING_AMERICAS_INFRASTRUCTURE = exports.ECONOMY_FIXING_AMERICAS_INFRASTRUCTURE = 'ECONOMY_FIXING_AMERICAS_INFRASTRUCTURE';
+	var ECONOMY_MANUFACTURING = exports.ECONOMY_MANUFACTURING = 'ECONOMY_MANUFACTURING';
+	var ECONOMY_SMALL_BUSINESS = exports.ECONOMY_SMALL_BUSINESS = 'ECONOMY_SMALL_BUSINESS';
+	var ECONOMY_SOCIAL_SECURITY_AND_MEDICARE = exports.ECONOMY_SOCIAL_SECURITY_AND_MEDICARE = 'ECONOMY_SOCIAL_SECURITY_AND_MEDICARE';
+	var ECONOMY_WALL_STREET_REFORM = exports.ECONOMY_WALL_STREET_REFORM = 'ECONOMY_WALL_STREET_REFORM';
+	var ECONOMY_WORKS_FOR_EVERYONE = exports.ECONOMY_WORKS_FOR_EVERYONE = 'ECONOMY_WORKS_FOR_EVERYONE';
+	var ECONOMY_REGULATION = exports.ECONOMY_REGULATION = 'ECONOMY_REGULATION';
+	var ECONOMY_TAXPLAN = exports.ECONOMY_TAXPLAN = 'ECONOMY_TAXPLAN';
+	var ECONOMY_TRADE = exports.ECONOMY_TRADE = 'ECONOMY_TRADE';
+	
+	var ECONOMY_FARMERS_RANCHERS = exports.ECONOMY_FARMERS_RANCHERS = 'ECONOMY_FARMERS_RANCHERS';
+	var IMPROVING_EDUCATION = exports.IMPROVING_EDUCATION = 'IMPROVING_EDUCATION';
+	var EDUCATION_COMMON_CORE = exports.EDUCATION_COMMON_CORE = 'EDUCATION_COMMON_CORE';
+	
+	var EDUCATION = exports.EDUCATION = 'EDUCATION';
+	var EDUCATION_CAMPUS_SEXUAL_ASSULT = exports.EDUCATION_CAMPUS_SEXUAL_ASSULT = 'EDUCATION_CAMPUS_SEXUAL_ASSULT';
+	var EDUCATION_COLLEGE_DEBT = exports.EDUCATION_COLLEGE_DEBT = 'EDUCATION_COLLEGE_DEBT';
+	var EDUCATION_EARLY_CHILDHOOD = exports.EDUCATION_EARLY_CHILDHOOD = 'EDUCATION_EARLY_CHILDHOOD';
+	var EDUCATION_K_12 = exports.EDUCATION_K_12 = 'EDUCATION_K_12';
+	var EDUCATION_TECHNOLOGY_AND_INNOVATION = exports.EDUCATION_TECHNOLOGY_AND_INNOVATION = 'EDUCATION_TECHNOLOGY_AND_INNOVATION';
+	
+	var ENVIRONMENT = exports.ENVIRONMENT = 'ENVIRONMENT';
+	var ENVIRONMENT_CLIMATE_CHANGE = exports.ENVIRONMENT_CLIMATE_CHANGE = 'ENVIRONMENT_CLIMATE_CHANGE';
+	var ENVIRONMENT_PROTECTING_ANIMALS_AND_WILDLIFE = exports.ENVIRONMENT_PROTECTING_ANIMALS_AND_WILDLIFE = 'ENVIRONMENT_PROTECTING_ANIMALS_AND_WILDLIFE';
+	var ENVIRONMENT_RURAL_COMMUNITIES = exports.ENVIRONMENT_RURAL_COMMUNITIES = 'ENVIRONMENT_RURAL_COMMUNITIES';
+	var ENVIRONMENT_ENERGY = exports.ENVIRONMENT_ENERGY = 'ENVIRONMENT_ENERGY';
+	
+	var ENVIRONMENT_OUR_ENVIRONMENT = exports.ENVIRONMENT_OUR_ENVIRONMENT = 'ENVIRONMENT_OUR_ENVIRONMENT';
+	
+	var EQUALITY = exports.EQUALITY = 'EQUALITY';
+	var EQUALITY_CAMPAIGN_FINANCE_REFORM = exports.EQUALITY_CAMPAIGN_FINANCE_REFORM = 'EQUALITY_CAMPAIGN_FINANCE_REFORM';
+	var EQUALITY_CRIMINAL_JUSTICE_REFORM = exports.EQUALITY_CRIMINAL_JUSTICE_REFORM = 'EQUALITY_CRIMINAL_JUSTICE_REFORM';
+	var EQUALITY_IMMIGRATION_REFORM = exports.EQUALITY_IMMIGRATION_REFORM = 'EQUALITY_IMMIGRATION_REFORM';
+	var EQUALITY_LFBT_RIGHTS_AND_EQULITY = exports.EQUALITY_LFBT_RIGHTS_AND_EQULITY = 'EQUALITY_LFBT_RIGHTS_AND_EQULITY';
+	var EQUALITY_RACIAL_JUSTICE = exports.EQUALITY_RACIAL_JUSTICE = 'EQUALITY_RACIAL_JUSTICE';
+	var EQUALITY_VOTING_RIGHTS = exports.EQUALITY_VOTING_RIGHTS = 'EQUALITY_VOTING_RIGHTS';
+	var EQUALITY_WOMENS_RIGHTS_AND_OPPORTUNITY = exports.EQUALITY_WOMENS_RIGHTS_AND_OPPORTUNITY = 'EQUALITY_WOMENS_RIGHTS_AND_OPPORTUNITY';
+	var EQUALITY_GUN_CONTROL = exports.EQUALITY_GUN_CONTROL = 'EQUALITY_GUN_CONTROL';
+	
+	var EQUALITY_SENIORS = exports.EQUALITY_SENIORS = 'EQUALITY_SENIORS';
+	
+	var HEALTH = exports.HEALTH = 'HEALTH';
+	var HEALTH_ADDICATION_AND_SUBSTANCE_USE = exports.HEALTH_ADDICATION_AND_SUBSTANCE_USE = 'HEALTH_ADDICATION_AND_SUBSTANCE_USE';
+	var HEALTH_AN_END_T0_ALZHEIMERS = exports.HEALTH_AN_END_T0_ALZHEIMERS = 'HEALTH_AN_END_T0_ALZHEIMERS';
+	var HEALTH_AUTISM = exports.HEALTH_AUTISM = 'HEALTH_AUTISM';
+	var HEALTH_DISABILITY_RIGHTS = exports.HEALTH_DISABILITY_RIGHTS = 'HEALTH_DISABILITY_RIGHTS';
+	var HEALTH_HEALTH_CARE = exports.HEALTH_HEALTH_CARE = 'HEALTH_HEALTH_CARE';
+	var HEALTH_HIV_AND_AIDS = exports.HEALTH_HIV_AND_AIDS = 'HEALTH_HIV_AND_AIDS';
+	var HEALTH_CHILD_CARE = exports.HEALTH_CHILD_CARE = 'HEALTH_CHILD_CARE';
+	
+	var HEALTHCARE = exports.HEALTHCARE = 'HEALTHCARE';
+	var JOBS = exports.JOBS = 'JOBS';
+	var JOBS_PAID_FAMILY_AND_MEDICAL_LEAVE = exports.JOBS_PAID_FAMILY_AND_MEDICAL_LEAVE = 'JOBS_PAID_FAMILY_AND_MEDICAL_LEAVE';
+	var JOBS_LABOR_AND_WORKERS_RIGHTS = exports.JOBS_LABOR_AND_WORKERS_RIGHTS = 'JOBS_LABOR_AND_WORKERS_RIGHTS';
+	var JOBS_VETERANS_THE_ARMED_FORCES_AND_THEIR_FAMILIES = exports.JOBS_VETERANS_THE_ARMED_FORCES_AND_THEIR_FAMILIES = 'JOBS_VETERANS_THE_ARMED_FORCES_AND_THEIR_FAMILIES';
+	var JOBS_WAGES = exports.JOBS_WAGES = 'JOBS_WAGES';
+	var JOBS_WORKFORCE_SKILLS_AND_JOBS_TRAINING = exports.JOBS_WORKFORCE_SKILLS_AND_JOBS_TRAINING = 'JOBS_WORKFORCE_SKILLS_AND_JOBS_TRAINING';
+	
+	var SECURITY = exports.SECURITY = 'SECURITY';
+	var SECURITY_COMBATING_TERRORISM = exports.SECURITY_COMBATING_TERRORISM = 'SECURITY_COMBATING_TERRORISM';
+	var SECUTIRY_GUN_VIOLENCE = exports.SECUTIRY_GUN_VIOLENCE = 'SECUTIRY_GUN_VIOLENCE';
+	var SECURITY_MILITARY_AND_DEFENSE = exports.SECURITY_MILITARY_AND_DEFENSE = 'SECURITY_MILITARY_AND_DEFENSE';
+	var SECURITY_NATIONAL_SECURITY = exports.SECURITY_NATIONAL_SECURITY = 'SECURITY_NATIONAL_SECURITY';
+	var SECURITY_FOREGIN_POLICY = exports.SECURITY_FOREGIN_POLICY = 'SECURITY_FOREGIN_POLICY';
+	
+	var RESET = exports.RESET = 'RESET';
+	
+	// ELECTION INFO 
+	var RUBIO = exports.RUBIO = 'RUBIO';
+	var MURPHY = exports.MURPHY = 'MURPHY';
+	var TRUMP = exports.TRUMP = 'TRUMP';
+	var CLINTON = exports.CLINTON = 'CLINTON';
+	var GENERAL_ELECTION = exports.GENERAL_ELECTION = 'GENERAL_ELECTION';
+	var FLORIDA_SENATE = exports.FLORIDA_SENATE = 'FLORIDA_SENATE';
+	var REPUBLICAN = exports.REPUBLICAN = 'REPUBLICAN';
+	var DEMOCRAT = exports.DEMOCRAT = 'DEMOCRAT';
+	;
+	
+	var _temp = function () {
+	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+	    return;
+	  }
+	
+	  __REACT_HOT_LOADER__.register(CHANGE_CANDIDATE_SEGMENT, 'CHANGE_CANDIDATE_SEGMENT', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(CHANGE_ELECTION_SEGMENT, 'CHANGE_ELECTION_SEGMENT', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(CHANGE_ACTIVE_CANDIDATE, 'CHANGE_ACTIVE_CANDIDATE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(CHANGE_ACTIVE_ELECTION, 'CHANGE_ACTIVE_ELECTION', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(CHANGE_ACTIVE_COMPONENT, 'CHANGE_ACTIVE_COMPONENT', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(ECONOMY, 'ECONOMY', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(ECONOMY_A_FAIR_TAX_SYSTEM, 'ECONOMY_A_FAIR_TAX_SYSTEM', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(ECONOMY_FIXING_AMERICAS_INFRASTRUCTURE, 'ECONOMY_FIXING_AMERICAS_INFRASTRUCTURE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(ECONOMY_MANUFACTURING, 'ECONOMY_MANUFACTURING', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(ECONOMY_SMALL_BUSINESS, 'ECONOMY_SMALL_BUSINESS', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(ECONOMY_SOCIAL_SECURITY_AND_MEDICARE, 'ECONOMY_SOCIAL_SECURITY_AND_MEDICARE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(ECONOMY_WALL_STREET_REFORM, 'ECONOMY_WALL_STREET_REFORM', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(ECONOMY_WORKS_FOR_EVERYONE, 'ECONOMY_WORKS_FOR_EVERYONE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(ECONOMY_REGULATION, 'ECONOMY_REGULATION', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(ECONOMY_TAXPLAN, 'ECONOMY_TAXPLAN', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(ECONOMY_TRADE, 'ECONOMY_TRADE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(ECONOMY_FARMERS_RANCHERS, 'ECONOMY_FARMERS_RANCHERS', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(IMPROVING_EDUCATION, 'IMPROVING_EDUCATION', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(EDUCATION_COMMON_CORE, 'EDUCATION_COMMON_CORE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(EDUCATION, 'EDUCATION', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(EDUCATION_CAMPUS_SEXUAL_ASSULT, 'EDUCATION_CAMPUS_SEXUAL_ASSULT', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(EDUCATION_COLLEGE_DEBT, 'EDUCATION_COLLEGE_DEBT', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(EDUCATION_EARLY_CHILDHOOD, 'EDUCATION_EARLY_CHILDHOOD', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(EDUCATION_K_12, 'EDUCATION_K_12', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(EDUCATION_TECHNOLOGY_AND_INNOVATION, 'EDUCATION_TECHNOLOGY_AND_INNOVATION', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(ENVIRONMENT, 'ENVIRONMENT', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(ENVIRONMENT_CLIMATE_CHANGE, 'ENVIRONMENT_CLIMATE_CHANGE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(ENVIRONMENT_PROTECTING_ANIMALS_AND_WILDLIFE, 'ENVIRONMENT_PROTECTING_ANIMALS_AND_WILDLIFE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(ENVIRONMENT_RURAL_COMMUNITIES, 'ENVIRONMENT_RURAL_COMMUNITIES', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(ENVIRONMENT_ENERGY, 'ENVIRONMENT_ENERGY', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(ENVIRONMENT_OUR_ENVIRONMENT, 'ENVIRONMENT_OUR_ENVIRONMENT', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(EQUALITY, 'EQUALITY', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(EQUALITY_CAMPAIGN_FINANCE_REFORM, 'EQUALITY_CAMPAIGN_FINANCE_REFORM', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(EQUALITY_CRIMINAL_JUSTICE_REFORM, 'EQUALITY_CRIMINAL_JUSTICE_REFORM', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(EQUALITY_IMMIGRATION_REFORM, 'EQUALITY_IMMIGRATION_REFORM', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(EQUALITY_LFBT_RIGHTS_AND_EQULITY, 'EQUALITY_LFBT_RIGHTS_AND_EQULITY', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(EQUALITY_RACIAL_JUSTICE, 'EQUALITY_RACIAL_JUSTICE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(EQUALITY_VOTING_RIGHTS, 'EQUALITY_VOTING_RIGHTS', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(EQUALITY_WOMENS_RIGHTS_AND_OPPORTUNITY, 'EQUALITY_WOMENS_RIGHTS_AND_OPPORTUNITY', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(EQUALITY_GUN_CONTROL, 'EQUALITY_GUN_CONTROL', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(EQUALITY_SENIORS, 'EQUALITY_SENIORS', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(HEALTH, 'HEALTH', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(HEALTH_ADDICATION_AND_SUBSTANCE_USE, 'HEALTH_ADDICATION_AND_SUBSTANCE_USE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(HEALTH_AN_END_T0_ALZHEIMERS, 'HEALTH_AN_END_T0_ALZHEIMERS', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(HEALTH_AUTISM, 'HEALTH_AUTISM', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(HEALTH_DISABILITY_RIGHTS, 'HEALTH_DISABILITY_RIGHTS', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(HEALTH_HEALTH_CARE, 'HEALTH_HEALTH_CARE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(HEALTH_HIV_AND_AIDS, 'HEALTH_HIV_AND_AIDS', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(HEALTH_CHILD_CARE, 'HEALTH_CHILD_CARE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(HEALTHCARE, 'HEALTHCARE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(JOBS, 'JOBS', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(JOBS_PAID_FAMILY_AND_MEDICAL_LEAVE, 'JOBS_PAID_FAMILY_AND_MEDICAL_LEAVE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(JOBS_LABOR_AND_WORKERS_RIGHTS, 'JOBS_LABOR_AND_WORKERS_RIGHTS', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(JOBS_VETERANS_THE_ARMED_FORCES_AND_THEIR_FAMILIES, 'JOBS_VETERANS_THE_ARMED_FORCES_AND_THEIR_FAMILIES', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(JOBS_WAGES, 'JOBS_WAGES', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(JOBS_WORKFORCE_SKILLS_AND_JOBS_TRAINING, 'JOBS_WORKFORCE_SKILLS_AND_JOBS_TRAINING', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(SECURITY, 'SECURITY', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(SECURITY_COMBATING_TERRORISM, 'SECURITY_COMBATING_TERRORISM', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(SECUTIRY_GUN_VIOLENCE, 'SECUTIRY_GUN_VIOLENCE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(SECURITY_MILITARY_AND_DEFENSE, 'SECURITY_MILITARY_AND_DEFENSE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(SECURITY_NATIONAL_SECURITY, 'SECURITY_NATIONAL_SECURITY', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(SECURITY_FOREGIN_POLICY, 'SECURITY_FOREGIN_POLICY', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(RESET, 'RESET', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(RUBIO, 'RUBIO', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(MURPHY, 'MURPHY', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(TRUMP, 'TRUMP', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(CLINTON, 'CLINTON', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(GENERAL_ELECTION, 'GENERAL_ELECTION', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(FLORIDA_SENATE, 'FLORIDA_SENATE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(REPUBLICAN, 'REPUBLICAN', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(DEMOCRAT, 'DEMOCRAT', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+	}();
+
+	;
+
+/***/ },
+/* 100 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _actionTypes = __webpack_require__(99);
+	
+	var types = _interopRequireWildcard(_actionTypes);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
+	var initalState = {
+	    activeComponent: 'CandidateView',
+	    candidates: [{
+	        name: 'Hillary Clinton',
+	        race: 'Presidential Election',
+	        party: 'democrat',
+	        image: '/images/clinton.jpg',
+	        bannerImageUrl: 'https://s3-us-west-2.amazonaws.com/setgov/Hillary.jpg',
+	        contributions: {
+	            chartData: {},
+	            totalRaised: '$530 M',
+	            totalSpent: '$420 M',
+	            onHand: '$109 M'
+	        },
+	        generalInfo: {
+	            dateOfBirth: 'October 26, 1947',
+	            donateLink: 'https://www.hillaryclinton.com/donate/',
+	            education: 'Yale Law',
+	            placeOfBirth: 'Chicago, Illinois',
+	            politicalExperience: 'Senator (NY), Secretary of State'
+	        },
+	        votingHistory: [{
+	            date: '',
+	            name: '',
+	            status: '',
+	            vote: ''
+	        }],
+	        latestPollResult: '48.9%'
+	    }, {
+	        name: 'Donald Trump',
+	        race: 'Presidential Election',
+	        party: 'republican',
+	        image: '/images/donald.jpg',
+	        bannerImageUrl: 'https://s3-us-west-2.amazonaws.com/setgov/Trump.jpg',
+	        contributions: {
+	            chartData: {},
+	            totalRaised: '$209 M',
+	            totalSpent: '$147 M',
+	            onHand: '$62 M'
+	        },
+	        generalInfo: {
+	            dateOfBirth: 'June 14, 1946',
+	            donateLink: 'https://secure.donaldjtrump.com/donate-homepage-btn/',
+	            education: 'University of Pennsylvania',
+	            placeOfBirth: 'New York, New York',
+	            politicalExperience: 'No Experience'
+	        },
+	        votingHistory: [{
+	            date: '',
+	            name: '',
+	            status: '',
+	            vote: ''
+	        }],
+	        latestPollResult: '40.7%'
+	    }, {
+	        name: 'Patrick Murphy',
+	        race: 'Florida Senate Election',
+	        party: 'democrat',
+	        image: '/images/murphy.jpeg',
+	        bannerImageUrl: 'https://s3-us-west-2.amazonaws.com/setgov/patrick+murphy+resized.jpg',
+	        contributions: {
+	            chartData: {},
+	            totalRaised: '$11 M',
+	            totalSpent: '$7 M',
+	            onHand: '$4 M'
+	        },
+	        generalInfo: {
+	            dateOfBirth: 'March 30, 1983',
+	            donateLink: 'https://secure.actblue.com/contribute/page/patrickmurphyforsenate',
+	            education: 'University of Miami',
+	            placeOfBirth: 'Miami, Florida',
+	            politicalExperience: 'House of Representatives (FL)'
+	        },
+	        votingHistory: [{
+	            date: '',
+	            name: '',
+	            status: '',
+	            vote: ''
+	        }],
+	        latestPollResult: '42.3%'
+	    }, {
+	        name: 'Marco Rubio',
+	        race: 'Florida Senate Election',
+	        party: 'republican',
+	        image: '/images/rubio.png',
+	        bannerImageUrl: 'https://s3-us-west-2.amazonaws.com/setgov/Marco-Rubio.jpg',
+	        contributions: {
+	            chartData: {},
+	            totalRaised: '$14 M',
+	            totalSpent: '$6 M',
+	            onHand: '$4 M'
+	        },
+	        generalInfo: {
+	            dateOfBirth: 'May 28, 1971',
+	            donateLink: 'https://marcorubio.com/donate/',
+	            education: 'University of Miami',
+	            placeOfBirth: 'Miami, Florida',
+	            politicalExperience: 'House of Representatives (FL), Speaker of the House (FL), Senator(FL)'
+	        },
+	        votingHistory: [{
+	            date: '',
+	            name: '',
+	            status: '',
+	            vote: ''
+	        }],
+	        latestPollResult: '48.5%'
+	    }, {
+	        name: 'Debbie Lieberman',
+	        race: 'Montgomery County Commissioner',
+	        party: 'democrat',
+	        image: '/images/lieberman.jpg',
+	        bannerImageUrl: 'https://s3-us-west-2.amazonaws.com/setgov/Debbie+Lieberman.jpg',
+	        contributions: {
+	            chartData: {},
+	            totalRaised: '',
+	            totalSpent: '',
+	            onHand: ''
+	        },
+	        generalInfo: {
+	            dateOfBirth: '',
+	            donateLink: 'https://debbielieberman.nationbuilder.com/donate',
+	            education: 'University of Dayton',
+	            placeOfBirth: '',
+	            politicalExperience: 'City Council (Clay, OH), County Commisioner (Montgomery, OH)'
+	        },
+	        votingHistory: [{
+	            date: '',
+	            name: '',
+	            status: '',
+	            vote: ''
+	        }],
+	        latestPollResult: ''
+	    }, {
+	        name: 'Gary Leitzell',
+	        race: 'Montgomery County Commissioner',
+	        party: 'republican',
+	        image: '/images/leitzell.jpg',
+	        bannerImageUrl: 'https://s3-us-west-2.amazonaws.com/setgov/Gary+Leitzell.jpg',
+	        contributions: {
+	            chartData: {},
+	            totalRaised: '',
+	            totalSpent: '',
+	            onHand: ''
+	        },
+	        generalInfo: {
+	            dateOfBirth: '',
+	            donateLink: 'http://gogarygo.com/',
+	            education: 'University of London',
+	            placeOfBirth: '',
+	            politicalExperience: 'Mayor (Dayton, OH), County Commisioner (Montgomery, OH)'
+	        },
+	        votingHistory: [{
+	            date: '',
+	            name: '',
+	            status: '',
+	            vote: ''
+	        }],
+	        latestPollResult: ''
+	    }],
+	    elections: [{
+	        title: 'Presidential Election',
+	        democrat: 'Hillary Clinton',
+	        republican: 'Donald Trump',
+	        list_image: '/images/USA-icon.png',
+	        d_image: '/images/clinton.jpg',
+	        r_image: '/images/donald.jpg',
+	        d_index: 0,
+	        r_index: 1
+	    }, {
+	        title: 'Florida Senate',
+	        democrat: 'Patrick Murphy',
+	        republican: 'Marco Rubio',
+	        list_image: '/images/Florida-icon.png',
+	        d_image: '/images/murphy.jpeg',
+	        r_image: '/images/rubio.png',
+	        d_index: 2,
+	        r_index: 3
+	    }, {
+	        title: 'County Commissioner',
+	        democrat: 'Debbie Lieberman',
+	        republican: 'Gary Leitzell',
+	        list_image: '/images/ohio.png',
+	        d_image: '/images/lieberman.jpg',
+	        r_image: '/images/leitzell.jpg',
+	        d_index: 4,
+	        r_index: 5
+	    }]
+	};
+	
+	var _default = function _default() {
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initalState;
+	    var action = arguments[1];
+	
+	    switch (action.type) {
+	        case types.CHANGE_ACTIVE_COMPONENT:
+	            return Object.assign({}, state, {
+	                activeComponent: action.component
+	            });
+	        default:
+	            return state;
+	    }
+	};
+	
+	exports.default = _default;
+	;
+	
+	var _temp = function () {
+	    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+	        return;
+	    }
+	
+	    __REACT_HOT_LOADER__.register(initalState, 'initalState', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/environment.js');
+	
+	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/environment.js');
+	}();
+
+	;
+
+/***/ },
+/* 101 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _actionTypes = __webpack_require__(99);
+	
+	var types = _interopRequireWildcard(_actionTypes);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
+	var initalState = {
+	    activeSegment: 'platform',
+	    title: '',
+	    democrat: '',
+	    republican: '',
+	    d_image: '',
+	    r_image: '',
+	    d_index: 0,
+	    r_index: 0,
+	    electionDate: '2016-11-08T00:00:00.000Z',
+	    livePolling: {},
+	    summary: ''
+	};
+	
+	var _default = function _default() {
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initalState;
+	    var action = arguments[1];
+	
+	    switch (action.type) {
+	        case types.CHANGE_ELECTION_SEGMENT:
+	            return Object.assign({}, state, {
+	                activeSegment: action.segment
+	            });
+	        case types.CHANGE_ACTIVE_ELECTION:
+	            return Object.assign({}, state, {
+	                title: action.election.title,
+	                democrat: action.election.democrat,
+	                republican: action.election.republican,
+	                d_image: action.election.d_image,
+	                r_image: action.election.r_image,
+	                d_index: action.election.d_index,
+	                r_index: action.election.r_index,
+	                electionDate: action.election.electionDate,
+	                livePolling: action.election.livePolling
+	
+	                // case types.GENERAL_ELECTION:
+	                //     return Object.assign({}, state, {
+	                //         race: action.type
+	                //     });
+	                // case types.FLORIDA_SENATE:
+	                //     return Object.assign({}, state, {
+	                //         race: action.type
+	                //     });
+	                // case types.RUBIO:
+	                //     return Object.assign({}, state, {
+	                //         candidate: action.type
+	                //     });
+	                // case types.MURPHY:
+	                //     return Object.assign({}, state, {
+	                //         candidate: action.type
+	                //     });
+	                // case types.TRUMP:
+	                //     return Object.assign({}, state, {
+	                //         candidate: action.type
+	                //     });
+	                // case types.CLINTON:
+	                //     return Object.assign({}, state, {
+	                //         candidate: action.type
+	                //     });
+	                // case types.DEMOCRAT:
+	                //     return Object.assign({}, state, {
+	                //         party: action.type
+	                //     });
+	                // case types.REPUBLICAN:
+	                //     return Object.assign({}, state, {
+	                //         party: action.type
+	                //     });
+	            });
+	        default:
+	            return state;
+	    }
+	};
+	
+	exports.default = _default;
+	;
+	
+	var _temp = function () {
+	    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+	        return;
+	    }
+	
+	    __REACT_HOT_LOADER__.register(initalState, 'initalState', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/Election.js');
+	
+	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/Election.js');
+	}();
+
+	;
+
+/***/ },
+/* 102 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _actionTypes = __webpack_require__(99);
+	
+	var types = _interopRequireWildcard(_actionTypes);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
+	var initalState = {
+	    economy: {
+	        economy_a_fair_tax_system: 0,
+	        economy_farmers_ranchers: 0,
+	        economy_fixing_americas_infrastructure: 0,
+	        economy_manufacturing: 0,
+	        economy_small_business: 0,
+	        economy_social_security_and_medicare: 0,
+	        economy_wall_street_reform: 0,
+	        economy_works_for_everyone: 0,
+	        economy_regulation: 0,
+	        economy_taxplan: 0,
+	        economy_trade: 0,
+	        economy: 0
+	    },
+	    education: {
+	        education_campus_sexual_assault: 0,
+	        education_college_debt: 0,
+	        education_common_core: 0,
+	        education_early_childhood: 0,
+	        education_k_12: 0,
+	        education_technology_and_innovation: 0,
+	        improving_education: 0,
+	        education: 0
+	    },
+	    environment: {
+	        environment_climate_change: 0,
+	        environment_protecting_animals_and_wildlife: 0,
+	        environment_rural_communities: 0,
+	        environment_our_environment: 0,
+	        environment_energy: 0,
+	        environment: 0
+	    },
+	    equality: {
+	        equality_campaign_finance_reform: 0,
+	        equality_criminal_justice_reform: 0,
+	        equality_immigration_reform: 0,
+	        equality_lgbt_rights_and_equality: 0,
+	        equality_racial_justice: 0,
+	        equality_voting_rights: 0,
+	        equality_seniors: 0,
+	        equality_womens_rights_and_opportunity: 0,
+	        equality_gun_control: 0,
+	        equality: 0
+	    },
+	    health: {
+	        health_addiction_and_substance_use: 0,
+	        health_an_end_to_alzheimers: 0,
+	        health_autism: 0,
+	        health_disability_rights: 0,
+	        health_health_care: 0,
+	        health_hiv_and_aids: 0,
+	        health_child_care: 0,
+	        healthcare: 0,
+	        health: 0
+	    },
+	    jobs: {
+	        jobs_paid_family_and_medical_leave: 0,
+	        jobs_labor_and_workers_rights: 0,
+	        jobs_veterans_the_armed_forces_and_their_families: 0,
+	        jobs_wages: 0,
+	        jobs_workforce_skills_and_jobs_training: 0,
+	        jobs: 0
+	    },
+	    security: {
+	        security_combating_terrorism: 0,
+	        security_gun_violence: 0,
+	        security_miliary_and_defense: 0,
+	        security_national_security: 0,
+	        security_foreign_policy: 0,
+	        security: 0
+	    }
+	};
+	
+	var _default = function _default() {
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initalState;
+	    var action = arguments[1];
+	
+	    var payload = action.payload;
+	    var obj = {};
+	    switch (action.type) {
+	
+	        case types.ECONOMY:
+	            state.economy.economy += 1;
+	            obj[payload.subtag_name] = payload.subtag_count;
+	            return Object.assign({}, state, {
+	                economy: Object.assign({}, state.economy, obj)
+	            });
+	        case types.EDUCATION:
+	            state.education.education += 1;
+	            obj[payload.subtag_name] = payload.subtag_count;
+	            return Object.assign({}, state, {
+	                education: Object.assign({}, state.education, obj)
+	            });
+	        case types.ENVIRONMENT:
+	            state.environment.environment += 1;
+	            obj[payload.subtag_name] = payload.subtag_count;
+	            return Object.assign({}, state, {
+	                environment: Object.assign({}, state.environment, obj)
+	            });
+	        case types.EQUALITY:
+	            state.equality.equality += 1;
+	            obj[payload.subtag_name] = payload.subtag_count;
+	            return Object.assign({}, state, {
+	                equality: Object.assign({}, state.equality, obj)
+	            });
+	        case types.HEALTH:
+	            state.health.health += 1;
+	            obj[payload.subtag_name] = payload.subtag_count;
+	            return Object.assign({}, state, {
+	                health: Object.assign({}, state.health, obj)
+	            });
+	        case types.JOBS:
+	            state.jobs.jobs += 1;
+	            obj[payload.subtag_name] = payload.subtag_count;
+	            return Object.assign({}, state, {
+	                jobs: Object.assign({}, state.jobs, obj)
+	            });
+	        case types.SECURITY:
+	            state.security.security += 1;
+	            obj[payload.subtag_name] = payload.subtag_count;
+	            return Object.assign({}, state, {
+	                security: Object.assign({}, state.security, obj)
+	            });
+	
+	        case types.RESET:
+	            return initalState;
+	        default:
+	            return state;
+	    }
+	};
+	
+	exports.default = _default;
+	;
+	
+	var _temp = function () {
+	    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+	        return;
+	    }
+	
+	    __REACT_HOT_LOADER__.register(initalState, 'initalState', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/PlatformCounts.js');
+	
+	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/PlatformCounts.js');
+	}();
+
+	;
+
 /***/ }
 /******/ ]);
+//# sourceMappingURL=background.js.map

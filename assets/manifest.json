@@ -1,13 +1,13 @@
 {
   "manifest_version": 2,
-  "name": "react-chrome-redux-boilerplate",
-  "description": "Bare boiler plate to easily start React with redux chrome extension",
+  "name": "Setdev-chrome",
+  "description": "Setdev chrome",
   "version": "1.0",
 
   "browser_action": {
-    "default_icon": "icon.png",
+    "default_icon": "./images/logo_no_circle.png",
     "default_popup": "index.html",
-    "default_title": "react-chrome-redux-boilerplate"
+    "default_title": "Setdev-chrome"
 
   },
   "background": {"scripts": ["background.js"]},

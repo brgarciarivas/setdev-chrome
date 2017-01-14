@@ -5,28 +5,31 @@ module.exports = {
 		background: './background/index.js',
 		content: './content/index.js'
 	},
-		 	
+	devtool: 'source-map', 	
 	output: {
 		path: 'assets',
 		filename: "[name].js",
 		publicPath: '/assets'
 	},
+	resolve: {
+		extensions : ['','.jsx','.es6','.js','.less'],
+		moduleDirectories: ['node_modules']
+	},
 	devServer: {
-		contentBase: ['./popup', './background', './content']
-		
+		contentBase: ['./popup', './background', './content']	
 	},
 	watch:true,
 
 	module: {
 		loaders: [
 			{
-				test: /\.js$/,
+				test: /\.(js|jsx)?$/,
 				exclude: /node_modules/,
-				loader: 'babel-loader'
+				loaders: ['babel-loader']
 			},
 			{
-				test: /\.css$/,
-				loader: 'style-loader!css-loader'
+				test: /\.less$/,
+				loader: 'style-loader!css-loader!less-loader'
 			}
 		],	
 	}

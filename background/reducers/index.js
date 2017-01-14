@@ -1,7 +1,13 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 
-import count from './start';
+import Candidate from './Candidate';
+import environment from './environment';
+import Election from './Election';
+import PlatformCounts from './PlatformCounts';
 
 export default combineReducers({
-  count
+    Candidate,
+    environment,
+    Election,
+    PlatformCounts,
 });
