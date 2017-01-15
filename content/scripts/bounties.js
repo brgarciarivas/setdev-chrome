@@ -66,15 +66,16 @@ export function overlayBounties(dispatch) {
     });
 
     var overlayItem = document.createElement('div');
+    overlayItem.setAttribute('id', 'bounty-overlay-content');
     overlayItem.style.backgroundColor = 'white';
     overlayItem.style.borderRadius = '4px 4px 0 0';
     overlayItem.style.position = 'absolute';
     overlayItem.style.height = '50vh';
-    overlayItem.style.width = '50vw';
+    overlayItem.style.width = '40vw';
     overlayItem.style.margin = 'auto';
     overlayItem.style.top = '100vh';
     overlayItem.style.zIndex = '10001';
-    overlayItem.style.left = '25vw';
+    overlayItem.style.left = '30vw';
     overlayItem.style.transition = 'all 0.45s ease-out';
     overlayItem.style.boxShadow = '0 -1px 6px 2px rgba(37, 50, 56, 0.72)';
     overlayItem.style.padding = '20px';
@@ -88,18 +89,21 @@ export function overlayBounties(dispatch) {
     });
 
     var title = document.createElement('div');
+    title.setAttribute('id', 'bounty-content-title');
     title.textContent = 'Send BTC to';
     title.style.fontSize = '22px';
 
     var image = document.createElement('div');
-    image.style.backgroundImage = 'url("https://cloud.githubusercontent.com/assets/4914611/21961681/b1beb0ba-dade-11e6-9419-11b8d829230f.png")';
+    image.setAttribute('id', 'bounty-content-image');
+    image.style.backgroundImage = 'url("https://cloud.githubusercontent.com/assets/4914611/21962323/13a94c7e-daf1-11e6-9b4d-3136ed717f4a.png")';
     image.style.backgroundSize = '100% 100%';
     image.style.height = '150px';
     image.style.width = '150px';
     image.style.margin = 'auto';
 
     var address = document.createElement('span');
-    address.textContent = '1Q2Bo9ZWQY5Er85zeYmLdMKFmvkq3TV3tg';
+    address.setAttribute('id', 'bounty-content-text');
+    address.textContent = '1FYM25ZFP6uWCFVovNT7VcrzEsgrRkfE3a';
     address.style.fontSize = '11px';
     address.style.textAlign = 'center';
 
@@ -127,7 +131,7 @@ export function overlayBounties(dispatch) {
         fundButton.style.cursor = 'pointer';
         fundButton.style.borderRadius = '3px';
         fundButton.style.boxShadow = '0 1px 4px rgba(37, 50, 56, 0.12)';
-        fundButton.style.transition = 'all 0.5s';
+        fundButton.style.transition = 'all 0.45s';
 
         fundButton.addEventListener('mouseover', function() {
             this.style.backgroundColor = 'white';

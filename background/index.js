@@ -22,6 +22,8 @@ wrapStore(store, {
 
 var injected = false;
 
+OneSignal.init({appId: "1f65f2ef-4f3d-4bb3-b6f9-29272455667c",
+                googleProjectNumber: "19593807339"});
 
 // // //Inject content Script on each tab change//
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
@@ -32,14 +34,15 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
         injected = true;
         chrome.tabs.executeScript(null, {file: 'content.js'});
     }
-}); 
+});
 
-//Inject content script when first tab is activated//
+OneSignal.addListenerForNotificationOpened(function(data) {
+    console.log("Received NotificationOpened:");
+    console.log(data);
+});
+
+// //Inject content script when first tab is activated//
 // chrome.tabs.onActivated.addListener(function(tabId, changeInfo, tab) {
-// 	console.log(tabId)
-// 	console.log(tab)
-// 	chrome.tabs.get(tabId.tabId,function(tab){
-// 		console.log(tab)
-// 	})  
+//   console.log('content script injected')
+//   chrome.tabs.executeScript(null, {file: 'content.js'});
 // });
-
