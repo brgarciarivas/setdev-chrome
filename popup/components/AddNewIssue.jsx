@@ -14,26 +14,22 @@ export default class AddNewIssue extends Base {
         this.autoBind('handleChange', 'handleSubmit');
         this.state = {
         	title: '',
-        	issue: {
-        		url: '',
-        		username: '',
-        		issueNumber: '',
-
-        	}
+        	
         }
     }
 	handleChange(event) {
-    	this.setState({value: event.target.title});
+    	this.setState({title: event.target.value});
   	}
 	handleSubmit(event) {
     	alert('A name was submitted: ' + this.state.title);
     	event.preventDefault();
   	}
 	render() {
-             
+        console.log(this.state.title)
         return (
             <div className='AddNewIssue column'>
-            	<div className='nav'>
+            	<div className='nav row'>
+            		<p>{this.state.title}</p>
             	</div>
             	<div className='container column'>
             		<form 
@@ -42,7 +38,6 @@ export default class AddNewIssue extends Base {
             		>
             			<input 
             				type='text'
-            				required
             				value={this.state.title} 
             				onChange={this.handleChange}
             			/>
