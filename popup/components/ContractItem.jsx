@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router/lib';
+import { connect } from 'react-redux';
+import FontAwesome from 'react-fontawesome';
 
 import Base from './Base';
+import { pushIssue } from '../actions/Issues';
 
-export default class ContractItem extends Base {
+class ContractItem extends Base {
     constructor(props) {
         super(props);
         this.state = {
@@ -37,3 +40,11 @@ export default class ContractItem extends Base {
     }
 }
 
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        pushIssue: issue => dispatch(pushIssue(pushIssue))
+    };
+};
+
+export default connect(null, mapDispatchToProps)(ContractItem);

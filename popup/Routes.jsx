@@ -8,6 +8,7 @@ import PaymentReceived from './components/PaymentReceived';
 import ContractItem from './components/ContractItem';
 import SubmitDevAgreement from './components/SubmitDevAgreement';
 import ContractSummary from './components/ContractSummary';
+import AddNewIssue from './components/AddNewIssue';
 
 export default(
 
@@ -17,6 +18,7 @@ export default(
        	<Route path='/PaymentReceived' component={PaymentReceived}/>
        	<Route path='/ContractItem' component={ContractItem}/>
        	<Route path='/ContractSummary' component={ContractSummary}/>
+       	<Route path='/AddNewIssue' component={AddNewIssue}/>
     </Route>
 
 );
