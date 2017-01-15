@@ -1,11 +1,47 @@
 import _ from 'lodash';
 
+function myFunction() {
+
+}
+
 function expandBountyOverlay() {
     var overlay = document.getElementById('bounty-overlay');
 
     overlay.style.opacity = '1';
     overlay.style.pointerEvents = 'auto';
     overlay.childNodes[0].style.top = '50vh';
+
+    window.setTimeout(function() {
+        collapseBountyOverlay();
+        var buttons = document.body.getElementsByClassName('add-bounty-button');
+        var firstButton = buttons[0];
+
+        firstButton.removeEventListener('mouseover', null);
+        firstButton.removeEventListener('mouseout', null);
+        firstButton.removeEventListener('click', null);
+        firstButton.addEventListener('mouseover', function() {
+        });
+        firstButton.addEventListener('mouseout', function() {
+        })
+        firstButton.addEventListener('click', function() {
+        })
+
+        firstButton.textContent = 'Current Bounty: ฿ 0.002';
+
+        firstButton.style.backgroundColor = 'rgba(0,0,0,0)';
+        firstButton.style.color = '#4078c0';
+        firstButton.style.fontSize = '8px';
+        firstButton.style.margin = '5px';
+        firstButton.style.padding = '2px 5px';
+        firstButton.style.position = 'absolute';
+        firstButton.style.right = '0px';
+        firstButton.style.bottom = '0px';
+        firstButton.style.cursor = 'default';
+        firstButton.style.boxShadow = 'none';
+        firstButton.style.transition = 'all 0.45s';
+
+
+    }, 25000)
 }
 
 function collapseBountyOverlay() {
@@ -16,33 +52,6 @@ function collapseBountyOverlay() {
 }
 
 export function overlayBounties(dispatch) {
-    var bountyAmounts = [
-      '1 BTC',
-      '0.15 BTC',
-      '1.4 BTC',
-      '3 BTC',
-      '0.8 BTC',
-      '1 BTC',
-      '0.15 BTC',
-      '1.4 BTC',
-      '3 BTC',
-      '0.8 BTC',
-      '1 BTC',
-      '0.15 BTC',
-      '1.4 BTC',
-      '3 BTC',
-      '0.8 BTC',
-      '1 BTC',
-      '0.15 BTC',
-      '1.4 BTC',
-      '3 BTC',
-      '0.8 BTC',
-      '1 BTC',
-      '0.15 BTC',
-      '1.4 BTC',
-      '3 BTC',
-      '0.8 BTC'
-    ];
 
     var issues = document.body.getElementsByClassName('opened-by');
     var length = issues.length;
@@ -95,7 +104,7 @@ export function overlayBounties(dispatch) {
 
     var image = document.createElement('div');
     image.setAttribute('id', 'bounty-content-image');
-    image.style.backgroundImage = 'url("https://cloud.githubusercontent.com/assets/4914611/21962323/13a94c7e-daf1-11e6-9b4d-3136ed717f4a.png")';
+    image.style.backgroundImage = 'url("https://cloud.githubusercontent.com/assets/6628741/21963716/75878340-db0d-11e6-8fbe-568ffe4dadf2.png")';
     image.style.backgroundSize = '100% 100%';
     image.style.height = '150px';
     image.style.width = '150px';
@@ -103,7 +112,7 @@ export function overlayBounties(dispatch) {
 
     var address = document.createElement('span');
     address.setAttribute('id', 'bounty-content-text');
-    address.textContent = '1FYM25ZFP6uWCFVovNT7VcrzEsgrRkfE3a';
+    address.textContent = '1Pag9hNiLpo2UVrmHZbMY7nKgVx3XJc4qo';
     address.style.fontSize = '11px';
     address.style.textAlign = 'center';
 
@@ -117,7 +126,8 @@ export function overlayBounties(dispatch) {
 
     _.each(issues, function(issue, index) {
         var fundButton = document.createElement('span');
-        // fundButton.textContent = bountyAmounts[index];
+        fundButton.setAttribute('class', 'add-bounty-button');
+
         fundButton.textContent = '+ Add Bounty';
 
         fundButton.style.backgroundColor = '#4078c0';
