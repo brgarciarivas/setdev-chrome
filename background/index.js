@@ -23,6 +23,11 @@ wrapStore(store, {
 var injected = false;
 
 
+OneSignal.init({appId: "1f65f2ef-4f3d-4bb3-b6f9-29272455667c",
+                googleProjectNumber: "19593807339"});
+
+console.log("one signal init");
+
 // // //Inject content Script on each tab change//
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     console.log('content script injected')
