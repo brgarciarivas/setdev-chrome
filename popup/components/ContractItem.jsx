@@ -28,13 +28,37 @@ class ContractItem extends Base {
             <Link 
                 to={'/ContractSummary/'}
                 style={style}
-                className='ContractItem'
+                className='ContractItem column'
             >
-                <div className='row align-center'>
-                    <h6 className='flex-self'>{this.props.projectName}</h6>
-                    <div className='flex'/>
-                    <p className='flex-self'>{this.props.quoteInBits}</p>
+                <div className="top_info">
+                    <div className="avatar" />
+                    <div className="column">
+                        <div className="username">
+                            Bsin1
+                        </div>
+                        <div className="repository">
+                            repository
+                        </div>
+                    </div>
+                    <div className="column">
+                         <div className="date" >
+                            12/15
+                         </div>
+                        <div className="bounty" >
+                            2.45
+                        </div>
+                    </div>              
+               </div>
+                <div className="bottom_info row">
+                    {this.props.projectName}
+                    <div className="tag">
+                        swift
+                    </div>
+                    <div className="tag">
+                        iOSs
+                    </div>
                 </div>
+                
             </Link>
         );
     }
