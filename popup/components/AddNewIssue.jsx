@@ -11,39 +11,53 @@ import TextInput from './TextInput'
 export default class AddNewIssue extends Base {
     constructor(props) {
         super(props);
+        this.autoBind('handleChange', 'handleSubmit');
         this.state = {
-        	issue: {
-        		url: '',
-        		username: '',
-        		issueNumber: '',
-
-        	}
+        	title: '',
+        	
         }
     }
-	onSubmit(){
-
-	}
+	handleChange(event) {
+    	this.setState({title: event.target.value});
+  	}
+	handleSubmit(event) {
+    	alert('A name was submitted: ' + this.state.title);
+    	event.preventDefault();
+  	}
 	render() {
-             
+        console.log(this.state.title)
         return (
             <div className='AddNewIssue column'>
-            	<div className='nav'>
+            	<div className='nav row'>
+            		<p>{this.state.title}</p>
             	</div>
             	<div className='container column'>
-            		<div className='name '>
-            			<h1>Bounty Name:</h1>
-            			<p>repo name</p>
-            		</div>
+            		<form 
+            			className='name group'
+            			onSubmit={this.handleSubmit}
+            		>
+            			<input 
+            				type='text'
+            				value={this.state.title} 
+            				onChange={this.handleChange}
+            			/>
+            			<span className='highlight'/>
+            			<span className='bar' />
+            			<label>Bounty Name</label>
+            		</form>
             		<div className='cal'>
-            			<h1>Duration: </h1>
+            			<h1>Duration Today till: </h1>
             			<Calendar
             				className='calendar'   
-            				style={{ margin: 0 }}
+            				style={{ margin: 20 }}
             				fullscreen={false}
             			/>
             		</div>
-            		<div className='btc'>
-
+            		<div className='pay'>
+            			<p>1Q2Bo9ZWQY5Er85zeYmLdMKFmvkq3TV3tg</p>
+            			<div className='btc'/>
+            			<div className='blue'/>
+            			<div className='qr'/>
             		</div>
             	</div>
             	
