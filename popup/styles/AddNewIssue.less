@@ -1,3 +1,134 @@
 .AddNewIssue{
-	background-color: @red;
+	
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+
+// 	button{
+// 		width: 100px;
+// 		height: 50px;
+// 		background-color: @purple;
+// 		box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+// 		border-radius: 4px;
+// 		border:none;
+// 	}
+// 	.new_repo{
+// 		align-items: center;
+// 		justify-content: center;
+// 		background-color: #ffffff;
+// 		margin-top: 20px;
+// 		padding-top: 20px;
+// 		padding-bottom: 10px;
+// 		box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+// 	}
+// 	.group{
+
+//   		position:relative; 
+//   		margin-bottom:30px; 
+// 	}
+// 	input{
+// 		font-size:18px;
+// 		padding:10px 10px 10px 5px;
+// 		display:block;
+// 		width:300px;
+// 		border:none;
+// 		border-bottom:1px solid #757575;
+// 	}
+// 	input:focus{ outline:none; }
+
+// 	label{
+// 	  color:#999; 
+// 	  font-size:18px;
+// 	  font-weight:normal;
+// 	  position:absolute;
+// 	  pointer-events:none;
+// 	  left:5px;
+// 	  top:10px;
+// 	  transition:0.2s ease all; 
+// 	  -moz-transition:0.2s ease all; 
+// 	  -webkit-transition:0.2s ease all;
+// 	}
+
+// 	/* active state */
+// 	input:focus ~ label, input:valid ~ label 		{
+// 	  top:-20px;
+// 	  font-size:14px;
+// 	  color:@blue;
+// 	}
+
+// /* BOTTOM BARS ================================= */
+// 	.bar 	{ position:relative; display:block; width:300px; }
+// 	.bar:before, .bar:after 	{
+// 	  content:'';
+// 	  height:2px; 
+// 	  width:0;
+// 	  bottom:1px; 
+// 	  position:absolute;
+// 	  background:@blue; 
+// 	  transition:0.2s ease all; 
+// 	  -moz-transition:0.2s ease all; 
+// 	  -webkit-transition:0.2s ease all;
+// 	}
+// 	.bar:before {
+// 	  left:50%;
+// 	}
+// 	.bar:after {
+// 	  right:50%; 
+// 	}
+
+// 	/* active state */
+// 	input:focus ~ .bar:before, input:focus ~ .bar:after {
+// 	  width:50%;
+// 	}
+
+// 	/* HIGHLIGHTER ================================== */
+// 	.highlight {
+// 	  position:absolute;
+// 	  height:60%; 
+// 	  width:100px; 
+// 	  top:25%; 
+// 	  left:0;
+// 	  pointer-events:none;
+// 	  opacity:0.5;
+// 	}
+
+// 	/* active state */
+// 	input:focus ~ .highlight {
+// 	  -webkit-animation:inputHighlighter 0.3s ease;
+// 	  -moz-animation:inputHighlighter 0.3s ease;
+// 	  animation:inputHighlighter 0.3s ease;
+// 	}
+
+	.nav{
+		background-image:url("/images/navPattern.png");
+		width: 100%;
+		height: 40px;
+		background-position: center;
+		background-size: 100%;
+
+	}
+	.container{
+		margin-top: 10px;
+		height: 400px;
+		width: 95%;
+		align-items: center;
+		justify-content: space-between;
+		background-color: @red;
+	}
+	.calendar{
+		position: relative;
+		background-color: #ffffff;
+		border: 1px solid @blue;
+	}
+	.rc-calendar{
+
+		background-color: #ffffff;
+	}
+	h1{
+		position: relative;
+		left: 30px;
+		font-size: 20px;
+		color: @black;
+		line-height: 0;
+	}
 }
