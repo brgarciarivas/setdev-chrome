@@ -16,13 +16,14 @@
     "128": "icon128.png"
   },
   "permissions": [
-    "https://github.com/*",
-    "https://www.github.com/*",
-    "http://www.github.com/*",
-    "tabs","<all_urls>",
     "gcm",
     "notifications",
     "identity",
+    "https://github.com/*",
+    "https://www.github.com/*",
+    "http://www.github.com/*",
+    "tabs",
+    "<all_urls>",
     "storage"
   ]
 }

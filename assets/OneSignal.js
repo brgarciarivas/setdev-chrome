@@ -308,9 +308,6 @@ chrome.runtime.onConnect.addListener(function(port) {
 });
 
 
-
-
-
 var GT_notifications_opened = [];
 var GT_notifications_received = {};
 
@@ -397,6 +394,7 @@ var OneSignalBackground = {
       GT_notifications_received[customJSON.i].openUrl = customJSON.u;
     
     chrome.notifications.create(customJSON.i, chromeNotification, function(){});
+
   },
   
   notificationOpened: function(notifiationId, jsonToSend) {
