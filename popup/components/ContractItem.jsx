@@ -26,8 +26,13 @@ export default class ContractItem extends Base {
             <Link 
                 to={'/ContractSummary/'}
                 style={style}
-                className='ContractItem'>
-               ContractItem
+                className='ContractItem'
+            >
+                <div className='row align-center'>
+                    <h6 className='flex-self'>{this.props.projectName}</h6>
+                    <div className='flex'/>
+                    <p className='flex-self'>{this.props.quoteInBits}</p>
+                </div>
             </Link>
         );
     }

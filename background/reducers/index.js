@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
 
-import Election from './Election';
+import Main from './Main';
 
 export default combineReducers({
   
-    Election
+    Main
 });
