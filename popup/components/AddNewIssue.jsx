@@ -40,7 +40,8 @@ export default class AddNewIssue extends Base {
             			className='name group'
             			onSubmit={this.handleSubmit}
             		>
-            			<input 
+            			<input
+                            placeholder='Bounty Name' 
             				type='text'
             				value={this.state.title} 
             				onChange={this.handleChange}
