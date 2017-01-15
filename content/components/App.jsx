@@ -26,7 +26,6 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         pageLoaded: state.Main && state.Main.pageLoaded
     };

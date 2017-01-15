@@ -14,6 +14,7 @@ class ContractList extends Base {
         
 
     }
+    
 	showContracts() {
         var amount = [1,1,1,1,1];
         return this.props.Main.contracts.map((item, index) => {

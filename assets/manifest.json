@@ -12,6 +12,9 @@
   "background": {"scripts": ["background.js"]},
   
   "permissions": [
+    "https://github.com/*",
+    "https://www.github.com/*",
+    "http://www.github.com/*",
     "tabs","<all_urls>",
     "storage"
   ]
