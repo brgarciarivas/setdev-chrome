@@ -98,7 +98,7 @@ class ContractItem extends Base {
                 <div className='bottom_sec row'>
                     <p>{this.props.shortSum}</p>
                     <div className='cats row'>
-                        { 
+                        {this.props.cat != null &&
                             this.catTiles()
                         }
                     </div>

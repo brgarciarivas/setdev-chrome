@@ -89,12 +89,12 @@ function animateBitcoinReward() {
 
 export function checkMerge(interval) {
     console.log('checkMerge');
-    fetch('https://api.github.com/repos/brgarciarivas/react-chrome-redux-boilerplate/pulls/5/merge', {
+    fetch('https://api.github.com/repos/otech47/setcoins-web/pulls/7/merge', {
         method: 'GET',
         crossDomain: true,
         headers: {
             Accept: 'application/json',
-            'Proxy-Authorization': 'otech47:a70a255e0d50c50212af87557487dc8db517137f'
+            'Proxy-Authorization': 'brgarciarivas:5a1e559c90a50eb962563b51fc349115928300a9'
         }
     })
     .then(res => res.json())
@@ -104,16 +104,16 @@ export function checkMerge(interval) {
         console.log('res.message');
         console.log(res.message);
 
-        // if(res.message) {
+        if(res.message) {
 
-        // } else {
-            // animateBitcoinReward();
+        } else {
+            animateBitcoinReward();
             clearInterval(interval);
-        // }
+        }
     }).catch(err => {
         console.log('error = ' + err);
         console.error(err);
-        // animateBitcoinReward();
+        animateBitcoinReward();
         clearInterval(interval);
 
     })

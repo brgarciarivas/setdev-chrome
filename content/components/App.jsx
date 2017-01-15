@@ -12,11 +12,12 @@ class App extends Component {
     }
 
     componentDidMount() {
+        console.log('componentDidMount')
         if(!this.props.pageLoaded) {
             overlayBounties(this.props.dispatch);
         }
-        var intervalId = setInterval(this.timer.bind(this), 7000); 
-        this.setState({ intervalId: intervalId });
+        // var intervalId = setInterval(this.timer.bind(this), 15000); 
+        // this.setState({ intervalId: intervalId });
     }
 
     timer() {
