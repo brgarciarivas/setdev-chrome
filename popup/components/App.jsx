@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import Base from './Base';
 
-class App extends Base {
+export default class App extends Base {
     constructor(props) {
         super(props);
         
@@ -14,29 +15,33 @@ class App extends Base {
     render() {
         
         console.log('App render');
+      
        
-        // switch (this.props.activeComponent) {
-        // case 'CandidateView':
-        //     activeComponent = <CandidateView/>;
-        //     break;
-        // default:
-        //     break;
-        // }
         return (
-            <div>
-                {this.props.children}
-                testing
-            </div>
+            <div className='App'>
+                
+                    <ReactCSSTransitionGroup  
+                        transitionName='AppContainer'
+                        transitionEnterTimeout={700}
+                        transitionLeaveTimeout={300}
+                    >
+                        {React.cloneElement(this.props.children,
+                            {
+                                key: this.props.location.pathname
+                        })}
+                    </ReactCSSTransitionGroup>
+                
+           </div>
         );
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        environment: state.environment,
-        Candidate: state.Candidate,
-        PlatformCounts: state.PlatformCounts
-    };
-};
+// const mapStateToProps = (state) => {
+//     return {
+//         environment: state.environment,
+//         Candidate: state.Candidate,
+//         PlatformCounts: state.PlatformCounts
+//     };
+// };
 
-export default connect(mapStateToProps)(App);
+// export default connect(mapStateToProps)(App);
