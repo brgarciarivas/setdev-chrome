@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Link } from 'react-router/lib';
 import { connect } from 'react-redux';
 import FontAwesome from 'react-fontawesome';
 import Calendar from 'rc-calendar';
@@ -14,7 +13,6 @@ export default class AddNewIssue extends Base {
         this.autoBind('handleChange', 'handleSubmit');
         this.state = {
         	title: '',
-        	
         }
     }
 	handleChange(event) {
@@ -28,6 +26,12 @@ export default class AddNewIssue extends Base {
         console.log(this.state.title)
         return (
             <div className='AddNewIssue column'>
+            	<FontAwesome
+                    onClick={ () =>  this.props.history.push('/ContractList')}
+                    name='close'
+                    size={'2x'}
+                    className='icon'
+                />
             	<div className='nav row'>
             		<p>{this.state.title}</p>
             	</div>

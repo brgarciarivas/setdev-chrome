@@ -16,14 +16,19 @@ class ContractList extends Base {
     }
     
 	showContracts() {
-        var amount = [1,1,1,1,1];
+
         return this.props.Main.contracts.map((item, index) => {
             return(
                 <ContractItem 
                     key={index}
-                    projectName={item.projectName}
-                    deadline={item.deadline}
-                    quoteInBits={item.quoteInBits}
+                    title={item.title}
+                    due={item.due}
+                    amount={item.amount}
+                    url={item.url}
+                    shortSum={item.shortSum}
+                    cat={item.cat}
+                    pic={item.pic}
+                    repo={item.repo}
                 />
             );
         })
