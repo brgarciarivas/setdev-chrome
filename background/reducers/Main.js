@@ -33,7 +33,7 @@ const initialState = {
             cat: ['Style', 'JS'],
             pic: 'https://avatars3.githubusercontent.com/u/4914611?v=3&s=88',
             repo:'https://github.com/brgarciarivas/react-chrome-redux-boilerplate',
-            color: '#719bac',
+            color: '#91b5ac',
         },
          {
             title: 'Fix Redux communication with content script',
@@ -44,7 +44,7 @@ const initialState = {
             cat: ['Redux', 'Chrome'],
             pic: 'https://avatars0.githubusercontent.com/u/6628741?v=3&s=88',
             repo:'https://github.com/brgarciarivas/react-chrome-redux-boilerplate',
-            color: '#91b5ac',
+            color: '#719bac',
         },
     ],
     pageLoaded: false
