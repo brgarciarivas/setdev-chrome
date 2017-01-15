@@ -1,30 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setStateFromKeywords } from '../scripts/getKeyWordsFromPage';
+import { overlayBounties } from '../scripts/bounties';
 
 class App extends Component {
     constructor(props) {
         super(props);
     }
 
-    // componentDidMount() {
-        
-    //     setStateFromKeywords(this.props.dispatch);
-      
-    // }
+    componentDidMount() {
+        if(!this.props.pageLoaded) {
+            overlayBounties(this.props.dispatch);
+        }
+
+    }
 
     render() {
+
+        console.log('content/App render');
+
         return (
             <div>
-                Welcome to Setdev Chrome 
             </div>
         );
     }
 }
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return {
-        PlatformCounts: state.PlatformCounts
+        pageLoaded: state.Main && state.Main.pageLoaded
     };
 };
 

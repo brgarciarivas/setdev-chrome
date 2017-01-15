@@ -1,5 +1,5 @@
 
-export const RESET = 'RESET';
+export const RESET = 'REGISTER_PAGE_LOAD';
 
 
 

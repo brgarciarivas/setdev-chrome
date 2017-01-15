@@ -78,10 +78,10 @@
 	});
 	
 	// // //Inject content Script on each tab change//
-	// chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-	//   console.log('content script injected')
-	//   chrome.tabs.executeScript(null, {file: 'content.js'});
-	// }); 
+	chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+	    console.log('content script injected');
+	    chrome.tabs.executeScript(null, { file: 'content.js' });
+	});
 	
 	// //Inject content script when first tab is activated//
 	// chrome.tabs.onActivated.addListener(function(tabId, changeInfo, tab) {
@@ -3995,7 +3995,8 @@
 	        projectName: 'A Simple Landing Page',
 	        quoteInBits: '1 BTC',
 	        deadline: 'March 30, 2017'
-	    }]
+	    }],
+	    pageLoaded: false
 	};
 	
 	var _default = function _default() {
@@ -4003,8 +4004,11 @@
 	    var action = arguments[1];
 	
 	    switch (action.type) {
-	        case types.RESET:
-	            return Object.assign({}, state, {});
+	        case types.REGISTER_PAGE_LOAD:
+	            return Object.assign({}, state, {
+	                pageLoaded: true
+	            });
+	
 	        default:
 	            return state;
 	    }
@@ -4034,7 +4038,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	var RESET = exports.RESET = 'RESET';
+	var RESET = exports.RESET = 'REGISTER_PAGE_LOAD';
 	;
 	
 	var _temp = function () {
