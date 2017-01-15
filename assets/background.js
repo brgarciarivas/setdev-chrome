@@ -90,13 +90,18 @@
 	    }
 	});
 	
-	//Inject content script when first tab is activated//
+	OneSignal.init({ appId: "1f65f2ef-4f3d-4bb3-b6f9-29272455667c",
+	    googleProjectNumber: "19593807339" });
+	
+	OneSignal.addListenerForNotificationOpened(function (data) {
+	    console.log("Received NotificationOpened:");
+	    console.log(data);
+	});
+	
+	// //Inject content script when first tab is activated//
 	// chrome.tabs.onActivated.addListener(function(tabId, changeInfo, tab) {
-	// 	console.log(tabId)
-	// 	console.log(tab)
-	// 	chrome.tabs.get(tabId.tabId,function(tab){
-	// 		console.log(tab)
-	// 	})  
+	//   console.log('content script injected')
+	//   chrome.tabs.executeScript(null, {file: 'content.js'});
 	// });
 	
 	;
@@ -4028,7 +4033,6 @@
 	            return Object.assign({}, state, {
 	                pageLoaded: true
 	            });
-	
 	        default:
 	            return state;
 	    }
@@ -4064,6 +4068,8 @@
 	var ADD_ISSUE = exports.ADD_ISSUE = 'ADD_ISSUE';
 	var REMOVE_ISSUE = exports.REMOVE_ISSUE = 'REMOVE_ISSUE';
 	var ADD_URL = exports.ADD_URL = 'ADD_URL';
+	
+	var MERGED = exports.MERGED = 'MERGED';
 	;
 	
 	var _temp = function () {
@@ -4080,6 +4086,8 @@
 	  __REACT_HOT_LOADER__.register(REMOVE_ISSUE, 'REMOVE_ISSUE', '/Users/oscarlafarga/setdev-chrome/background/actionTypes.js');
 	
 	  __REACT_HOT_LOADER__.register(ADD_URL, 'ADD_URL', '/Users/oscarlafarga/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(MERGED, 'MERGED', '/Users/oscarlafarga/setdev-chrome/background/actionTypes.js');
 	}();
 
 	;

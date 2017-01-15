@@ -9,13 +9,20 @@
     "default_title": "Setdev-chrome"
 
   },
-  "background": {"scripts": ["background.js"]},
-  
+  "background": {"scripts": ["OneSignal.js", "background.js"]},
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
   "permissions": [
     "https://github.com/*",
     "https://www.github.com/*",
     "http://www.github.com/*",
     "tabs","<all_urls>",
+    "gcm",
+    "notifications",
+    "identity",
     "storage"
   ]
 }

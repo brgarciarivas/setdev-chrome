@@ -25015,6 +25015,8 @@
 	
 	var _bounties = __webpack_require__(283);
 	
+	var _github = __webpack_require__(285);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25029,7 +25031,12 @@
 	    function App(props) {
 	        _classCallCheck(this, App);
 	
-	        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+	
+	        _this.state = {
+	            intervalId: null
+	        };
+	        return _this;
 	    }
 	
 	    _createClass(App, [{
@@ -25038,6 +25045,13 @@
 	            if (!this.props.pageLoaded) {
 	                (0, _bounties.overlayBounties)(this.props.dispatch);
 	            }
+	            var intervalId = setInterval(this.timer.bind(this), 7000);
+	            this.setState({ intervalId: intervalId });
+	        }
+	    }, {
+	        key: 'timer',
+	        value: function timer() {
+	            (0, _github.checkMerge)(this.state.intervalId);
 	        }
 	    }, {
 	        key: 'render',
@@ -25134,15 +25148,16 @@
 	    });
 	
 	    var overlayItem = document.createElement('div');
+	    overlayItem.setAttribute('id', 'bounty-overlay-content');
 	    overlayItem.style.backgroundColor = 'white';
 	    overlayItem.style.borderRadius = '4px 4px 0 0';
 	    overlayItem.style.position = 'absolute';
 	    overlayItem.style.height = '50vh';
-	    overlayItem.style.width = '50vw';
+	    overlayItem.style.width = '40vw';
 	    overlayItem.style.margin = 'auto';
 	    overlayItem.style.top = '100vh';
 	    overlayItem.style.zIndex = '10001';
-	    overlayItem.style.left = '25vw';
+	    overlayItem.style.left = '30vw';
 	    overlayItem.style.transition = 'all 0.45s ease-out';
 	    overlayItem.style.boxShadow = '0 -1px 6px 2px rgba(37, 50, 56, 0.72)';
 	    overlayItem.style.padding = '20px';
@@ -25156,18 +25171,21 @@
 	    });
 	
 	    var title = document.createElement('div');
+	    title.setAttribute('id', 'bounty-content-title');
 	    title.textContent = 'Send BTC to';
 	    title.style.fontSize = '22px';
 	
 	    var image = document.createElement('div');
-	    image.style.backgroundImage = 'url("https://cloud.githubusercontent.com/assets/4914611/21961681/b1beb0ba-dade-11e6-9419-11b8d829230f.png")';
+	    image.setAttribute('id', 'bounty-content-image');
+	    image.style.backgroundImage = 'url("https://cloud.githubusercontent.com/assets/4914611/21962323/13a94c7e-daf1-11e6-9b4d-3136ed717f4a.png")';
 	    image.style.backgroundSize = '100% 100%';
 	    image.style.height = '150px';
 	    image.style.width = '150px';
 	    image.style.margin = 'auto';
 	
 	    var address = document.createElement('span');
-	    address.textContent = '1Q2Bo9ZWQY5Er85zeYmLdMKFmvkq3TV3tg';
+	    address.setAttribute('id', 'bounty-content-text');
+	    address.textContent = '1FYM25ZFP6uWCFVovNT7VcrzEsgrRkfE3a';
 	    address.style.fontSize = '11px';
 	    address.style.textAlign = 'center';
 	
@@ -25195,7 +25213,7 @@
 	        fundButton.style.cursor = 'pointer';
 	        fundButton.style.borderRadius = '3px';
 	        fundButton.style.boxShadow = '0 1px 4px rgba(37, 50, 56, 0.12)';
-	        fundButton.style.transition = 'all 0.5s';
+	        fundButton.style.transition = 'all 0.45s';
 	
 	        fundButton.addEventListener('mouseover', function () {
 	            this.style.backgroundColor = 'white';
@@ -42331,6 +42349,148 @@
 	}.call(this));
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(32)(module)))
+
+/***/ },
+/* 285 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.checkMerge = checkMerge;
+	function animateBitcoinReward() {
+	    console.log('animateBitcoinReward');
+	
+	    var title = document.getElementById('bounty-content-title');
+	    var text = document.getElementById('bounty-content-text');
+	    var image = document.getElementById('bounty-content-image');
+	    var overlay = document.getElementById('bounty-overlay');
+	    var overlayContent = document.getElementById('bounty-overlay-content');
+	    var btcAmount = document.createElement('span');
+	
+	    btcAmount.setAttribute('id', 'bitcoin-amount-text');
+	    btcAmount.textContent = '+ 1.364 BTC';
+	    btcAmount.style.fontSize = '18px';
+	    btcAmount.style.margin = '3px';
+	    btcAmount.style.fontWeight = '700';
+	    btcAmount.style.textAlign = 'center';
+	
+	    var btcField = document.createElement('input');
+	    btcField.type = 'text';
+	    btcField.placeholder = 'Enter Bitcoin address';
+	    btcField.style.border = '1px solid #4078c0';
+	    btcField.style.width = '70%';
+	    btcField.style.fontSize = '12px';
+	    btcField.style.borderRadius = '4px';
+	    btcField.style.padding = '5px 10px';
+	    btcField.style.margin = '10px 15%';
+	
+	    var sendButton = document.createElement('div');
+	    sendButton.textContent = 'Collect';
+	    sendButton.placeholder = 'Enter Bitcoin address';
+	    sendButton.style.borderRadius = '4px';
+	    sendButton.style.backgroundColor = '#4078c0';
+	    sendButton.style.color = 'white';
+	    sendButton.style.textAlign = 'center';
+	    sendButton.style.width = '30%';
+	    sendButton.style.padding = '5px 8px';
+	    sendButton.style.margin = '10px 35% 0';
+	    sendButton.style.cursor = 'pointer';
+	    sendButton.style.transition = 'all 0.25s ease-out';
+	    sendButton.addEventListener('mouseover', function () {
+	        this.style.backgroundColor = 'white';
+	        this.style.boxShadow = '0 0 0 1px #4078c0 inset';
+	        this.style.color = '#4078c0';
+	    });
+	    sendButton.addEventListener('mouseout', function () {
+	        this.style.backgroundColor = '#4078c0';
+	        this.style.boxShadow = '0 0 0 0';
+	        this.style.color = 'white';
+	    });
+	    sendButton.addEventListener('click', function (e) {
+	        e.stopPropagation();
+	        var overlay = document.getElementById('bounty-overlay');
+	        overlay.style.opacity = '0';
+	        overlay.style.pointerEvents = 'none';
+	        overlay.childNodes[0].style.top = '100vh';
+	    });
+	
+	    overlayContent.appendChild(btcAmount);
+	    overlayContent.appendChild(btcField);
+	    overlayContent.appendChild(sendButton);
+	
+	    overlayContent.style.padding = '0 0 20px';
+	    overlayContent.style.width = '30vw';
+	    overlayContent.style.height = '70vh';
+	    overlayContent.style.left = '35vw';
+	    overlayContent.style.top = '30vh';
+	
+	    title.textContent = 'Congratulations!';
+	    title.style.textAlign = 'center';
+	
+	    text.textContent = 'One of your pull requests has been merged and your bounty has been released! Enter a bitcoin address to collect your reward:';
+	    text.style.margin = '5px 20px';
+	
+	    image.style.backgroundImage = 'url("https://cloud.githubusercontent.com/assets/4914611/21962121/b062fe3a-daeb-11e6-9f55-2270f5276ed5.gif")';
+	    image.style.backgroundSize = 'cover';
+	    image.style.backgroundPosition = 'center';
+	    image.style.width = '100%';
+	    image.style.height = '45%';
+	    image.style.margin = '0 0 15px';
+	    image.style.borderRadius = '4px 4px 0 0';
+	
+	    overlayContent.removeChild(image);
+	    overlayContent.insertBefore(image, title);
+	
+	    overlay.style.opacity = '1';
+	    overlay.style.pointerEvents = 'auto';
+	}
+	
+	function checkMerge(interval) {
+	    console.log('checkMerge');
+	    fetch('https://api.github.com/repos/brgarciarivas/react-chrome-redux-boilerplate/pulls/5/merge', {
+	        method: 'GET',
+	        crossDomain: true,
+	        headers: {
+	            Accept: 'application/json',
+	            'Proxy-Authorization': 'otech47:a70a255e0d50c50212af87557487dc8db517137f'
+	        }
+	    }).then(function (res) {
+	        return res.json();
+	    }).then(function (res) {
+	        console.log('res');
+	        console.log(res);
+	        console.log('res.message');
+	        console.log(res.message);
+	
+	        // if(res.message) {
+	
+	        // } else {
+	        // animateBitcoinReward();
+	        clearInterval(interval);
+	        // }
+	    }).catch(function (err) {
+	        console.log('error = ' + err);
+	        console.error(err);
+	        // animateBitcoinReward();
+	        clearInterval(interval);
+	    });
+	}
+	;
+	
+	var _temp = function () {
+	    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+	        return;
+	    }
+	
+	    __REACT_HOT_LOADER__.register(animateBitcoinReward, 'animateBitcoinReward', '/Users/oscarlafarga/setdev-chrome/content/scripts/github.js');
+	
+	    __REACT_HOT_LOADER__.register(checkMerge, 'checkMerge', '/Users/oscarlafarga/setdev-chrome/content/scripts/github.js');
+	}();
+
+	;
 
 /***/ }
 /******/ ]);

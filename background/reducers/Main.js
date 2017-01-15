@@ -28,7 +28,6 @@ export default (state = initialState, action) => {
         return Object.assign({}, state, {
             pageLoaded: true
         });
-        
     default:
         return state;
     }
