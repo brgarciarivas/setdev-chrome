@@ -40,7 +40,7 @@ class ContractList extends Base {
                         className='icon'
                     />
                      <FontAwesome
-                        name='cog'
+                        name='gears'
                         size={'lg'}
                         className='icon'
                     />

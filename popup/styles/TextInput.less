@@ -4,9 +4,8 @@
     align-items: flex-start;
 
     input {
-        .sizeFont(0.75);
-        .sizePadding(0.75, 0.25);
-        padding-bottom: @defaultSpacing * .5;
+        font-size: 20px;
+        padding-bottom: 40px * .5;
         display:block;
         width: 100%;
         border:none;
@@ -17,7 +16,7 @@
     }
     .main_label{
         color: @light-gray;
-        font-size: @defaultFontSize * .55;
+        font-size: 20px;
         position: absolute;
         pointer-events:none;
         transition: 0.2s ease all;
@@ -26,8 +25,8 @@
     }
 
     input:focus ~ .main_label, input:valid ~ .main_label {
-        top: @defaultFontSize * -0.5;
-        color: @primary;
+        top: 40px * -0.5;
+        color: @blue;
         font-size:14px;
     }
     .bar{
@@ -39,10 +38,10 @@
         z-index: 100;
     }
     .error_bar:before, .error_bar:after{
-        background-color: @primary;
+        background-color: @blue;
     }
     .bar:before, .bar:after{
-        background-color: @primary;
+        background-color: @blue;
     }
     .bar:before, .bar:after, .error_bar:before, .error_bar:after {
         content:'';
