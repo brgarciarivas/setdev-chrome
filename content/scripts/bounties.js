@@ -44,10 +44,6 @@ export function overlayBounties(dispatch) {
       '0.8 BTC'
     ];
 
-    var textArray = [];
-
-    var textInHtml = document.body.innerText;
-
     var issues = document.body.getElementsByClassName('opened-by');
     var length = issues.length;
 
@@ -93,17 +89,17 @@ export function overlayBounties(dispatch) {
 
     var title = document.createElement('div');
     title.textContent = 'Send BTC to';
-    title.style.fontSize = '26px';
+    title.style.fontSize = '22px';
 
     var image = document.createElement('div');
-    image.style.backgroundImage = 'url("https://cloud.githubusercontent.com/assets/4914611/21961549/85059bdc-dada-11e6-91df-6b6c649d8195.png")';
+    image.style.backgroundImage = 'url("https://cloud.githubusercontent.com/assets/4914611/21961681/b1beb0ba-dade-11e6-9419-11b8d829230f.png")';
     image.style.backgroundSize = '100% 100%';
     image.style.height = '150px';
     image.style.width = '150px';
     image.style.margin = 'auto';
 
     var address = document.createElement('span');
-    address.textContent = 'adsiadfywi7c823djy2tyd91p3xWEf';
+    address.textContent = '1Q2Bo9ZWQY5Er85zeYmLdMKFmvkq3TV3tg';
     address.style.fontSize = '11px';
     address.style.textAlign = 'center';
 
@@ -124,7 +120,7 @@ export function overlayBounties(dispatch) {
         fundButton.style.color = 'white';
         fundButton.style.fontSize = '8px';
         fundButton.style.margin = '5px';
-        fundButton.style.padding = '2px 4px';
+        fundButton.style.padding = '2px 5px';
         fundButton.style.position = 'absolute';
         fundButton.style.right = '0px';
         fundButton.style.bottom = '0px';
@@ -134,12 +130,14 @@ export function overlayBounties(dispatch) {
         fundButton.style.transition = 'all 0.5s';
 
         fundButton.addEventListener('mouseover', function() {
-            fundButton.style.backgroundColor = '#a1bde0';
-            fundButton.style.boxShadow = '0 1px 5px rgba(37, 50, 56, 0.72)';
+            this.style.backgroundColor = 'white';
+            this.style.color = '#4078c0';
+            this.style.boxShadow = '0 1px 5px rgba(37, 50, 56, 0.72)';
         });
         fundButton.addEventListener('mouseout', function() {
-            fundButton.style.backgroundColor = '#4078c0';
-            fundButton.style.boxShadow = '0 1px 4px rgba(37, 50, 56, 0.12)';
+            this.style.backgroundColor = '#4078c0';
+            this.style.color = 'white';
+            this.style.boxShadow = '0 1px 4px rgba(37, 50, 56, 0.12)';
         })
 
         fundButton.addEventListener('click', function() {

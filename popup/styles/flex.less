@@ -285,3 +285,16 @@
         .setupAutoCols();
     }
 }
+
+
+
+.size(@width, @height: @width) {
+    width: @width;
+    height: @height;
+}
+.sizePadding(@yFactor: 1, @xFactor: 1) {
+    padding: @defaultSpacing * @yFactor @defaultSpacing * @xFactor;
+}
+.sizeMargin(@yFactor: 1, @xFactor: 1) {
+    margin: @defaultSpacing * @yFactor @defaultSpacing * @xFactor;
+}

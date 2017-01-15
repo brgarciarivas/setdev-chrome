@@ -1,13 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import FontAwesome from 'react-fontawesome';
 
 import Base from './Base';
 import ContractItem from './ContractItem';
+
+import { pushIssue } from '../actions/Issues';
 
 class ContractList extends Base {
     constructor(props) {
         super(props);
         this.autoBind('showContracts')
+        
+
     }
     
 	showContracts() {
@@ -23,9 +28,23 @@ class ContractList extends Base {
             );
         })
     }
-	render() {        
+	render() {
+        console.log(this.props)        
         return (
             <div className='ContractList'>
+                <div className='nav row'>
+                     <FontAwesome
+                        onClick={ () =>  this.props.history.push('/AddNewIssue')}
+                        name='plus'
+                        size={'lg'}
+                        className='icon'
+                    />
+                     <FontAwesome
+                        name='cog'
+                        size={'lg'}
+                        className='icon'
+                    />
+                </div>
                 <div className='container column '>
                     {this.props.Main != null &&
                         this.showContracts()
@@ -45,6 +64,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        pushIssue: issue => dispatch(pushIssue(pushIssue))
     };
 };
 

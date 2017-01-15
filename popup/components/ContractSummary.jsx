@@ -16,7 +16,7 @@ export default class ContractSummary extends Base {
 	
 	render() {
         console.log(this.state)
-        const icon = this.state.summary ? 'list' : 'file-text';        
+        const icon = this.state.summary ? 'list': 'file-text';        
         return (
 
             <div className='ContractSummary'>
@@ -34,7 +34,7 @@ export default class ContractSummary extends Base {
                         onClick={ () => this.setState({summary: !this.state.summary})}
                     />
                 </div>
-                
+
                 {
                     this.state.summary ? <ContractDescription/> : <ContractItemList/>
                 }
