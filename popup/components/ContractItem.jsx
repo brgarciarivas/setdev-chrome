@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router/lib';
 import { connect } from 'react-redux';
 import FontAwesome from 'react-fontawesome';
 
@@ -9,6 +8,7 @@ import { pushIssue } from '../actions/Issues';
 class ContractItem extends Base {
     constructor(props) {
         super(props);
+        this.autoBind('handleClick');
         this.state = {
             opacity: 0
         }
@@ -30,6 +30,20 @@ class ContractItem extends Base {
             );
         });
     }
+    handleClick() {
+        const issue = {
+            title: this.props.title,
+            due: this.props.due,
+            amount: this.props.amount,
+            url: this.props.url,
+            shortSum: this.props.shortSum,
+            cat: this.props.cat,
+            pic: this.props.pic,
+            repo: this.props.repo,
+        };
+        this.props.pushIssue(issue);
+        this.props.history.push('/ContractSummary');
+    }
 	render() {
         console.log('ContractItem')
         console.log(this.props)
@@ -40,8 +54,8 @@ class ContractItem extends Base {
             backgroundImage: `url('${this.props.pic}')`
         };        
         return (
-            <Link 
-                to={'/ContractSummary/'}
+            <a
+                onClick={() => handleClick()}
                 style={style}
                 className='ContractItem column'
             >
@@ -81,7 +95,7 @@ class ContractItem extends Base {
                         }
                     </div>
                 </div>   
-            </Link>
+            </a>
         );
     }
 }

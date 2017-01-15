@@ -2,38 +2,6 @@ import * as types from '../actionTypes';
 
 const initialState = {
 	contracts:{},
-	issues:[
-		{
-			id:1 ,
-			title: '',
-			due: '',
-			link: '',
-			name: '',
-			btc: 0.0,
-			owner: '',
-			author: ''
-		},
-		{
-			id: 2,
-			title: '',
-			due: '',
-			link: '',
-			name: '',
-			btc: 0.0,
-			owner: '',
-			author: ''
-		},
-		{
-			id: 3,
-			title: '',
-			due: '',
-			link: '',
-			name: '',
-			btc: 0.0,
-			owner: '',
-			author: ''
-		}
-	],
 	currentIssue: 0,
 	url: '',
 	issueDetails: {
