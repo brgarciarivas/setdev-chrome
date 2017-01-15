@@ -16,8 +16,7 @@ class ContractList extends Base {
     }
     
 	showContracts() {
-        console.log('fackkkkkkk')
-        console.log(this.props.contracts)
+        
         return this.props.contracts.map((item, index) => {
             return(
                 <ContractItem 
@@ -30,13 +29,14 @@ class ContractList extends Base {
                     cat={item.cat}
                     pic={item.pic}
                     repo={item.repo}
+                    link={this.props.history.push}
+                    color={item.color}
                 />
             );
         })
     }
 	render() {
-        console.log('fack')
-        console.log(this.props)        
+            
         return (
             <div className='ContractList'>
                 <div className='nav row'>

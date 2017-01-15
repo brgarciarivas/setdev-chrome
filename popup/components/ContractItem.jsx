@@ -41,25 +41,33 @@ class ContractItem extends Base {
             pic: this.props.pic,
             repo: this.props.repo,
         };
+       
         this.props.pushIssue(issue);
-        this.props.history.push('/ContractSummary');
+        this.props.link('/ContractSummary');
     }
 	render() {
-        console.log('ContractItem')
-        console.log(this.props)
+        console.log('color')
+        console.log(this.props.color)
         let style = {
             opacity: this.state.opacity
         };
         const imageStyle = {
             backgroundImage: `url('${this.props.pic}')`
-        };        
+        };  
+        const color = {
+            backgroundColor: this.props.color
+        };      
         return (
             <a
-                onClick={() => handleClick()}
+                onClick={() => this.handleClick()}
                 style={style}
                 className='ContractItem column'
             >
                 <div className='top_sec row'>
+                    <div 
+                        style={color}
+                        className='overlay'
+                    />
                     <div 
                         className='avatar'
                         style={imageStyle}
@@ -101,9 +109,10 @@ class ContractItem extends Base {
 }
 
 
+
 const mapDispatchToProps = (dispatch) => {
     return {
-        pushIssue: issue => dispatch(pushIssue(pushIssue))
+        pushIssue: issue => dispatch(pushIssue(issue))
     };
 };
 
