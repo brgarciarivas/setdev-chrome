@@ -24,17 +24,21 @@ class ContractItem extends Base {
         return this.props.cat.map((item, index) => {
             console.log(item)
             return(
-                <div className='catTile'>
+                <div key={index} className='catTile row'>
                     <p>{item}</p>
                 </div>
             );
         });
     }
 	render() {
+        console.log('ContractItem')
         console.log(this.props)
         let style = {
             opacity: this.state.opacity
-        }        
+        };
+        const imageStyle = {
+            backgroundImage: `url('${this.props.pic}')`
+        };        
         return (
             <Link 
                 to={'/ContractSummary/'}
@@ -42,34 +46,39 @@ class ContractItem extends Base {
                 className='ContractItem column'
             >
                 <div className='top_sec row'>
-                    <div className='avatar'/>
+                    <div 
+                        className='avatar'
+                        style={imageStyle}
+                    />
                     <div className='links column'>
                         <h1>{this.props.title}</h1>
-                        <p>{this.props.url}</p>
+                        <a href={this.props.url}>{this.props.url}</a>
                     </div>
                     <div className='info column'>
-                        <div className='row'>
+                        <div className='row lit'>
                             <FontAwesome
-                                name='calender'
+                                name='calendar'
                                 size={'lg'}
                                 className='icon'
                             />
                             <p>{this.props.due}</p>
                         </div>
-                        <div className='row'>
+                        <div className='row lit'>
                             <FontAwesome
                                 name='btc'
                                 size={'lg'}
                                 className='icon'
                             />
-                            <p>{this.props.btc}</p>
+                            <p>{this.props.amount}</p>
                         </div>
                     </div>
                 </div>
                 <div className='bottom_sec row'>
                     <p>{this.props.shortSum}</p>
-                    <div>
-                        { this.catTiles()}
+                    <div className='cats row'>
+                        { 
+                            this.catTiles()
+                        }
                     </div>
                 </div>   
             </Link>

@@ -16,8 +16,9 @@ class ContractList extends Base {
     }
     
 	showContracts() {
-
-        return this.props.Main.contracts.map((item, index) => {
+        console.log('fackkkkkkk')
+        console.log(this.props.contracts)
+        return this.props.contracts.map((item, index) => {
             return(
                 <ContractItem 
                     key={index}
@@ -34,6 +35,7 @@ class ContractList extends Base {
         })
     }
 	render() {
+        console.log('fack')
         console.log(this.props)        
         return (
             <div className='ContractList'>
@@ -51,7 +53,7 @@ class ContractList extends Base {
                     />
                 </div>
                 <div className='container column '>
-                    {this.props.Main != null &&
+                    {this.props.contracts != null &&
                         this.showContracts()
                     }
                 </div>
@@ -63,7 +65,7 @@ class ContractList extends Base {
 const mapStateToProps = (state) => {
     console.log(state);
     return {
-        Main: state.Main
+        contracts: state.Main.contracts
     };
 };
 
