@@ -40,8 +40,8 @@ jspm_packages
 public/bundle.js
 public/bundle.js.map
 assets/background.js
-assets/content.js
-assets/popup.js
 assets/background.js.map
+assets/content.js
 assets/content.js.map
+assets/popup.js
 assets/popup.js.map

@@ -40,8 +40,9 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58,7 +59,11 @@
 	
 	var _reactChromeRedux = __webpack_require__(38);
 	
+<<<<<<< HEAD
 	var _reducers = __webpack_require__(87);
+=======
+	var _reducers = __webpack_require__(98);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
 	
@@ -77,11 +82,19 @@
 	    portName: 'setgov'
 	});
 	
+<<<<<<< HEAD
 	// //Inject content Script on each tab change//
 	// chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 	// 	console.log(tabId)
 	// 	console.log(tab)  
 	// }); 
+=======
+	// // //Inject content Script on each tab change//
+	chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+	    console.log('content script injected');
+	    chrome.tabs.executeScript(null, { file: 'content.js' });
+	});
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	//Inject content script when first tab is activated//
 	// chrome.tabs.onActivated.addListener(function(tabId, changeInfo, tab) {
@@ -99,31 +112,26 @@
 	        return;
 	    }
 	
+<<<<<<< HEAD
 	    __REACT_HOT_LOADER__.register(logger, 'logger', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/index.js');
 	
 	    __REACT_HOT_LOADER__.register(middleware, 'middleware', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/index.js');
 	
 	    __REACT_HOT_LOADER__.register(store, 'store', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/index.js');
+=======
+	    __REACT_HOT_LOADER__.register(logger, 'logger', '/Users/DiegoGarciarivas/Documents/setdev-chrome/background/index.js');
+	
+	    __REACT_HOT_LOADER__.register(middleware, 'middleware', '/Users/DiegoGarciarivas/Documents/setdev-chrome/background/index.js');
+	
+	    __REACT_HOT_LOADER__.register(store, 'store', '/Users/DiegoGarciarivas/Documents/setdev-chrome/background/index.js');
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	}();
 
 	;
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */
+
+/***/ 15:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -175,7 +183,8 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)))
 
 /***/ },
-/* 16 */
+
+/***/ 16:
 /***/ function(module, exports) {
 
 	// shim for using process in browser
@@ -361,7 +370,8 @@
 
 
 /***/ },
-/* 17 */
+
+/***/ 17:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -627,7 +637,8 @@
 	}
 
 /***/ },
-/* 18 */
+
+/***/ 18:
 /***/ function(module, exports, __webpack_require__) {
 
 	var getPrototype = __webpack_require__(19),
@@ -701,10 +712,173 @@
 
 
 /***/ },
-/* 19 */
+
+/***/ 19:
 /***/ function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 	var overArg = __webpack_require__(20);
+=======
+	var Symbol = __webpack_require__(20),
+	    getRawTag = __webpack_require__(23),
+	    objectToString = __webpack_require__(24);
+	
+	/** `Object#toString` result references. */
+	var nullTag = '[object Null]',
+	    undefinedTag = '[object Undefined]';
+	
+	/** Built-in value references. */
+	var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
+	
+	/**
+	 * The base implementation of `getTag` without fallbacks for buggy environments.
+	 *
+	 * @private
+	 * @param {*} value The value to query.
+	 * @returns {string} Returns the `toStringTag`.
+	 */
+	function baseGetTag(value) {
+	  if (value == null) {
+	    return value === undefined ? undefinedTag : nullTag;
+	  }
+	  return (symToStringTag && symToStringTag in Object(value))
+	    ? getRawTag(value)
+	    : objectToString(value);
+	}
+	
+	module.exports = baseGetTag;
+
+
+/***/ },
+
+/***/ 20:
+/***/ function(module, exports, __webpack_require__) {
+
+	var root = __webpack_require__(21);
+	
+	/** Built-in value references. */
+	var Symbol = root.Symbol;
+	
+	module.exports = Symbol;
+
+
+/***/ },
+
+/***/ 21:
+/***/ function(module, exports, __webpack_require__) {
+
+	var freeGlobal = __webpack_require__(22);
+	
+	/** Detect free variable `self`. */
+	var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+	
+	/** Used as a reference to the global object. */
+	var root = freeGlobal || freeSelf || Function('return this')();
+	
+	module.exports = root;
+
+
+/***/ },
+
+/***/ 22:
+/***/ function(module, exports) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */
+	var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
+	
+	module.exports = freeGlobal;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+
+/***/ 23:
+/***/ function(module, exports, __webpack_require__) {
+
+	var Symbol = __webpack_require__(20);
+	
+	/** Used for built-in method references. */
+	var objectProto = Object.prototype;
+	
+	/** Used to check objects for own properties. */
+	var hasOwnProperty = objectProto.hasOwnProperty;
+	
+	/**
+	 * Used to resolve the
+	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+	 * of values.
+	 */
+	var nativeObjectToString = objectProto.toString;
+	
+	/** Built-in value references. */
+	var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
+	
+	/**
+	 * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
+	 *
+	 * @private
+	 * @param {*} value The value to query.
+	 * @returns {string} Returns the raw `toStringTag`.
+	 */
+	function getRawTag(value) {
+	  var isOwn = hasOwnProperty.call(value, symToStringTag),
+	      tag = value[symToStringTag];
+	
+	  try {
+	    value[symToStringTag] = undefined;
+	    var unmasked = true;
+	  } catch (e) {}
+	
+	  var result = nativeObjectToString.call(value);
+	  if (unmasked) {
+	    if (isOwn) {
+	      value[symToStringTag] = tag;
+	    } else {
+	      delete value[symToStringTag];
+	    }
+	  }
+	  return result;
+	}
+	
+	module.exports = getRawTag;
+
+
+/***/ },
+
+/***/ 24:
+/***/ function(module, exports) {
+
+	/** Used for built-in method references. */
+	var objectProto = Object.prototype;
+	
+	/**
+	 * Used to resolve the
+	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+	 * of values.
+	 */
+	var nativeObjectToString = objectProto.toString;
+	
+	/**
+	 * Converts `value` to a string using `Object.prototype.toString`.
+	 *
+	 * @private
+	 * @param {*} value The value to convert.
+	 * @returns {string} Returns the converted string.
+	 */
+	function objectToString(value) {
+	  return nativeObjectToString.call(value);
+	}
+	
+	module.exports = objectToString;
+
+
+/***/ },
+
+/***/ 25:
+/***/ function(module, exports, __webpack_require__) {
+
+	var overArg = __webpack_require__(26);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/** Built-in value references. */
 	var getPrototype = overArg(Object.getPrototypeOf, Object);
@@ -713,7 +887,12 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 20 */
+=======
+
+/***/ 26:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	/**
@@ -734,7 +913,12 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 21 */
+=======
+
+/***/ 27:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	/**
@@ -769,14 +953,24 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 22 */
+=======
+
+/***/ 28:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(23);
 
 
 /***/ },
+<<<<<<< HEAD
 /* 23 */
+=======
+
+/***/ 29:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, module) {'use strict';
@@ -811,7 +1005,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(24)(module)))
 
 /***/ },
+<<<<<<< HEAD
 /* 24 */
+=======
+
+/***/ 30:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -827,7 +1026,12 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 25 */
+=======
+
+/***/ 31:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	'use strict';
@@ -855,7 +1059,12 @@
 	};
 
 /***/ },
+<<<<<<< HEAD
 /* 26 */
+=======
+
+/***/ 32:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -1003,7 +1212,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)))
 
 /***/ },
+<<<<<<< HEAD
 /* 27 */
+=======
+
+/***/ 33:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1033,7 +1247,12 @@
 	}
 
 /***/ },
+<<<<<<< HEAD
 /* 28 */
+=======
+
+/***/ 34:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1089,7 +1308,12 @@
 	}
 
 /***/ },
+<<<<<<< HEAD
 /* 29 */
+=======
+
+/***/ 35:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1152,7 +1376,12 @@
 	}
 
 /***/ },
+<<<<<<< HEAD
 /* 30 */
+=======
+
+/***/ 36:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1195,7 +1424,12 @@
 	}
 
 /***/ },
+<<<<<<< HEAD
 /* 31 */
+=======
+
+/***/ 37:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1313,7 +1547,12 @@
 	module.exports = exports['default'];
 
 /***/ },
+<<<<<<< HEAD
 /* 32 */
+=======
+
+/***/ 38:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1446,7 +1685,12 @@
 	}
 
 /***/ },
+<<<<<<< HEAD
 /* 33 */
+=======
+
+/***/ 39:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1470,7 +1714,12 @@
 	var timer = exports.timer = typeof performance !== "undefined" && performance !== null && typeof performance.now === "function" ? performance : Date;
 
 /***/ },
+<<<<<<< HEAD
 /* 34 */
+=======
+
+/***/ 40:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1566,7 +1815,12 @@
 	module.exports = exports['default'];
 
 /***/ },
+<<<<<<< HEAD
 /* 35 */
+=======
+
+/***/ 41:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {/*!
@@ -1995,7 +2249,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
+<<<<<<< HEAD
 /* 36 */
+=======
+
+/***/ 42:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	"use strict";
@@ -2046,7 +2305,12 @@
 	module.exports = exports['default'];
 
 /***/ },
+<<<<<<< HEAD
 /* 37 */
+=======
+
+/***/ 43:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2074,7 +2338,12 @@
 	exports['default'] = thunk;
 
 /***/ },
+<<<<<<< HEAD
 /* 38 */
+=======
+
+/***/ 44:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2088,11 +2357,19 @@
 	
 	var _Store2 = _interopRequireDefault(_Store);
 	
+<<<<<<< HEAD
 	var _wrapStore = __webpack_require__(85);
 	
 	var _wrapStore2 = _interopRequireDefault(_wrapStore);
 	
 	var _alias = __webpack_require__(86);
+=======
+	var _wrapStore = __webpack_require__(96);
+	
+	var _wrapStore2 = _interopRequireDefault(_wrapStore);
+	
+	var _alias = __webpack_require__(97);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	var _alias2 = _interopRequireDefault(_alias);
 	
@@ -2103,7 +2380,12 @@
 	exports.alias = _alias2.default;
 
 /***/ },
+<<<<<<< HEAD
 /* 39 */
+=======
+
+/***/ 45:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2118,7 +2400,11 @@
 	
 	var _assignIn2 = _interopRequireDefault(_assignIn);
 	
+<<<<<<< HEAD
 	var _constants = __webpack_require__(84);
+=======
+	var _constants = __webpack_require__(95);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -2233,12 +2519,22 @@
 	exports.default = Store;
 
 /***/ },
+<<<<<<< HEAD
 /* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var copyObject = __webpack_require__(41),
 	    createAssigner = __webpack_require__(56),
 	    keysIn = __webpack_require__(69);
+=======
+
+/***/ 46:
+/***/ function(module, exports, __webpack_require__) {
+
+	var copyObject = __webpack_require__(47),
+	    createAssigner = __webpack_require__(66),
+	    keysIn = __webpack_require__(79);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/**
 	 * This method is like `_.assign` except that it iterates over own and
@@ -2279,7 +2575,12 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 41 */
+=======
+
+/***/ 47:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports, __webpack_require__) {
 
 	var assignValue = __webpack_require__(42),
@@ -2325,11 +2626,20 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var baseAssignValue = __webpack_require__(43),
 	    eq = __webpack_require__(55);
+=======
+
+/***/ 48:
+/***/ function(module, exports, __webpack_require__) {
+
+	var baseAssignValue = __webpack_require__(49),
+	    eq = __webpack_require__(65);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -2359,7 +2669,12 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 43 */
+=======
+
+/***/ 49:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports, __webpack_require__) {
 
 	var defineProperty = __webpack_require__(44);
@@ -2390,7 +2705,12 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 44 */
+=======
+
+/***/ 50:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports, __webpack_require__) {
 
 	var getNative = __webpack_require__(45);
@@ -2407,11 +2727,20 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var baseIsNative = __webpack_require__(46),
 	    getValue = __webpack_require__(54);
+=======
+
+/***/ 51:
+/***/ function(module, exports, __webpack_require__) {
+
+	var baseIsNative = __webpack_require__(52),
+	    getValue = __webpack_require__(64);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/**
 	 * Gets the native function at `key` of `object`.
@@ -2430,6 +2759,7 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -2437,6 +2767,16 @@
 	    isMasked = __webpack_require__(49),
 	    isObject = __webpack_require__(48),
 	    toSource = __webpack_require__(53);
+=======
+
+/***/ 52:
+/***/ function(module, exports, __webpack_require__) {
+
+	var isFunction = __webpack_require__(53),
+	    isMasked = __webpack_require__(61),
+	    isObject = __webpack_require__(60),
+	    toSource = __webpack_require__(63);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/**
 	 * Used to match `RegExp`
@@ -2483,10 +2823,19 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var isObject = __webpack_require__(48);
+=======
+
+/***/ 53:
+/***/ function(module, exports, __webpack_require__) {
+
+	var baseGetTag = __webpack_require__(54),
+	    isObject = __webpack_require__(60);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/** `Object#toString` result references. */
 	var funcTag = '[object Function]',
@@ -2531,7 +2880,170 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 48 */
+=======
+
+/***/ 54:
+/***/ function(module, exports, __webpack_require__) {
+
+	var Symbol = __webpack_require__(55),
+	    getRawTag = __webpack_require__(58),
+	    objectToString = __webpack_require__(59);
+	
+	/** `Object#toString` result references. */
+	var nullTag = '[object Null]',
+	    undefinedTag = '[object Undefined]';
+	
+	/** Built-in value references. */
+	var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
+	
+	/**
+	 * The base implementation of `getTag` without fallbacks for buggy environments.
+	 *
+	 * @private
+	 * @param {*} value The value to query.
+	 * @returns {string} Returns the `toStringTag`.
+	 */
+	function baseGetTag(value) {
+	  if (value == null) {
+	    return value === undefined ? undefinedTag : nullTag;
+	  }
+	  return (symToStringTag && symToStringTag in Object(value))
+	    ? getRawTag(value)
+	    : objectToString(value);
+	}
+	
+	module.exports = baseGetTag;
+
+
+/***/ },
+
+/***/ 55:
+/***/ function(module, exports, __webpack_require__) {
+
+	var root = __webpack_require__(56);
+	
+	/** Built-in value references. */
+	var Symbol = root.Symbol;
+	
+	module.exports = Symbol;
+
+
+/***/ },
+
+/***/ 56:
+/***/ function(module, exports, __webpack_require__) {
+
+	var freeGlobal = __webpack_require__(57);
+	
+	/** Detect free variable `self`. */
+	var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+	
+	/** Used as a reference to the global object. */
+	var root = freeGlobal || freeSelf || Function('return this')();
+	
+	module.exports = root;
+
+
+/***/ },
+
+/***/ 57:
+/***/ function(module, exports) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */
+	var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
+	
+	module.exports = freeGlobal;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+
+/***/ 58:
+/***/ function(module, exports, __webpack_require__) {
+
+	var Symbol = __webpack_require__(55);
+	
+	/** Used for built-in method references. */
+	var objectProto = Object.prototype;
+	
+	/** Used to check objects for own properties. */
+	var hasOwnProperty = objectProto.hasOwnProperty;
+	
+	/**
+	 * Used to resolve the
+	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+	 * of values.
+	 */
+	var nativeObjectToString = objectProto.toString;
+	
+	/** Built-in value references. */
+	var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
+	
+	/**
+	 * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
+	 *
+	 * @private
+	 * @param {*} value The value to query.
+	 * @returns {string} Returns the raw `toStringTag`.
+	 */
+	function getRawTag(value) {
+	  var isOwn = hasOwnProperty.call(value, symToStringTag),
+	      tag = value[symToStringTag];
+	
+	  try {
+	    value[symToStringTag] = undefined;
+	    var unmasked = true;
+	  } catch (e) {}
+	
+	  var result = nativeObjectToString.call(value);
+	  if (unmasked) {
+	    if (isOwn) {
+	      value[symToStringTag] = tag;
+	    } else {
+	      delete value[symToStringTag];
+	    }
+	  }
+	  return result;
+	}
+	
+	module.exports = getRawTag;
+
+
+/***/ },
+
+/***/ 59:
+/***/ function(module, exports) {
+
+	/** Used for built-in method references. */
+	var objectProto = Object.prototype;
+	
+	/**
+	 * Used to resolve the
+	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+	 * of values.
+	 */
+	var nativeObjectToString = objectProto.toString;
+	
+	/**
+	 * Converts `value` to a string using `Object.prototype.toString`.
+	 *
+	 * @private
+	 * @param {*} value The value to convert.
+	 * @returns {string} Returns the converted string.
+	 */
+	function objectToString(value) {
+	  return nativeObjectToString.call(value);
+	}
+	
+	module.exports = objectToString;
+
+
+/***/ },
+
+/***/ 60:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	/**
@@ -2568,10 +3080,18 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var coreJsData = __webpack_require__(50);
+=======
+
+/***/ 61:
+/***/ function(module, exports, __webpack_require__) {
+
+	var coreJsData = __webpack_require__(62);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/** Used to detect methods masquerading as native. */
 	var maskSrcKey = (function() {
@@ -2594,10 +3114,18 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var root = __webpack_require__(51);
+=======
+
+/***/ 62:
+/***/ function(module, exports, __webpack_require__) {
+
+	var root = __webpack_require__(56);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/** Used to detect overreaching core-js shims. */
 	var coreJsData = root['__core-js_shared__'];
@@ -2606,6 +3134,7 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -2633,6 +3162,10 @@
 
 /***/ },
 /* 53 */
+=======
+
+/***/ 63:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
@@ -2664,7 +3197,12 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 54 */
+=======
+
+/***/ 64:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	/**
@@ -2683,7 +3221,12 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 55 */
+=======
+
+/***/ 65:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	/**
@@ -2726,11 +3269,20 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var baseRest = __webpack_require__(57),
 	    isIterateeCall = __webpack_require__(65);
+=======
+
+/***/ 66:
+/***/ function(module, exports, __webpack_require__) {
+
+	var baseRest = __webpack_require__(67),
+	    isIterateeCall = __webpack_require__(75);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/**
 	 * Creates a function like `_.assign`.
@@ -2769,12 +3321,22 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var identity = __webpack_require__(58),
 	    overRest = __webpack_require__(59),
 	    setToString = __webpack_require__(61);
+=======
+
+/***/ 67:
+/***/ function(module, exports, __webpack_require__) {
+
+	var identity = __webpack_require__(68),
+	    overRest = __webpack_require__(69),
+	    setToString = __webpack_require__(71);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/**
 	 * The base implementation of `_.rest` which doesn't validate or coerce arguments.
@@ -2792,7 +3354,12 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 58 */
+=======
+
+/***/ 68:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	/**
@@ -2819,10 +3386,18 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var apply = __webpack_require__(60);
+=======
+
+/***/ 69:
+/***/ function(module, exports, __webpack_require__) {
+
+	var apply = __webpack_require__(70);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/* Built-in method references for those with the same name as other `lodash` methods. */
 	var nativeMax = Math.max;
@@ -2861,7 +3436,12 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 60 */
+=======
+
+/***/ 70:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	/**
@@ -2888,11 +3468,20 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var baseSetToString = __webpack_require__(62),
 	    shortOut = __webpack_require__(64);
+=======
+
+/***/ 71:
+/***/ function(module, exports, __webpack_require__) {
+
+	var baseSetToString = __webpack_require__(72),
+	    shortOut = __webpack_require__(74);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/**
 	 * Sets the `toString` method of `func` to return `string`.
@@ -2908,12 +3497,22 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var constant = __webpack_require__(63),
 	    defineProperty = __webpack_require__(44),
 	    identity = __webpack_require__(58);
+=======
+
+/***/ 72:
+/***/ function(module, exports, __webpack_require__) {
+
+	var constant = __webpack_require__(73),
+	    defineProperty = __webpack_require__(50),
+	    identity = __webpack_require__(68);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/**
 	 * The base implementation of `setToString` without support for hot loop shorting.
@@ -2936,7 +3535,12 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 63 */
+=======
+
+/***/ 73:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	/**
@@ -2968,7 +3572,12 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 64 */
+=======
+
+/***/ 74:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	/** Used to detect hot functions by number of calls within a span of milliseconds. */
@@ -3011,6 +3620,7 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -3018,6 +3628,16 @@
 	    isArrayLike = __webpack_require__(66),
 	    isIndex = __webpack_require__(68),
 	    isObject = __webpack_require__(48);
+=======
+
+/***/ 75:
+/***/ function(module, exports, __webpack_require__) {
+
+	var eq = __webpack_require__(65),
+	    isArrayLike = __webpack_require__(76),
+	    isIndex = __webpack_require__(78),
+	    isObject = __webpack_require__(60);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/**
 	 * Checks if the given arguments are from an iteratee call.
@@ -3047,11 +3667,20 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var isFunction = __webpack_require__(47),
 	    isLength = __webpack_require__(67);
+=======
+
+/***/ 76:
+/***/ function(module, exports, __webpack_require__) {
+
+	var isFunction = __webpack_require__(53),
+	    isLength = __webpack_require__(77);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/**
 	 * Checks if `value` is array-like. A value is considered array-like if it's
@@ -3086,7 +3715,12 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 67 */
+=======
+
+/***/ 77:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	/** Used as references for various `Number` constants. */
@@ -3127,7 +3761,12 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 68 */
+=======
+
+/***/ 78:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	/** Used as references for various `Number` constants. */
@@ -3155,12 +3794,22 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var arrayLikeKeys = __webpack_require__(70),
 	    baseKeysIn = __webpack_require__(81),
 	    isArrayLike = __webpack_require__(66);
+=======
+
+/***/ 79:
+/***/ function(module, exports, __webpack_require__) {
+
+	var arrayLikeKeys = __webpack_require__(80),
+	    baseKeysIn = __webpack_require__(92),
+	    isArrayLike = __webpack_require__(76);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/**
 	 * Creates an array of the own and inherited enumerable property names of `object`.
@@ -3193,6 +3842,7 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -3202,6 +3852,18 @@
 	    isBuffer = __webpack_require__(75),
 	    isIndex = __webpack_require__(68),
 	    isTypedArray = __webpack_require__(77);
+=======
+
+/***/ 80:
+/***/ function(module, exports, __webpack_require__) {
+
+	var baseTimes = __webpack_require__(81),
+	    isArguments = __webpack_require__(82),
+	    isArray = __webpack_require__(85),
+	    isBuffer = __webpack_require__(86),
+	    isIndex = __webpack_require__(78),
+	    isTypedArray = __webpack_require__(88);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -3248,7 +3910,12 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 71 */
+=======
+
+/***/ 81:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	/**
@@ -3274,11 +3941,20 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var baseIsArguments = __webpack_require__(73),
 	    isObjectLike = __webpack_require__(21);
+=======
+
+/***/ 82:
+/***/ function(module, exports, __webpack_require__) {
+
+	var baseIsArguments = __webpack_require__(83),
+	    isObjectLike = __webpack_require__(84);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -3316,10 +3992,19 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var isObjectLike = __webpack_require__(21);
+=======
+
+/***/ 83:
+/***/ function(module, exports, __webpack_require__) {
+
+	var baseGetTag = __webpack_require__(54),
+	    isObjectLike = __webpack_require__(84);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/** `Object#toString` result references. */
 	var argsTag = '[object Arguments]';
@@ -3349,7 +4034,48 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 74 */
+=======
+
+/***/ 84:
+/***/ function(module, exports) {
+
+	/**
+	 * Checks if `value` is object-like. A value is object-like if it's not `null`
+	 * and has a `typeof` result of "object".
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 4.0.0
+	 * @category Lang
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+	 * @example
+	 *
+	 * _.isObjectLike({});
+	 * // => true
+	 *
+	 * _.isObjectLike([1, 2, 3]);
+	 * // => true
+	 *
+	 * _.isObjectLike(_.noop);
+	 * // => false
+	 *
+	 * _.isObjectLike(null);
+	 * // => false
+	 */
+	function isObjectLike(value) {
+	  return value != null && typeof value == 'object';
+	}
+	
+	module.exports = isObjectLike;
+
+
+/***/ },
+
+/***/ 85:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	/**
@@ -3381,11 +4107,20 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(51),
 	    stubFalse = __webpack_require__(76);
+=======
+
+/***/ 86:
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(56),
+	    stubFalse = __webpack_require__(87);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/** Detect free variable `exports`. */
 	var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
@@ -3426,7 +4161,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(24)(module)))
 
 /***/ },
+<<<<<<< HEAD
 /* 76 */
+=======
+
+/***/ 87:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	/**
@@ -3450,12 +4190,22 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var baseIsTypedArray = __webpack_require__(78),
 	    baseUnary = __webpack_require__(79),
 	    nodeUtil = __webpack_require__(80);
+=======
+
+/***/ 88:
+/***/ function(module, exports, __webpack_require__) {
+
+	var baseIsTypedArray = __webpack_require__(89),
+	    baseUnary = __webpack_require__(90),
+	    nodeUtil = __webpack_require__(91);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/* Node.js helper references. */
 	var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
@@ -3483,11 +4233,21 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var isLength = __webpack_require__(67),
 	    isObjectLike = __webpack_require__(21);
+=======
+
+/***/ 89:
+/***/ function(module, exports, __webpack_require__) {
+
+	var baseGetTag = __webpack_require__(54),
+	    isLength = __webpack_require__(77),
+	    isObjectLike = __webpack_require__(84);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/** `Object#toString` result references. */
 	var argsTag = '[object Arguments]',
@@ -3558,7 +4318,12 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 79 */
+=======
+
+/***/ 90:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	/**
@@ -3578,10 +4343,18 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {var freeGlobal = __webpack_require__(52);
+=======
+
+/***/ 91:
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {var freeGlobal = __webpack_require__(57);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/** Detect free variable `exports`. */
 	var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
@@ -3607,12 +4380,22 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(24)(module)))
 
 /***/ },
+<<<<<<< HEAD
 /* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var isObject = __webpack_require__(48),
 	    isPrototype = __webpack_require__(82),
 	    nativeKeysIn = __webpack_require__(83);
+=======
+
+/***/ 92:
+/***/ function(module, exports, __webpack_require__) {
+
+	var isObject = __webpack_require__(60),
+	    isPrototype = __webpack_require__(93),
+	    nativeKeysIn = __webpack_require__(94);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -3646,7 +4429,12 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 82 */
+=======
+
+/***/ 93:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
@@ -3670,7 +4458,12 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 83 */
+=======
+
+/***/ 94:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	/**
@@ -3696,7 +4489,12 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 84 */
+=======
+
+/***/ 95:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3713,7 +4511,12 @@
 	var STATE_TYPE = exports.STATE_TYPE = 'chromex.state';
 
 /***/ },
+<<<<<<< HEAD
 /* 85 */
+=======
+
+/***/ 96:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3722,7 +4525,11 @@
 	  value: true
 	});
 	
+<<<<<<< HEAD
 	var _constants = __webpack_require__(84);
+=======
+	var _constants = __webpack_require__(95);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	/**
 	 * Responder for promisified results
@@ -3798,7 +4605,12 @@
 	};
 
 /***/ },
+<<<<<<< HEAD
 /* 86 */
+=======
+
+/***/ 97:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	"use strict";
@@ -3829,7 +4641,12 @@
 	};
 
 /***/ },
+<<<<<<< HEAD
 /* 87 */
+=======
+
+/***/ 98:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3840,15 +4657,24 @@
 	
 	var _redux = __webpack_require__(15);
 	
+<<<<<<< HEAD
 	var _Main = __webpack_require__(88);
+=======
+	var _Main = __webpack_require__(99);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	var _Main2 = _interopRequireDefault(_Main);
+	
+	var _Issue = __webpack_require__(391);
+	
+	var _Issue2 = _interopRequireDefault(_Issue);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var _default = (0, _redux.combineReducers)({
 	
-	  Main: _Main2.default
+	  Main: _Main2.default,
+	  Issue: _Issue2.default
 	});
 	
 	exports.default = _default;
@@ -3859,13 +4685,22 @@
 	    return;
 	  }
 
+<<<<<<< HEAD
 	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/index.js');
+=======
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/DiegoGarciarivas/Documents/setdev-chrome/background/reducers/index.js');
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	}();
 
 	;
 
 /***/ },
+<<<<<<< HEAD
 /* 88 */
+=======
+
+/***/ 99:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3874,7 +4709,11 @@
 	    value: true
 	});
 	
+<<<<<<< HEAD
 	var _actionTypes = __webpack_require__(89);
+=======
+	var _actionTypes = __webpack_require__(100);
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	
 	var types = _interopRequireWildcard(_actionTypes);
 	
@@ -3893,7 +4732,8 @@
 	        projectName: 'A Simple Landing Page',
 	        quoteInBits: '1 BTC',
 	        deadline: 'March 30, 2017'
-	    }]
+	    }],
+	    pageLoaded: false
 	};
 	
 	var _default = function _default() {
@@ -3901,8 +4741,11 @@
 	    var action = arguments[1];
 	
 	    switch (action.type) {
-	        case types.RESET:
-	            return Object.assign({}, state, {});
+	        case types.REGISTER_PAGE_LOAD:
+	            return Object.assign({}, state, {
+	                pageLoaded: true
+	            });
+	
 	        default:
 	            return state;
 	    }
@@ -3916,15 +4759,26 @@
 	        return;
 	    }
 	
+<<<<<<< HEAD
 	    __REACT_HOT_LOADER__.register(initialState, 'initialState', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/Main.js');
 	
 	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/reducers/Main.js');
+=======
+	    __REACT_HOT_LOADER__.register(initialState, 'initialState', '/Users/DiegoGarciarivas/Documents/setdev-chrome/background/reducers/Main.js');
+	
+	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/DiegoGarciarivas/Documents/setdev-chrome/background/reducers/Main.js');
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	}();
 
 	;
 
 /***/ },
+<<<<<<< HEAD
 /* 89 */
+=======
+
+/***/ 100:
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3932,8 +4786,18 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+<<<<<<< HEAD
 	var RESET = exports.RESET = 'RESET';
+<<<<<<< HEAD
 	var PUSH_ISSUE = exports.PUSH_ISSUE = 'PUSH_ISSUE';
+=======
+	var ADD_ISSUE = exports.ADD_ISSUE = 'ADD_ISSUE';
+	var REMOVE_ISSUE = exports.REMOVE_ISSUE = 'REMOVE_ISSUE';
+	var ADD_URL = exports.ADD_URL = 'ADD_URL';
+=======
+	var RESET = exports.RESET = 'REGISTER_PAGE_LOAD';
+>>>>>>> efc60ceaeb57cfc13ae91e33346f8266937b9b54
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	;
 	
 	var _temp = function () {
@@ -3941,13 +4805,77 @@
 	    return;
 	  }
 	
+<<<<<<< HEAD
 	  __REACT_HOT_LOADER__.register(RESET, 'RESET', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
 	
 	  __REACT_HOT_LOADER__.register(PUSH_ISSUE, 'PUSH_ISSUE', '/Users/BernSternWhoEarns/Documents/setdev-chrome/background/actionTypes.js');
+=======
+	  __REACT_HOT_LOADER__.register(RESET, 'RESET', '/Users/DiegoGarciarivas/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(ADD_ISSUE, 'ADD_ISSUE', '/Users/DiegoGarciarivas/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(REMOVE_ISSUE, 'REMOVE_ISSUE', '/Users/DiegoGarciarivas/Documents/setdev-chrome/background/actionTypes.js');
+	
+	  __REACT_HOT_LOADER__.register(ADD_URL, 'ADD_URL', '/Users/DiegoGarciarivas/Documents/setdev-chrome/background/actionTypes.js');
+	}();
+
+	;
+
+/***/ },
+
+/***/ 391:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+					value: true
+	});
+	
+	var _actionTypes = __webpack_require__(100);
+	
+	var types = _interopRequireWildcard(_actionTypes);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
+	var initialState = {
+					contracts: [{
+									currentIssue: Int,
+									url: String,
+									issueDetails: Object
+					}]
+	
+	};
+	
+	var _default = function _default() {
+					var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+					var action = arguments[1];
+	
+					switch (action.type) {
+									case types.RESET:
+													return Object.assign({}, state, {});
+									default:
+													return state;
+					}
+	};
+	
+	exports.default = _default;
+	;
+	
+	var _temp = function () {
+					if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+									return;
+					}
+	
+					__REACT_HOT_LOADER__.register(initialState, 'initialState', '/Users/DiegoGarciarivas/Documents/setdev-chrome/background/reducers/Issue.js');
+	
+					__REACT_HOT_LOADER__.register(_default, 'default', '/Users/DiegoGarciarivas/Documents/setdev-chrome/background/reducers/Issue.js');
+>>>>>>> 524f06f6bbedde9772380c9e6c841c932bb4100f
 	}();
 
 	;
 
 /***/ }
-/******/ ]);
+
+/******/ });
 //# sourceMappingURL=background.js.map

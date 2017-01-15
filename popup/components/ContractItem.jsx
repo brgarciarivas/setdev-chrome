@@ -11,7 +11,6 @@ export default class ContractItem extends Base {
         }
     }
 	componentDidMount() {
-        console.log('mounted')
         setTimeout(() => {
             this.setState({
                 opacity: 1

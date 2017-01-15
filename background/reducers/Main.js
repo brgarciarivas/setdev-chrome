@@ -17,14 +17,18 @@ const initialState = {
             quoteInBits: '1 BTC',
             deadline: 'March 30, 2017' 
         },
-    ]
+    ],
+    pageLoaded: false
 };
 
 export default (state = initialState, action) => {
     switch (action.type) {
-    case types.RESET:
+    case types.REGISTER_PAGE_LOAD:
+        console.log(action)
         return Object.assign({}, state, {
+            pageLoaded: true
         });
+        
     default:
         return state;
     }

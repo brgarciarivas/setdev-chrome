@@ -15,9 +15,7 @@ class ContractList extends Base {
     }
 	showContracts() {
         var amount = [1,1,1,1,1];
-        console.log(this.props);
         return this.props.Main.contracts.map((item, index) => {
-            console.log(item);
             return(
                 <ContractItem 
                     key={index}

@@ -10,13 +10,9 @@ export default class App extends Base {
         
     }
 
-   
-
     render() {
-        
-        console.log('App render');
-      
-       
+       console.log('popup/App render')
+
         return (
             <div className='App'>
                 
