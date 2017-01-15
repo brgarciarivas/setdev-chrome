@@ -34,6 +34,7 @@ export default class ContractSummary extends Base {
                         onClick={ () => this.setState({summary: !this.state.summary})}
                     />
                 </div>
+                
                 {
                     this.state.summary ? <ContractDescription/> : <ContractItemList/>
                 }
