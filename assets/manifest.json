@@ -12,7 +12,7 @@
   "background": {"scripts": ["background.js"]},
   
   "permissions": [
-    "tabs","<all_urls>",
+    "tabs","https://wwww.github.com/*","http://ww.github.com/*",
     "storage"
   ]
 }
