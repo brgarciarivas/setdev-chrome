@@ -3,15 +3,20 @@ import { Link } from 'react-router/lib';
 import FontAwesome from 'react-fontawesome';
 
 import Base from './Base';
+import ContractItemList from './ContractItemList';
+import ContractDescription from './ContractDescription';
 
 export default class ContractSummary extends Base {
     constructor(props) {
         super(props);
-        
+        this.state = {
+            summary: true
+        };
     }
 	
 	render() {
-        console.log(this.props)        
+        console.log(this.state)
+        const icon = this.state.summary ? 'list' : 'file-text';        
         return (
 
             <div className='ContractSummary'>
@@ -23,12 +28,15 @@ export default class ContractSummary extends Base {
                         className='icon'
                     />
                      <FontAwesome
-                        name='list'
+                        name={icon}
                         size={'lg'}
                         className='icon'
+                        onClick={ () => this.setState({summary: !this.state.summary})}
                     />
                 </div>
-                test
+                {
+                    this.state.summary ? <ContractDescription/> : <ContractItemList/>
+                }
             </div>
         );
     }
