@@ -77,10 +77,17 @@
 	    portName: 'setgov'
 	});
 	
+	var injected = false;
+	
 	// // //Inject content Script on each tab change//
 	chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 	    console.log('content script injected');
-	    chrome.tabs.executeScript(null, { file: 'content.js' });
+	    console.log(tabId);
+	    console.log(tab);
+	    if (!injected) {
+	        injected = true;
+	        chrome.tabs.executeScript(null, { file: 'content.js' });
+	    }
 	});
 	
 	// //Inject content script when first tab is activated//
@@ -101,6 +108,8 @@
 	    __REACT_HOT_LOADER__.register(middleware, 'middleware', '/Users/oscarlafarga/setdev-chrome/background/index.js');
 	
 	    __REACT_HOT_LOADER__.register(store, 'store', '/Users/oscarlafarga/setdev-chrome/background/index.js');
+	
+	    __REACT_HOT_LOADER__.register(injected, 'injected', '/Users/oscarlafarga/setdev-chrome/background/index.js');
 	}();
 
 	;
@@ -4005,6 +4014,7 @@
 	
 	    switch (action.type) {
 	        case types.REGISTER_PAGE_LOAD:
+	            console.log(action);
 	            return Object.assign({}, state, {
 	                pageLoaded: true
 	            });

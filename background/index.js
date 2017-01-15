@@ -20,11 +20,17 @@ wrapStore(store, {
     portName: 'setgov'
 });
 
+var injected = false;
 
 // // //Inject content Script on each tab change//
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     console.log('content script injected')
-    chrome.tabs.executeScript(null, {file: 'content.js'});
+    console.log(tabId);
+    console.log(tab);
+    if(!injected) {
+        injected = true;
+        chrome.tabs.executeScript(null, {file: 'content.js'});
+    }
 }); 
 
 // //Inject content script when first tab is activated//

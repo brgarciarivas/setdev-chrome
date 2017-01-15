@@ -9,6 +9,7 @@ class ContractList extends Base {
         super(props);
         this.autoBind('showContracts')
     }
+    
 	showContracts() {
         var amount = [1,1,1,1,1];
         return this.props.Main.contracts.map((item, index) => {
