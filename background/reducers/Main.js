@@ -25,12 +25,12 @@ const initialState = {
             color: '#719bac'
         },
         {
-            title: 'Add linting to development config',
+            title: 'Make graphql Fetch btc price',
             due: '1/20/17',
             amount:'.35 BTC',
             url:'https://github.com/brgarciarivas/react-chrome-redux-boilerplate/issues/6',
             shortSum: 'No description provided',
-            cat: ['Style', 'JS'],
+            cat: ['graphql', 'JS'],
             pic: 'https://avatars3.githubusercontent.com/u/4914611?v=3&s=88',
             repo:'https://github.com/brgarciarivas/react-chrome-redux-boilerplate',
             color: '#91b5ac',
