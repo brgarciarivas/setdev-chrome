@@ -5,14 +5,10 @@ import { Link } from 'react-router/lib';
 import Base from './Base';
 
 class Splash extends Base {
+
     constructor(props) {
         super(props);
         
-    }
-	componentDidMount() {
-        setTimeout(() => {
-            this.props.history.push('/ContractList');
-        }, 2000);
     }
 	render() {
         console.log(this.props)        

@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Webcam from 'react-webcam';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import Base from './Base';
+
 
 export default class App extends Base {
     constructor(props) {
@@ -15,7 +17,7 @@ export default class App extends Base {
 
         return (
             <div className='App'>
-                
+                    <Webcam ref="webcam"/>
                     <ReactCSSTransitionGroup  
                         transitionName='AppContainer'
                         transitionEnterTimeout={700}
@@ -26,7 +28,7 @@ export default class App extends Base {
                                 key: this.props.location.pathname
                         })}
                     </ReactCSSTransitionGroup>
-                
+                                  
            </div>
         );
     }

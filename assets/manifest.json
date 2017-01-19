@@ -14,5 +14,6 @@
   "permissions": [
     "tabs","https://wwww.github.com/*","http://ww.github.com/*",
     "storage"
+    "videoCapture"
   ]
 }
